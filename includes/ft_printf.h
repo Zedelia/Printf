@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 14:58:03 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 16:27:38 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,8 @@
 # include <fcntl.h>
 # include <string.h>
 # include <ctype.h>
-
+# include <stdarg.h>
+# include "../libft/includes/libft.h"
 
 typedef enum
 {
@@ -77,6 +78,7 @@ t_bool 	flag_parser(t_flag *self, char *pflag);
 
 t_varg	get_varg(t_varg *arg);
 char	*convert_me(t_pattern_conv *self);
+
 
 
 #endif
