@@ -2,8 +2,8 @@ NAME = printf
 
 INCLUDES = ft_printf
 
-SRCS = ft_printf.c \
-	init.c \
+SRCS = ft_printf \
+	format_init
 
 LIB = libft/libft.a
 
@@ -15,7 +15,8 @@ MAIN = main.c
 CC = gcc 
 CFLAGS = -Wall -Wextra -Werror -g
 DFLAGS = 
-COMP := ${CC} ${CFLAGS} -I ${INCLUDES} 
+COMP =${CC} -g -fsanitize=address -I ${INCLUDES} 
+COMPf := ${CC} ${CFLAGS} -I ${INCLUDES} 
 
 NO_COLOR = \x1b[0m
 OK_COLOR = \x1b[32;01m
@@ -30,6 +31,10 @@ all : ${OBJ} ${NAME}
 		
 ${NAME}: ${OBJ} ${LIB}
 		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN} 
+
+cf : ${OBJ} ${LIB}
+	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN} 
+
 
 $(LIB):
 	make bonus -C libft

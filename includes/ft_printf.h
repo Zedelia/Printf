@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 15:32:42 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 16:26:34 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,11 +66,11 @@ struct      s_flag
 
 
 // ca je sais pas ou le mettre
-int ft_printf(char *s, ...) __attribute__((format(printf, 1, 2)));
+int ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 t_bool	format_parser(char *format, va_list params);
 t_bool 	apply_pattern_conv(char *format, t_pattern_conv *conv);
 
-t_bool	init_format(t_format **self, char *format, va_list params);
+t_bool	init_format(t_format **self, const char *format, va_list params);
 t_bool	init_pattern_conv(t_pattern_conv **self, char *format, va_list params);
 t_bool	init_flag(t_flag **self, char *format, va_list params);
 

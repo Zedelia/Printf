@@ -34,10 +34,10 @@ int test_char(int n, ...)
 
 
 
-int main(int argc, char** argv)
+int main(void)
 {
-	test_char(argc - 1, argv[1], argv[2], argv[3], argv[4]);
-	printf("> %d", ft_atoi("12"));
+
+	ft_printf("coucou");
 
 	return (0);
 }
