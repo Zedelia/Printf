@@ -1,7 +1,7 @@
 #include "includes/ft_printf.h"
 
 
-
+// ------------------ tests va_arg --------------------------
 int test_int(int n, ...)
 {
 	int i = 0;
@@ -30,6 +30,9 @@ int test_char(int n, ...)
 	}
 	return (0);
 }
+
+
+
 
 int main(int argc, char** argv)
 {

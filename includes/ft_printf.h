@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 16:27:38 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 15:32:42 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +29,13 @@ typedef enum
 	True = 1,
 }		t_bool;
 
+/*
+** Strut declarations
+** -----> s_format 		 : use to save and modify the entire printf first param
+** -----> s_pattern_conv : use to identify and apply pattern like '%...s'
+** -----> s_flag		 : use to identify and apply flags
+*/
+
 typedef struct s_pattern_conv t_pattern_conv;
 typedef struct s_format t_format;
 typedef struct s_flag t_flag;
@@ -41,6 +48,7 @@ struct      s_format
 
 struct      s_pattern_conv
 {
+	char 			*pattern;
 	char            indicateur;
 	t_flag          *l_flag;
 	int				len;
@@ -57,26 +65,18 @@ struct      s_flag
 };
 
 
-typedef struct s_varg t_varg;
-
-struct		s_varg
-{
-	void	*arg;
-	t_varg	*next;
-};
-
-int ft_printf(char *, ...);
-t_bool	format_parser(char *format, t_varg **arg);
+// ca je sais pas ou le mettre
+int ft_printf(char *s, ...) __attribute__((format(printf, 1, 2)));
+t_bool	format_parser(char *format, va_list params);
 t_bool 	apply_pattern_conv(char *format, t_pattern_conv *conv);
 
-t_bool	init_pattern_conv(t_pattern_conv **self, char *format, t_varg *arg);
-t_bool	init_format(t_format **self, char *format, t_varg *arg);
-t_bool	init_flag(t_flag **self, char *format, t_varg *arg);
+t_bool	init_format(t_format **self, char *format, va_list params);
+t_bool	init_pattern_conv(t_pattern_conv **self, char *format, va_list params);
+t_bool	init_flag(t_flag **self, char *format, va_list params);
 
-t_bool 	pattern_conv_parser(char *format, t_varg **arg);
+t_bool 	pattern_conv_parser(char *format, va_list params);
 t_bool 	flag_parser(t_flag *self, char *pflag);
 
-t_varg	get_varg(t_varg *arg);
 char	*convert_me(t_pattern_conv *self);
 
 

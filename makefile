@@ -2,7 +2,8 @@ NAME = printf
 
 INCLUDES = ft_printf
 
-SRCS = 
+SRCS = ft_printf.c \
+	init.c \
 
 LIB = libft/libft.a
 
