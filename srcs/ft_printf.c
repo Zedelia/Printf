@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
+/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 12:54:20 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 16:30:49 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/21 17:01:08 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/21 17:01:29 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,8 @@ int		ft_printf(const char *s, ...)
 	va_list		params;
 
 	va_start(params, s);
-	init_format(&format, s, params);
+	format_init(&format, s, params);
 	write(1, format->format, ft_strlen(format->format));
+	format_free(&format);
 	return (0);
 }

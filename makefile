@@ -3,7 +3,8 @@ NAME = printf
 INCLUDES = ft_printf
 
 SRCS = ft_printf \
-	format_init
+	format_init \
+	format_free
 
 LIB = libft/libft.a
 
@@ -12,11 +13,11 @@ SRCS := $(patsubst %,srcs/%.c,${SRCS})
 
 MAIN = main.c
 
-CC = gcc 
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
-DFLAGS = 
-COMP =${CC} -g -fsanitize=address -I ${INCLUDES} 
-COMPf := ${CC} ${CFLAGS} -I ${INCLUDES} 
+DFLAGS =
+COMP =${CC} -g -fsanitize=address -I ${INCLUDES}
+COMPf := ${CC} ${CFLAGS} -I ${INCLUDES}
 
 NO_COLOR = \x1b[0m
 OK_COLOR = \x1b[32;01m
@@ -26,14 +27,15 @@ _PURPLE = \x1b[35m
 
 OBJ := ${SRCS:.c=.o}
 
-all : ${OBJ} ${NAME} 
-		@echo "$(OK_COLOR)\n>> Congrats. Your program $(NAME) has been created successfully.\n $(NO_COLOR)" 
-		
-${NAME}: ${OBJ} ${LIB}
-		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN} 
+all : ${OBJ} ${NAME}
+		@echo "$(OK_COLOR)\n>> Congrats. Your program $(NAME) has been\
+ created successfully.\n $(NO_COLOR)"
 
-cf : ${OBJ} ${LIB}
-	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN} 
+${NAME}: ${OBJ} ${MAIN} ${LIB}
+		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
+
+cf : ${OBJ} ${MAIN} ${LIB}
+	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
 
 $(LIB):
@@ -49,7 +51,7 @@ run: ./${NAME}
 fclean: clean
 	make fclean -C libft
 	rm -f ${NAME} gnl.a Icon srcs/Icon srcs/get_next_line.h.gch
-	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)" 
+	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)"
 
 
 norm:

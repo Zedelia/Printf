@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.h                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
+/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 16:26:34 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/21 18:02:53 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,29 +32,29 @@ typedef enum
 /*
 ** Strut declarations
 ** -----> s_format 		 : use to save and modify the entire printf first param
-** -----> s_pattern_conv : use to identify and apply pattern like '%...s'
+** -----> s_pattern : use to identify and apply pattern like '%...s'
 ** -----> s_flag		 : use to identify and apply flags
 */
 
-typedef struct s_pattern_conv t_pattern_conv;
+typedef struct s_pattern t_pattern;
 typedef struct s_format t_format;
 typedef struct s_flag t_flag;
 
 struct      s_format
 {
-	char*             format;
-	t_pattern_conv*     l_pattern_conv;
+	char*				format;
+	t_pattern*		l_pattern;
 };
 
-struct      s_pattern_conv
+struct      s_pattern
 {
-	char 			*pattern;
-	char            indicateur;
-	t_flag          *l_flag;
-	int				len;
+	char			*pattern;
 	char			*result;
 	void			*varg;
-	t_pattern_conv    *next;
+	char			indicateur;
+	int				len;
+	t_flag			*l_flag;
+	t_pattern		*next;
 };
 
 struct      s_flag
@@ -66,19 +66,31 @@ struct      s_flag
 
 
 // ca je sais pas ou le mettre
-int ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
-t_bool	format_parser(char *format, va_list params);
-t_bool 	apply_pattern_conv(char *format, t_pattern_conv *conv);
+int 	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 
-t_bool	init_format(t_format **self, const char *format, va_list params);
-t_bool	init_pattern_conv(t_pattern_conv **self, char *format, va_list params);
 t_bool	init_flag(t_flag **self, char *format, va_list params);
-
-t_bool 	pattern_conv_parser(char *format, va_list params);
 t_bool 	flag_parser(t_flag *self, char *pflag);
 
-char	*convert_me(t_pattern_conv *self);
+char	*convert_me(t_pattern *self);
 
+/*
+** Format functions
+** init, free, use and modify t_format
+*/
 
+t_bool	format_init(t_format **self, const char *format, va_list params);
+void 	format_free(t_format **self);
+t_bool	format_parser(char *format, va_list params);
+
+/*
+** Pattern functions
+** init, free, use and modify t_format
+*/
+
+t_bool	pattern_init(t_pattern **self, char *format, va_list params);
+void 	pattern_free(t_pattern **self);
+void 	pattern_free_one(t_pattern **self)
+t_bool 	pattern_apply(char *format, t_pattern *conv);
+t_bool 	pattern_parser(char *format, va_list params);
 
 #endif
