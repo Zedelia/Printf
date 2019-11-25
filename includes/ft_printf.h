@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 17:06:42 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 18:35:23 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,22 +59,16 @@ struct      s_pattern
 
 struct      s_flag
 {
-	char   			flags_type;
+	char   			flag_type;
+	init			precision;
 	t_flag 			*next;
 };
-
 
 
 // ca je sais pas ou le mettre
 int 	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 int		ft_is_flags(char c);
 int		ft_is_indicateur(char c);
-
-t_bool	init_flag(t_flag **self, char *format, va_list params);
-t_bool 	flag_parser(t_flag *self, char *pflag);
-
-
-
 /*
 ** Format functions
 ** init, free, use and modify t_format
@@ -83,17 +77,22 @@ t_bool 	flag_parser(t_flag *self, char *pflag);
 t_bool	format_init(t_format **s_format, const char *format, va_list params);
 void 	format_free(t_format **s_format);
 t_bool	format_parser(t_format *s_format, char *format, va_list params);
-
 /*
 ** Pattern functions
 ** init, free, use and modify t_format
 */
-
 t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params);
 void 	pattern_free(t_pattern **l_pattern);
 void 	pattern_free_one(t_pattern **l_pattern);
 t_bool 	pattern_apply(char *format, t_pattern *conv);
 t_bool 	pattern_parser(char *format, va_list params);
 char	*convert_me(t_pattern *l_pattern);
+/*
+** Flags functions
+** init, free, use and modify t_flags
+*/
+t_bool	flags_init(t_flag **l_flag, char *format, va_list params);
+t_bool 	flag_parser(t_flag *l_flag, char *pflag);
+
 
 #endif
