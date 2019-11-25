@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 18:35:23 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 19:23:36 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,7 +60,8 @@ struct      s_pattern
 struct      s_flag
 {
 	char   			flag_type;
-	init			precision;
+	int				precision;
+	int				width;
 	t_flag 			*next;
 };
 
@@ -77,6 +78,7 @@ int		ft_is_indicateur(char c);
 t_bool	format_init(t_format **s_format, const char *format, va_list params);
 void 	format_free(t_format **s_format);
 t_bool	format_parser(t_format *s_format, char *format, va_list params);
+void format_add_pattern(t_format *s_format, t_pattern *l_pattern);
 /*
 ** Pattern functions
 ** init, free, use and modify t_format
