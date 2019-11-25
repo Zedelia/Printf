@@ -37,7 +37,7 @@ int test_char(int n, ...)
 int main(void)
 {
 
-	ft_printf("coucou\n");
+	ft_printf("coucou %d \n", 12);
 
 	return (0);
 }

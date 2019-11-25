@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 18:02:53 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 17:06:42 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,7 @@ struct      s_pattern
 {
 	char			*pattern;
 	char			*result;
-	void			*varg;
+	int				varg;
 	char			indicateur;
 	int				len;
 	t_flag			*l_flag;
@@ -59,38 +59,41 @@ struct      s_pattern
 
 struct      s_flag
 {
-	char   			type;
-	int     		precision;
+	char   			flags_type;
 	t_flag 			*next;
 };
 
 
+
 // ca je sais pas ou le mettre
 int 	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
+int		ft_is_flags(char c);
+int		ft_is_indicateur(char c);
 
 t_bool	init_flag(t_flag **self, char *format, va_list params);
 t_bool 	flag_parser(t_flag *self, char *pflag);
 
-char	*convert_me(t_pattern *self);
+
 
 /*
 ** Format functions
 ** init, free, use and modify t_format
 */
 
-t_bool	format_init(t_format **self, const char *format, va_list params);
-void 	format_free(t_format **self);
-t_bool	format_parser(char *format, va_list params);
+t_bool	format_init(t_format **s_format, const char *format, va_list params);
+void 	format_free(t_format **s_format);
+t_bool	format_parser(t_format *s_format, char *format, va_list params);
 
 /*
 ** Pattern functions
 ** init, free, use and modify t_format
 */
 
-t_bool	pattern_init(t_pattern **self, char *format, va_list params);
-void 	pattern_free(t_pattern **self);
-void 	pattern_free_one(t_pattern **self)
+t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params);
+void 	pattern_free(t_pattern **l_pattern);
+void 	pattern_free_one(t_pattern **l_pattern);
 t_bool 	pattern_apply(char *format, t_pattern *conv);
 t_bool 	pattern_parser(char *format, va_list params);
+char	*convert_me(t_pattern *l_pattern);
 
 #endif

@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   format_free.c                                    .::    .:/ .      .::   */
+/*   utils.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/21 17:00:58 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 17:05:57 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/25 11:40:50 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/25 12:33:27 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void format_free(t_format **s_format)
+int		ft_is_indicateur(char c)
 {
-	ft_memdel((void **)&(*s_format)->format);
-	(*s_format)->format = NULL;
-	pattern_free(&((*s_format)->l_pattern));
-	ft_memdel((void**) s_format);
-	s_format = NULL;
+	char const *indicateurs;
+
+	indicateurs = "%cspdiuxX";
+	while (*indicateurs)
+		if (c == *indicateurs++)
+			return (True);
+	return (False);
+}
+
+int		ft_is_flags(char c)
+{
+	char const *flags;
+
+	flags = "-0.*";
+	while (*flags)
+		if (c == *flags++)
+			return (True);
+	return (False);
 }

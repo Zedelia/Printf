@@ -6,46 +6,35 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:03 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 17:26:16 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 17:07:33 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void 	pattern_free_one(t_pattern **self)
+void 	pattern_free_one(t_pattern **l_pattern)
 {
-	if (!self)
+	if (!l_pattern)
 		return ;
-	ft_memdel((void **)&(*self)->pattern);
-	(*self)->pattern = NULL;
-	ft_memdel((void **)&(*self)->result);
-	(*self)->result = NULL;
-	ft_memdel(self->varg);
-	(*self)->varg = NULL;
-	flag_free(&(*self)->l_flags);
-	ft_memdel((void**) self);
-	self = NULL;
+	(*l_pattern)->pattern = NULL;
+	ft_memdel((void **)&((*l_pattern)->result));
+	(*l_pattern)->result = NULL;
+	// flag_free(&(*self)->t_flags);
+	ft_memdel((void**) l_pattern);
+	l_pattern = NULL;
 }
 
 
-void 	pattern_free(t_pattern **self)
+void 	pattern_free(t_pattern **l_pattern)
 {
 	t_pattern *temp;
 
-	if (!self)
-		return ;
-	while (*self)
+	while (*l_pattern)
 	{
-		temp = (*self)->next;
-		ft_memdel((void **)&(*self)->pattern);
-		(*self)->pattern = NULL;
-		ft_memdel((void **)&(*self)->result);
-		(*self)->result = NULL;
-		ft_memdel(self->varg);
-		(*self)->varg = NULL;
-		flag_free(&(*self)->l_flags);
-		ft_memdel((void**) self);
-		self = temp;
+		temp = (*l_pattern)->next;
+		pattern_free_one(l_pattern);
+		*l_pattern = temp;
 	}
+	l_pattern = NULL;
 }

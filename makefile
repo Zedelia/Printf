@@ -4,7 +4,11 @@ INCLUDES = ft_printf
 
 SRCS = ft_printf \
 	format_init \
-	format_free
+	format_free \
+	format_parser \
+	pattern_init \
+	pattern_free \
+	utils
 
 LIB = libft/libft.a
 
