@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:08 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 19:50:36 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 14:02:12 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,12 +17,14 @@
 
 int		ft_printf(const char *s, ...)
 {
-	t_format	*format;
+	t_format	*s_format;
 	va_list		params;
 
 	va_start(params, s);
-	format_init(&format, s, params);
-	write(1, format->format, ft_strlen(format->format));
-	format_free(&format);
+	format_init(&s_format, s, params);
+	write(1, s_format->format, ft_strlen(s_format->format));
+	format_free(&s_format);
+// a supprimer
+	show_format(s_format);
 	return (0);
 }

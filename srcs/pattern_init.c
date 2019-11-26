@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:34:03 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 19:41:56 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 13:46:02 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,12 +22,11 @@ t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params)
 	(*l_pattern)->next = NULL;
 	(*l_pattern)->result = NULL;
 	(*l_pattern)->pattern = format;
-
-
 	if (ft_is_indicateur(format[1]) == True)
 	{
 		(*l_pattern)->indicateur = format[1];
 		(*l_pattern)->l_flag = NULL;
+	// a supprimer cette ligne, on garde pour tests
 		(*l_pattern)->varg = (int)va_arg(params, int);
 		(*l_pattern)->len = 2;
 	}

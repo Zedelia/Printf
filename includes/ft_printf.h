@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 19:32:21 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 13:38:53 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,8 @@ struct      s_pattern
 {
 	char			*pattern;
 	char			*result;
-	int				varg;
+// repasser en void*
+	int			varg;
 	char			indicateur;
 	int				len;
 	t_flag			*l_flag;
@@ -95,7 +96,11 @@ char	*convert_me(t_pattern *l_pattern);
 */
 t_bool	flags_init(t_flag **l_flag, char *format, va_list params);
 t_bool 	flag_parser(t_flag *l_flag, char *pflag);
-
-
+/*
+** Tests functions
+**
+*/
+void 	show_format(t_format *s_format);
+void 	show_pattern(t_pattern *l_pattern);
 
 #endif

@@ -8,7 +8,8 @@ SRCS = ft_printf \
 	format_parser \
 	pattern_init \
 	pattern_free \
-	utils
+	utils \
+	struct_tests \
 
 LIB = libft/libft.a
 
