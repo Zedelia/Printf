@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 13:38:53 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/27 18:17:33 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,7 +51,7 @@ struct      s_pattern
 	char			*pattern;
 	char			*result;
 // repasser en void*
-	int			varg;
+	void		 	*varg;
 	char			indicateur;
 	int				len;
 	t_flag			*l_flag;
@@ -71,6 +71,8 @@ struct      s_flag
 int 	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 int		ft_is_flags(char c);
 int		ft_is_indicateur(char c);
+size_t	ft_index(char c, const char *charset);
+
 /*
 ** Format functions
 ** init, free, use and modify t_format
@@ -79,7 +81,7 @@ int		ft_is_indicateur(char c);
 t_bool	format_init(t_format **s_format, const char *format, va_list params);
 void 	format_free(t_format **s_format);
 t_bool	format_parser(t_format *s_format, char *format, va_list params);
-void format_add_pattern(t_format *s_format, t_pattern *l_pattern);
+void 	format_add_pattern(t_format *s_format, t_pattern *l_pattern);
 /*
 ** Pattern functions
 ** init, free, use and modify t_format
@@ -88,7 +90,7 @@ t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params);
 void 	pattern_free(t_pattern **l_pattern);
 void 	pattern_free_one(t_pattern **l_pattern);
 t_bool 	pattern_apply(char *format, t_pattern *conv);
-t_bool 	pattern_parser(char *format, va_list params);
+t_bool 	pattern_parser(t_pattern *l_pattern, va_list params);
 char	*convert_me(t_pattern *l_pattern);
 /*
 ** Flags functions
@@ -102,5 +104,37 @@ t_bool 	flag_parser(t_flag *l_flag, char *pflag);
 */
 void 	show_format(t_format *s_format);
 void 	show_pattern(t_pattern *l_pattern);
+/*
+** Get_arg functions
+** cspdiuxX%
+*/
+#define INDICATORS "cspdiuxX\%"
 
+typedef enum
+{
+	_c = 0,
+	_s,
+	_p,
+	_d,
+	_i,
+	_u,
+	_x,
+	_big_x,
+	_percent,
+	size
+} t_type_indicateur;
+
+typedef void		*(t_get_fct)(va_list);
+t_get_fct			*g_get_fct[size];
+// Enzo pense qu'il y a un soucis ici et comme c'est lui qui a fait c'est lui qui va resoudre !!
+void		get_arg(t_pattern *l_pattern, va_list params);
+void		*get_c(va_list params);
+void 		*get_s(va_list params);
+void	 	*get_p(va_list params);
+void 		*get_di(va_list params);
+void 		*get_u(va_list parans);
+void 		*get_x(va_list params);
+void 		*get_percent(va_list params);
+
+// extern t_get_fct	g_get_fct;
 #endif

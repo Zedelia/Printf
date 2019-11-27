@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 11:40:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 12:33:27 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/27 18:17:01 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,4 +33,14 @@ int		ft_is_flags(char c)
 		if (c == *flags++)
 			return (True);
 	return (False);
+}
+
+size_t	ft_index(char c, const char *charset)
+{
+	size_t	i;
+
+	i = 0;
+	while (c != charset[i])
+		i++;
+	return (i);
 }

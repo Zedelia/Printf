@@ -8,6 +8,7 @@ SRCS = ft_printf \
 	format_parser \
 	pattern_init \
 	pattern_free \
+	pattern_parser \
 	utils \
 	struct_tests \
 

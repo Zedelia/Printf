@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_init.c                                   .::    .:/ .      .::   */
+/*   get_arg.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/21 17:34:03 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 11:39:31 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/27 12:13:52 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/27 18:06:10 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params)
+void 	*get_di(va_list params)
+{
+    int		*p_int;
+	int 	var;
+
+	var = va_arg(params, int);
+    if (!(p_int = malloc(sizeof(int))))
+		return (False);
+    *p_int = var;
+	return ((void *)p_int);
+}
+
+
+
+t_bool 	get_arg(t_pattern *l_pattern, va_list params)
 {
 
-	if (!(*l_pattern = malloc(sizeof(t_pattern))))
-		return (False);
-	(*l_pattern)->next = NULL;
-	(*l_pattern)->result = NULL;
-	(*l_pattern)->pattern = format;
-	pattern_parser(*l_pattern, params);
-	
+	t_get_fct fonc;
+	size_t 	index;
 
-	// (*l_pattern)->result = convert_me(*l_pattern);
+	index = ft_index(l_pattern->indicateur, INDICATORS);
+	fonc = g_get_fct[index];
+	l_pattern->varg = fonc(params);
+	if (!(l_pattern->varg))
+		return (False);
 	return (True);
 }

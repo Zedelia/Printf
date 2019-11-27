@@ -36,8 +36,11 @@ int test_char(int n, ...)
 
 int main(void)
 {
-
-	ft_printf("coucou %d %s \n", 12, "lol");
+	// char *str = ft_strdup("hello c'est moi")
+	//
+	// ft_strmove(str, str + 3);
+	// // printf("%s\n", str);
+	ft_printf("%d coucou %d %s \n", 12, 3, "lol");
 
 	return (0);
 }
