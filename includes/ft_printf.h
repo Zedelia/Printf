@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 12:09:18 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 14:50:26 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -100,12 +100,6 @@ char	*convert_me(t_pattern *l_pattern);
 t_bool	flags_init(t_flag **l_flag, char *format, va_list params);
 t_bool 	flag_parser(t_flag *l_flag, char *pflag);
 /*
-** Tests functions
-**
-*/
-void 	show_format(t_format *s_format);
-void 	show_pattern(t_pattern *l_pattern);
-/*
 ** Get_arg functions
 ** cspdiuxX%
 */
@@ -129,7 +123,7 @@ typedef enum
 
 typedef void		*(t_get_fct)(va_list);
 t_get_fct			*g_get_fct[size];
-// Enzo pense qu'il y a un soucis ici et comme c'est lui qui a fait c'est lui qui va resoudre !!
+
 t_bool		get_arg(t_pattern *l_pattern, va_list params);
 void		*get_c(va_list params);
 void 		*get_s(va_list params);
@@ -139,5 +133,24 @@ void 		*get_u(va_list parans);
 void 		*get_x(va_list params);
 void 		*get_percent(va_list params);
 
-// extern t_get_fct	g_get_fct;
+/*
+** Tests functions
+**
+*/
+void 	show_format(t_format *s_format);
+void 	show_one_pattern(t_pattern *l_pattern);
+void 	show_pattern(t_pattern *l_pattern);
+
+typedef void		*(t_show_varg)(char);
+t_show_varg			*g_show_varg[size];
+
+void		show_varg(char);
+void		*show_c(va_list params);
+void 		*show_s(va_list params);
+void	 	*show_p(va_list params);
+void 		*show_di(va_list params);
+void 		*show_u(va_list parans);
+void 		*show_x(va_list params);
+void 		*show_percent(va_list params);
+
 #endif
