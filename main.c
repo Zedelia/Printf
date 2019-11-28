@@ -39,15 +39,8 @@ int main(void)
 	char a = 'd';
 	char a1 = 'e';
 	char a2 = 's';
-	// char a3 = 'a';
-	// char a4 = 'a';
-	// test_char(4, a1, a2, a3, a4);
-	//
-	// // char *str = ft_strdup("hello c'est moi")
-	// //
-	// // ft_strmove(str, str + 3);
-	// // // printf("%s\n", str);
-	ft_printf("%c coucou %c %c \n", a, a1, a2);
+
+	ft_printf("%c coucou %c %-c \n", a, a1, a2);
 
 	return (0);
 }
