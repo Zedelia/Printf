@@ -14,6 +14,9 @@ SRCS = ft_printf \
 	convert_bases \
 	tests_struct \
 	tests_show_vargs \
+	flag_free \
+	flag_init \
+	get_indicator
 
 LIB = libft/libft.a
 
