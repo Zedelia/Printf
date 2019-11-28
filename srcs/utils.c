@@ -6,14 +6,14 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 11:40:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 11:13:02 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 14:40:31 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void init_get_fct_tab(void)
+void 	init_get_fct_tab(void)
 {
 	g_get_fct[_c] = get_c;
 	g_get_fct[_s] = get_s;
