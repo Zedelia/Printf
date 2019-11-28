@@ -36,9 +36,9 @@ int test_char(int n, ...)
 
 int main(void)
 {
-	// char a = a;
-	// char a1 = 'a';
-	// char a2 = 'a';
+	char a = 'd';
+	char a1 = 'e';
+	char a2 = 's';
 	// char a3 = 'a';
 	// char a4 = 'a';
 	// test_char(4, a1, a2, a3, a4);
@@ -47,7 +47,7 @@ int main(void)
 	// //
 	// // ft_strmove(str, str + 3);
 	// // // printf("%s\n", str);
-	ft_printf("%d coucou %d %d \n", 12, 3, 45);
+	ft_printf("%c coucou %c %c \n", a, a1, a2);
 
 	return (0);
 }

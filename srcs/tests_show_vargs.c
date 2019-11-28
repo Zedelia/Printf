@@ -6,14 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 14:59:48 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:43:15 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 16:15:10 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-void
 
 void 	init_show_varg(void)
 {
@@ -28,18 +26,42 @@ void 	init_show_varg(void)
 	g_show_varg[_percent] = show_percent;
 }
 
-void 	g_show_varg(char c)
+void 	show_c(t_pattern *l_pattern)
 {
-	printf("")
+	printf("%c\n", *((char *)l_pattern->varg));
+}
+void 	show_s(t_pattern *l_pattern)
+{
+	printf("%s\n", (char*)l_pattern->varg);
+}
+void 	show_p(t_pattern *l_pattern)
+{
+	printf("%p\n", l_pattern->varg);
+}
+void 	show_di(t_pattern *l_pattern)
+{
+	printf("%d\n", *((int *)l_pattern->varg));
+}
+void 	show_u(t_pattern *l_pattern)
+{
+	printf("%u\n", (unsigned int)l_pattern->varg);
+}
+void 	show_x(t_pattern *l_pattern)
+{
+	printf("%x\n", (unsigned int)l_pattern->varg);
+}
+void 	show_percent(t_pattern *l_pattern)
+{
+	printf("%c\n", (char)l_pattern->varg);
 }
 
 void 	show_varg(t_pattern *l_pattern)
 {
-	t_get_fct 	*fonc;
+	t_show_varg	*fonc;
 	size_t 		index;
 
 	init_show_varg();
 	index = ft_index(l_pattern->indicateur, INDICATORS);
 	fonc = g_show_varg[index];
-	l_pattern->varg = fonc(l_pattern->indicateur);
+	fonc(l_pattern);
 }

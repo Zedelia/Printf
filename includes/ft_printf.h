@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:33:02 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:56:40 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -140,17 +140,18 @@ void 		*get_percent(va_list params);
 void 	show_format(t_format *s_format);
 void 	show_one_pattern(t_pattern *l_pattern);
 void 	show_pattern(t_pattern *l_pattern);
+void 	init_show_varg(void);
 
-typedef void		*(t_show_varg)(char);
+typedef void		(t_show_varg)(t_pattern*);
 t_show_varg			*g_show_varg[size];
 
-void		show_varg(char);
-void		*show_c(va_list params);
-void 		*show_s(va_list params);
-void	 	*show_p(va_list params);
-void 		*show_di(va_list params);
-void 		*show_u(va_list parans);
-void 		*show_x(va_list params);
-void 		*show_percent(va_list params);
+void		show_varg(t_pattern *l_pattern);
+void		show_c(t_pattern *l_pattern);
+void 		show_s(t_pattern *l_pattern);
+void	 	show_p(t_pattern *l_pattern);
+void 		show_di(t_pattern *l_pattern);
+void 		show_u(t_pattern *l_pattern);
+void 		show_x(t_pattern *l_pattern);
+void 		show_percent(t_pattern *l_pattern);
 
 #endif
