@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 14:02:28 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 11:04:21 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,7 +47,7 @@ void 	show_pattern(t_pattern *l_pattern)
 		if (l_pattern->result)
 			printf("result : %s", l_pattern->result);
 		if (l_pattern->varg)
-			printf("varg : %d\n", l_pattern->varg);
+			printf("varg : %p\n", l_pattern->varg);
 		if (l_pattern->indicateur)
 			printf("indicateur : %c\n", l_pattern->indicateur);
 		if (l_pattern->l_flag)

@@ -11,6 +11,7 @@ SRCS = ft_printf \
 	pattern_parser \
 	utils \
 	struct_tests \
+	get_arg
 
 LIB = libft/libft.a
 

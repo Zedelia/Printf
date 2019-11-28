@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_printf.c                                      .::    .:/ .      .::   */
+/*   convert_bases.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/21 17:01:08 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 11:13:04 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/28 11:56:09 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/28 12:04:46 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_printf(const char *s, ...)
+char	*convert_base_int_to_hex(unsigned int var);
 {
-	t_format	*s_format;
-	va_list		params;
-
-	init_get_fct_tab();
-	va_start(params, s);
-	format_init(&s_format, s, params);
-	write(1, s_format->format, ft_strlen(s_format->format));
-	format_free(&s_format);
-// a supprimer
-	show_format(s_format);
-	return (0);
+	unsigned int		tmp;
+	char				*hex;
+	
+	hex = "0123456789ABCDEF";
+	if (test > 16)
+		convert_base_int_to_hex(test / 16);
+	tmp = test % 16;
+	return (hex);
 }

@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 18:17:33 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 12:09:18 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,6 +72,7 @@ int 	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 int		ft_is_flags(char c);
 int		ft_is_indicateur(char c);
 size_t	ft_index(char c, const char *charset);
+char	*convert_base_int_to_hex(unsigned int var);
 
 /*
 ** Format functions
@@ -110,6 +111,8 @@ void 	show_pattern(t_pattern *l_pattern);
 */
 #define INDICATORS "cspdiuxX\%"
 
+void init_get_fct_tab(void);
+
 typedef enum
 {
 	_c = 0,
@@ -127,7 +130,7 @@ typedef enum
 typedef void		*(t_get_fct)(va_list);
 t_get_fct			*g_get_fct[size];
 // Enzo pense qu'il y a un soucis ici et comme c'est lui qui a fait c'est lui qui va resoudre !!
-void		get_arg(t_pattern *l_pattern, va_list params);
+t_bool		get_arg(t_pattern *l_pattern, va_list params);
 void		*get_c(va_list params);
 void 		*get_s(va_list params);
 void	 	*get_p(va_list params);
