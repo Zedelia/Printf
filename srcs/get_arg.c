@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 12:13:52 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 12:11:20 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 14:48:10 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,7 @@ void 	*get_c(va_list params)
 	char		*p_c;
 	char 		var;
 
-	var = va_arg(params, char);
+	var = va_arg(params, int);
 	if (!(p_c = malloc(sizeof(char))))
 		return (NULL);
 	*p_c = var;
@@ -59,13 +59,37 @@ void 	*get_x(va_list params)
 	return ((void *)p_x);
 }
 
+void 	*get_percent(va_list params)
+{
+	char		*p_percent;
+	(void)params;
 
+	if (!(p_percent = malloc(sizeof(char))))
+		return (NULL);
+	*p_percent = '%';
+	return ((void *)p_percent);
+}
+//-------------------------------------------------- A FAIRE
+void 	*get_p(va_list params)
+{
+	char		*p_p = NULL;
+	(void)params;
+
+	return ((void *)p_p);
+}
+void 	*get_u(va_list params)
+{
+	char		*p_p = NULL;
+	(void)params;
+
+	return ((void *)p_p);
+}
+//-------------------------------------------------- 
 
 t_bool 	get_arg(t_pattern *l_pattern, va_list params)
 {
-
-	t_get_fct fonc;
-	size_t 	index;
+	t_get_fct 	*fonc;
+	size_t 		index;
 
 	index = ft_index(l_pattern->indicateur, INDICATORS);
 	fonc = g_get_fct[index];

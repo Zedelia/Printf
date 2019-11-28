@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 10:05:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 18:16:47 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 12:50:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,7 +23,6 @@ t_bool 	pattern_parser(t_pattern *l_pattern, va_list params)
 		l_pattern->l_flag = NULL;
 // a supprimer cette ligne, on garde pour tests
 		get_arg(l_pattern, params);
-		// l_pattern->varg = (int)va_arg(params, int);
 		l_pattern->len = 2;
 		return (True);
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   struct_tests.c                                   .::    .:/ .      .::   */
+/*   tests_struct.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 11:04:21 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:00:17 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,39 +29,46 @@ void 	show_format(t_format *s_format)
 		else if (!s_format->l_pattern)
 			printf("format->pattern : (null)\n-------------------\n");
 	}
-
 }
 
-void 	show_pattern(t_pattern *l_pattern)
+void 	show_one_pattern(t_pattern *l_pattern)
 {
-	t_pattern	 *temp;
-	static int i = 1;
-
-	temp = l_pattern->next;
 	if (!l_pattern)
 		printf("Pattern : (null)\n");
 	else if (l_pattern)
 	{
 		if (l_pattern->pattern)
-			printf(">>   [Pattern %d] : %s\n", i, l_pattern->pattern);
+			printf(">>   [Pattern] : %s\n", l_pattern->pattern);
 		if (l_pattern->result)
 			printf("result : %s", l_pattern->result);
 		if (l_pattern->varg)
-			printf("varg : %p\n", l_pattern->varg);
+			show_varg(l_pattern);
 		if (l_pattern->indicateur)
 			printf("indicateur : %c\n", l_pattern->indicateur);
 		if (l_pattern->l_flag)
 			printf("l_flag : %p\n", l_pattern->l_flag);
 		else if (!l_pattern->l_flag)
 			printf("No flag\n");
-		while (temp)
-		{
-			i++;
-			printf("Next : %p\n-------------------\n", l_pattern->next);
-			show_pattern(temp);
-			temp = temp->next;
-		}
 		if (!l_pattern->next)
-			printf("Next (null)\n-------------------\n");
+			printf("Next (null)\n\n---------end----------\n\n");
+		else if (l_pattern->next)
+			printf("Next %p\n", l_pattern->next);
+	}
+}
+
+void 	show_pattern(t_pattern *l_pattern)
+{
+	t_pattern	 *temp;
+	static int i = 0;
+
+	temp = l_pattern;
+	if (!l_pattern)
+		printf("Pattern : (null)\n");
+	while (temp)
+	{
+		i++;
+		printf("\n-------------------\n\n Pattern %d\n", i);
+		show_one_pattern(temp);
+		temp = temp->next;
 	}
 }

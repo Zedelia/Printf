@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 14:50:26 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:33:02 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -122,7 +122,7 @@ typedef enum
 } t_type_indicateur;
 
 typedef void		*(t_get_fct)(va_list);
-t_get_fct			*g_get_fct[size];
+extern t_get_fct			*g_get_fct[size];
 
 t_bool		get_arg(t_pattern *l_pattern, va_list params);
 void		*get_c(va_list params);
