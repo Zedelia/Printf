@@ -36,11 +36,11 @@ int test_char(int n, ...)
 
 int main(void)
 {
-	char a = 'd';
-	char a1 = 'e';
-	char a2 = 's';
+	// char a = 'd';
+	// char a1 = 'e';
+	// char a2 = 's';
 
-	ft_printf("%c coucou %c %15c \n", a, a1, a2);
+	ft_printf("hello %0d hey %-d %d \n", 2, 4, 6);
 
 	return (0);
 }

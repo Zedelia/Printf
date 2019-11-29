@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 12:07:51 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:07:02 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -107,7 +107,7 @@ void 	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag);
 ** init, free, use and modify t_flags
 */
 t_bool	flag_init(t_flag **l_flag, char *flag, va_list params);
-t_bool 	flag_parser(t_flag *l_flag, va_list params);
+t_bool 	flag_parser(t_flag *l_flag, char *flags, va_list params);
 void 	flag_free(t_flag **l_flag);
 void 	flag_free_one(t_flag **l_flag);
 /*
