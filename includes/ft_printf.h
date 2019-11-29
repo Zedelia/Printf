@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:22:15 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:36:38 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,6 +30,9 @@
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
+
+#define INDICATORS "cspdiuxX\%"
+#define FLAGS "-0.*"
 
 typedef enum
 {
@@ -118,7 +121,6 @@ t_bool	flag_check(char *flags);
 ** Get_functions
 ** cspdiuxX%
 */
-#define INDICATORS "cspdiuxX\%"
 
 char 	get_indicator(char *pattern);
 void 	init_get_fct_tab(void);

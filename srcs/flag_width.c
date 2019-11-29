@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 18:21:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:21:10 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:35:57 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ t_bool		flag_width(t_flag **l_flag, char *flags, va_list params)
 			return (False);
 		return (True);
 	}
-	while (ft_isalnum(flags[i + 1]) == True)
+	while (ft_isdigit(flags[i]) == True)
 		i++;
 	if (i == 0 && flags[0] != '*')
 		return (False);
