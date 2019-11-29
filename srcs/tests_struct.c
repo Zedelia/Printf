@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 18:17:32 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 11:45:41 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,29 +16,29 @@
 void 	show_format(t_format *s_format)
 {
 	if (!s_format)
-		printf("Format : (null)");
+		printf(CYAN "Format : (null)" RESET);
 	else if (s_format)
 	{
-	 	printf("Format adress: %p\n", s_format);
+	 	printf(CYAN "   Format\nFormat adress: %p\n", s_format);
 		if (s_format->format)
-			printf("format content : %s\n",s_format->format);
+			printf("format content : %s" ,s_format->format);
 		else if (!s_format->format)
-			printf("Format : empty\n");
+			printf("Format : empty" );
 		if (s_format->l_pattern)
-			printf("Format pattern list : %p\n-------------------\n", s_format->l_pattern);
+			show_pattern(s_format->l_pattern);
 		else if (!s_format->l_pattern)
-			printf("format->pattern : (null)\n-------------------\n");
+			printf("format->pattern : (null)\n-------------------\n" RESET);
 	}
 }
 
 void 	show_one_pattern(t_pattern *l_pattern)
 {
 	if (!l_pattern)
-		printf("Pattern : (null)\n");
+		printf(YELLOW"Pattern : (null)\n"RESET);
 	else if (l_pattern)
 	{
 		if (l_pattern->pattern)
-			printf(">>   [Pattern] : %s\n", l_pattern->pattern);
+			printf(YELLOW ">>   [Pattern] : %s\n", l_pattern->pattern);
 		if (l_pattern->result)
 			printf("result : %s", l_pattern->result);
 		if (l_pattern->varg)
@@ -51,9 +51,9 @@ void 	show_one_pattern(t_pattern *l_pattern)
 			printf("No flag\n");
 		show_flag(l_pattern->l_flag);
 		if (!l_pattern->next)
-			printf("Next (null)\n\n---------end----------\n\n");
+			printf(YELLOW"Next (null)\n\n---------end----------"RESET"\n\n" RESET);
 		else if (l_pattern->next)
-			printf("Next %p\n", l_pattern->next);
+			printf(YELLOW"Next %p\n" RESET, l_pattern->next);
 	}
 }
 
@@ -64,11 +64,11 @@ void 	show_pattern(t_pattern *l_pattern)
 
 	temp = l_pattern;
 	if (!l_pattern)
-		printf("Pattern : (null)\n");
+		printf(YELLOW "Pattern : (null)\n" RESET);
 	while (temp)
 	{
 		i++;
-		printf("\n-------------------\n\n Pattern %d\n", i);
+		printf(YELLOW "\n-------------------\n\n Pattern %d\n" RESET, i);
 		show_one_pattern(temp);
 		temp = temp->next;
 	}
@@ -77,19 +77,19 @@ void 	show_pattern(t_pattern *l_pattern)
 void 	show_one_flag(t_flag *l_flag)
 {
 	if (!l_flag)
-		printf ("Flag : (null)\n");
+		printf (MAGENTA"Flag : (null)\n"RESET);
 	else if (l_flag)
 	{
 		if (l_flag->flag_type)
-			printf("flag : %c\n", l_flag->flag_type);
+			printf(MAGENTA"flag : %c\n", l_flag->flag_type);
 		if (l_flag->precision)
 			printf("precision : %d\n", l_flag->precision);
 		if (l_flag->width)
 			printf("width : %d\n", l_flag->width);
 		if (!l_flag->next)
-			printf("Next (null)\n\n.........end.........\n\n");
+			printf(MAGENTA"Next (null)\n\n.....end.....<<"RESET"\n\n");
 		else if (l_flag->next)
-			printf("Next %p\n", l_flag->next);
+			printf("Next %p"RESET"\n", l_flag->next);
 	}
 }
 
@@ -100,11 +100,11 @@ void 	show_flag(t_flag *l_flag)
 
 	temp = l_flag;
 	if (!l_flag)
-		printf("Flag : (null)\n");
+		printf(MAGENTA"Flag : (null)\n");
 	while (temp)
 	{
 		i++;
-		printf("\nflags.......>>\n\nFlag %d\n", i);
+		printf(MAGENTA"\nflags.......>>\n\n  Flag %d\n" RESET, i);
 		show_one_flag(temp);
 		temp = temp->next;
 	}

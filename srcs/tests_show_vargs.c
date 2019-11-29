@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 14:59:48 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 16:20:05 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 11:41:45 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,31 +28,31 @@ void 	init_show_varg(void)
 
 void 	show_c(t_pattern *l_pattern)
 {
-	printf("%c\n", *((char *)l_pattern->varg));
+	printf("arg_c : %c\n", *((char *)l_pattern->varg));
 }
 void 	show_s(t_pattern *l_pattern)
 {
-	printf("%s\n", (char*)l_pattern->varg);
+	printf("arg_s :%s\n", (char*)l_pattern->varg);
 }
 void 	show_p(t_pattern *l_pattern)
 {
-	printf("%p\n", l_pattern->varg);
+	printf("arg_p : %p\n", l_pattern->varg);
 }
 void 	show_di(t_pattern *l_pattern)
 {
-	printf("%d\n", *((int *)l_pattern->varg));
+	printf("arg_di : %d\n", *((int *)l_pattern->varg));
 }
 void 	show_u(t_pattern *l_pattern)
 {
-	printf("%u\n", (unsigned int)l_pattern->varg);
+	printf("arg_u : %u\n", (unsigned int)l_pattern->varg);
 }
 void 	show_x(t_pattern *l_pattern)
 {
-	printf("%x\n", (unsigned int)l_pattern->varg);
+	printf("arg_xX : %x\n", (unsigned int)l_pattern->varg);
 }
 void 	show_percent(t_pattern *l_pattern)
 {
-	printf("%c\n", (char)l_pattern->varg);
+	printf("arg_%% %c\n", (char)l_pattern->varg);
 }
 
 void 	show_varg(t_pattern *l_pattern)
