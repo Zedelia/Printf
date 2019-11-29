@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 10:05:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 11:58:04 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:26:00 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,16 +15,6 @@
 
 void 	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag)
 {
-	t_flag *temp;
-
-	temp = l_pattern->l_flag;
-	if (temp)
-	{
-		while (temp->next)
-			temp = temp->next;
-		temp->next = l_flag;
-	}
-	else
 		l_pattern->l_flag = l_flag;
 }
 

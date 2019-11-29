@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:34:03 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 17:08:21 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:41:42 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,8 @@ t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params)
 	(*l_pattern)->result = NULL;
 	(*l_pattern)->pattern = format;
 	(*l_pattern)->l_flag = NULL;
-	pattern_parser(*l_pattern, params);
+	if (!(pattern_parser(*l_pattern, params)))
+		return (False);
 
 
 	// (*l_pattern)->result = convert_me(*l_pattern);

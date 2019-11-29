@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 16:36:18 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:42:25 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@
 static t_bool error_format(t_format *s_format)
 {
 	ft_memdel((void **) &s_format->format);
-	s_format->format = ft_strdup("(null)");
+	s_format->format = ft_strdup("(null)\n");
 	return (False);
 }
 
