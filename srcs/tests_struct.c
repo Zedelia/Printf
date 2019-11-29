@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 19:26:57 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 19:28:20 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,8 +37,8 @@ void 	show_one_pattern(t_pattern *l_pattern)
 		printf(YELLOW"Pattern : (null)\n"RESET);
 	else if (l_pattern)
 	{
-		if (l_pattern->pattern)
-			printf(YELLOW ">>   [Pattern] : %s\n", l_pattern->pattern);
+		if (l_pattern->p_pattern)
+			printf(YELLOW ">>   [Pattern] : %s\n", l_pattern->p_pattern);
 		if (l_pattern->pattern_cpy)
 			printf(YELLOW ">>   [Pattern] : %s\n", l_pattern->pattern_cpy);
 		if (l_pattern->result)

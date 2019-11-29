@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 18:26:42 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 19:23:32 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 19:46:06 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,21 +20,11 @@ t_bool	is_indicator(char c)
 	i = 0;
 	while (INDICATORS)
 	{
-		if (c == INDICATORS)
+		if (c == INDICATORS[i])
 			return (True);
+		i++;
 	}
 	return (False);
-}
-
-t_bool	isolate_pattern(char *pattern)
-{
-	int i;
-
-	i = 0;
-	if (!(get_indicator(pattern)))
-		return (False);
-	while (is_indicator(pattern[i]) == False)
-		i++;
 }
 
 int	occurence(char flag, char *charset)
@@ -55,13 +45,29 @@ int	occurence(char flag, char *charset)
 
 t_bool	pattern_check(char *pattern)
 {
-	printf("%s\n", flags);
-	if (ft_isincharset('-', flags) && ft_isincharset('0', flags))
+	printf("%s\n", pattern);
+	if (!(get_indicator(pattern)))
 		return (False);
-	if ((ft_isdigit(flags[0]) || flags[0] == '*')
-		&& (ft_isincharset('-', flags) || ft_isincharset('0', flags)))
+	if (ft_isincharset('-', pattern) && ft_isincharset('0', pattern))
 		return (False);
-	// if (occurence('*', flags) > 1 && )
+	if ((ft_isdigit(pattern[0]) || pattern[0] == '*')
+		&& (ft_isincharset('-', pattern) || ft_isincharset('0', pattern)))
+		return (False);
+	// if (occurence('*', pattern) > 1 && )
 
+	return (True);
+}
+
+t_bool	pattern_copy(t_pattern *l_pattern)
+{
+	size_t n;
+
+	n = 0;
+	while (is_indicator(l_pattern->p_pattern[n]) == False)
+		n++;
+	if (!(l_pattern->pattern_cpy = ft_strndup(&(l_pattern->p_pattern[1]), n)))
+		return (False);
+	if (!(pattern_check(l_pattern->pattern_cpy)))
+		return (False);
 	return (True);
 }
