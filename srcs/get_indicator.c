@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 17:17:42 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 17:41:52 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 11:46:11 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,10 +25,7 @@ char 	get_indicator(char *pattern)
 		while (INDICATORS[j])
 		{
 			if (pattern[i] == INDICATORS[j])
-			{
-				printf("indic = %c\n", pattern[i]);
 				return (pattern[i]);
-			}
 			j++;
 		}
 		j = 0;
