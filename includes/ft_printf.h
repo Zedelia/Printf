@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 11:23:53 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 12:07:51 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -111,14 +111,13 @@ t_bool 	flag_parser(t_flag *l_flag, va_list params);
 void 	flag_free(t_flag **l_flag);
 void 	flag_free_one(t_flag **l_flag);
 /*
-** Get_arg functions
+** Get_functions
 ** cspdiuxX%
 */
-char 	get_indicator(char *pattern);
-
 #define INDICATORS "cspdiuxX\%"
 
-void init_get_fct_tab(void);
+char 	get_indicator(char *pattern);
+void 	init_get_fct_tab(void);
 
 typedef enum
 {
@@ -135,7 +134,7 @@ typedef enum
 } t_type_indicateur;
 
 typedef void		*(t_get_fct)(va_list);
- t_get_fct			*g_get_fct[size];
+t_get_fct			*g_get_fct[size];
 
 t_bool		get_arg(t_pattern *l_pattern, va_list params);
 void		*get_c(va_list params);
