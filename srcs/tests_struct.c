@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 11:47:46 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:56:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,29 +83,22 @@ void 	show_one_flag(t_flag *l_flag)
 		if (l_flag->flag_type)
 			printf(MAGENTA"flag : %c\n", l_flag->flag_type);
 		if (l_flag->precision)
-			printf("precision : %d\n", l_flag->precision);
+			printf("precision : %d\n", *((int *)l_flag->precision));
 		if (l_flag->width)
-			printf("width : %d\n", l_flag->width);
-		if (!l_flag->next)
-			printf(MAGENTA"Next (null)\n\n.....end.....<<"RESET"\n\n");
-		else if (l_flag->next)
-			printf("Next %p"RESET"\n", l_flag->next);
+			printf("width : %d\n", *((int *)l_flag->width));
+			printf(MAGENTA"\n.....end.....<<"RESET"\n\n");
 	}
 }
+
 
 void 	show_flag(t_flag *l_flag)
 {
 	t_flag	 *temp;
-	static int i = 0;
 
 	temp = l_flag;
 	if (!l_flag)
 		printf(MAGENTA"Flag : (null)\n");
-	while (temp)
-	{
-		i++;
-		printf(MAGENTA"\nflags.......>>\n\n  Flag %d\n" RESET, i);
-		show_one_flag(temp);
-		temp = temp->next;
-	}
+	printf(MAGENTA"\nflag.......>>\n \n" RESET);
+	show_one_flag(temp);
+
 }
