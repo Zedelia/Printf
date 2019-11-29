@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 17:36:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:41:00 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:46:31 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,9 +15,6 @@
 
 t_bool	flag_init(t_flag **l_flag, char *flags, va_list params)
 {
-	// (void)params;
-	// (void)flags;
-
 	if (!(*l_flag = malloc(sizeof(t_flag))))
 		return (False);
 	(*l_flag)->precision = NULL;
