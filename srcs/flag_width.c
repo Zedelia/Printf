@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   flag_parser.c                                    .::    .:/ .      .::   */
+/*   flag_width.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 12:03:18 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:21:56 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/29 18:21:01 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/29 18:21:10 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_bool		flag_parser(t_flag *l_flag, char *flags, va_list params)
+t_bool		flag_width(t_flag **l_flag, char *flags, va_list params)
 {
-	if (!(flag_check(flags))
+	size_t 	i;
+	char 	*temp;
+	int  	*p_int;
+
+	i = 0;
+	if (flags[0] == '*')
+	{
+		if (!((*l_flag)->width = get_di(params)))
+			return (False);
+		return (True);
+	}
+	while (ft_isalnum(flags[i + 1]) == True)
+		i++;
+	if (i == 0 && flags[0] != '*')
 		return (False);
-	if (flags[0] == '0' ||flags[0] == '-')
-	{
-		l_flag->flag_type = flags[0];
-		if (!(flag_width(&l_flag, flags + 1, params)))
+	if (!(temp = ft_strndup((const char*)&flags[0], i)))
+		return (False);
+	if (!(p_int = malloc(sizeof(int))))
 			return (False);
-	}
-	if (ft_isalnum(flags[0]) == True)
-	{
-		l_flag->flag_type = 'N';
-		if (!(flag_width(&l_flag, flags, params)))
-			return (False);
-	}
+	*p_int = ft_atoi(temp);
+	(*l_flag)->width = (void*)(p_int);
 	return (True);
 }
