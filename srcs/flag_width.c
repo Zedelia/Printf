@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 18:21:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:35:57 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 20:03:02 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,8 +28,6 @@ t_bool		flag_width(t_flag **l_flag, char *flags, va_list params)
 	}
 	while (ft_isdigit(flags[i]) == True)
 		i++;
-	if (i == 0 && flags[0] != '*')
-		return (False);
 	if (!(temp = ft_strndup((const char*)&flags[0], i)))
 		return (False);
 	if (!(p_int = malloc(sizeof(int))))
