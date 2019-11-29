@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 18:04:14 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 11:23:53 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,14 @@
 # include <ctype.h>
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
+
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define YELLOW  "\x1b[33m"
+#define BLUE    "\x1b[34m"
+#define MAGENTA "\x1b[35m"
+#define CYAN    "\x1b[36m"
+#define RESET   "\x1b[0m"
 
 typedef enum
 {

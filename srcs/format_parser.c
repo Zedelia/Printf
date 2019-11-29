@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 18:30:24 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 11:43:22 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,7 +51,6 @@ t_bool	format_parser(t_format *s_format, char *format, va_list params)
 
 	//ca ce sont des tests : a supprimer
 
-	show_pattern(s_format->l_pattern);
 	show_format(s_format);
 
 	return (True);
