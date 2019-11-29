@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:00:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 18:17:32 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,6 +49,7 @@ void 	show_one_pattern(t_pattern *l_pattern)
 			printf("l_flag : %p\n", l_pattern->l_flag);
 		else if (!l_pattern->l_flag)
 			printf("No flag\n");
+		show_flag(l_pattern->l_flag);
 		if (!l_pattern->next)
 			printf("Next (null)\n\n---------end----------\n\n");
 		else if (l_pattern->next)
@@ -69,6 +70,42 @@ void 	show_pattern(t_pattern *l_pattern)
 		i++;
 		printf("\n-------------------\n\n Pattern %d\n", i);
 		show_one_pattern(temp);
+		temp = temp->next;
+	}
+}
+
+void 	show_one_flag(t_flag *l_flag)
+{
+	if (!l_flag)
+		printf ("Flag : (null)\n");
+	else if (l_flag)
+	{
+		if (l_flag->flag_type)
+			printf("flag : %c\n", l_flag->flag_type);
+		if (l_flag->precision)
+			printf("precision : %d\n", l_flag->precision);
+		if (l_flag->width)
+			printf("width : %d\n", l_flag->width);
+		if (!l_flag->next)
+			printf("Next (null)\n\n.........end.........\n\n");
+		else if (l_flag->next)
+			printf("Next %p\n", l_flag->next);
+	}
+}
+
+void 	show_flag(t_flag *l_flag)
+{
+	t_flag	 *temp;
+	static int i = 0;
+
+	temp = l_flag;
+	if (!l_flag)
+		printf("Flag : (null)\n");
+	while (temp)
+	{
+		i++;
+		printf("\nflags.......>>\n\nFlag %d\n", i);
+		show_one_flag(temp);
 		temp = temp->next;
 	}
 }

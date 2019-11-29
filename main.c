@@ -40,7 +40,7 @@ int main(void)
 	char a1 = 'e';
 	char a2 = 's';
 
-	ft_printf("%c coucou %c %-c \n", a, a1, a2);
+	ft_printf("%c coucou %c %15c \n", a, a1, a2);
 
 	return (0);
 }
