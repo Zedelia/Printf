@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:03 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 16:58:31 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 19:27:46 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,9 @@ void 	pattern_free_one(t_pattern **l_pattern)
 {
 	if (!l_pattern)
 		return ;
-	(*l_pattern)->pattern = NULL;
+	(*l_pattern)->p_pattern = NULL;
+	ft_memdel((void **)&((*l_pattern)->pattern_cpy));
+	(*l_pattern)->pattern_cpy = NULL;
 	ft_memdel((void **)&((*l_pattern)->result));
 	(*l_pattern)->result = NULL;
 	ft_memdel((void **)&((*l_pattern)->varg));

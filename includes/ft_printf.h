@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 19:17:56 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 19:25:05 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,7 +59,8 @@ struct      s_format
 
 struct      s_pattern
 {
-	char			*pattern;
+	char			*p_pattern;
+	char			*pattern_cpy;
 	char			*result;
 // repasser en void*
 	void		 	*varg;
@@ -104,7 +105,7 @@ t_bool 	pattern_apply(char *format, t_pattern *conv);
 t_bool 	pattern_parser(t_pattern *l_pattern, va_list params);
 char	*convert_me(t_pattern *l_pattern);
 void 	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag);
-t_bool	pattern_check(char *flags);
+t_bool	pattern_check(t_pattern *l_pattern);
 /*
 ** Flags functions
 ** init, free, use and modify t_flags

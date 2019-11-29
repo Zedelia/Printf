@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 10:05:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 19:18:35 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 19:25:33 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,22 +23,22 @@ t_bool 	pattern_parser(t_pattern *l_pattern, va_list params)
 {
 	t_flag *l_flag;
 
-	if (!(flag_check(flags)))
+	if (!(pattern_check(l_pattern)))
 		return (False);
-	if (ft_is_indicateur(l_pattern->pattern[1]) == True)
+	if (ft_is_indicateur(l_pattern->pattern_cpy[1]) == True)
 	{
-		l_pattern->indicateur = l_pattern->pattern[1];
+		l_pattern->indicateur = l_pattern->pattern_cpy[1];
 		l_pattern->l_flag = NULL;
 		get_arg(l_pattern, params);
 		l_pattern->len = 2;
 		return (True);
 	}
-	else if (ft_is_indicateur(l_pattern->pattern[1]) == False)
+	else if (ft_is_indicateur(l_pattern->pattern_cpy[1]) == False)
 	{
-		if (!(flag_init(&l_flag, &(l_pattern->pattern[1]), params)))
+		if (!(flag_init(&l_flag, &(l_pattern->pattern_cpy[1]), params)))
 			return (False);
 		pattern_add_flag(l_pattern, l_flag);
-		l_pattern->indicateur = get_indicator(l_pattern->pattern);
+		l_pattern->indicateur = get_indicator(l_pattern->pattern_cpy);
 		get_arg(l_pattern, params);
 	}
 	return(True);
