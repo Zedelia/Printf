@@ -28,10 +28,16 @@ SRCS = ft_printf \
 	tests/tests_show_vargs \
 	tests/tests_utils
 
+# get_hidden_obj = $(addprefix ., $(notdir $(1)))
+# hidden_format = $(addprefix $(dir $(1)), $(call get_hidden_obj, $(1)))
+# convert_src = $(strip $(call hidden_format, $(1:%.c=%.o)))
+
 LIB = libft/libft.a
 
 INCLUDES := $(patsubst %,includes/%.h,${INCLUDES})
 SRCS := $(patsubst %,srcs/%.c,${SRCS})
+
+# OBJ := $(foreach file, $(SRCS:%.c=%.o), $(call hidden_format, $(file)))
 
 MAIN = main.c
 
