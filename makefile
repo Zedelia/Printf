@@ -9,6 +9,7 @@ SRCS = ft_printf \
 	utils/get_arg_1 \
 	utils/get_arg_2 \
 	utils/get_arg_init \
+	utils/get_width_preci \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
@@ -24,6 +25,7 @@ SRCS = ft_printf \
 	flags/flag_init \
 	flags/flag_parser \
 	flags/flag_width \
+	flags/flag_precision \
 	tests/tests_struct \
 	tests/tests_show_vargs \
 	tests/tests_utils

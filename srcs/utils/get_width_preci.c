@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   flag_width.c                                     .::    .:/ .      .::   */
+/*   get_width_preci.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 18:21:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 20:47:04 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/30 20:38:02 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 20:44:50 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool		flag_width(t_flag *l_flag, char *width, va_list params)
+int 	*get_width_preci(char *width_or_preci)
 {
-	if (width[0] == '*')
-	{
-		if (!(l_flag->width = get_di(params)))
-			return (false_ret(__func__));
-		return (True);
-	}
-	if (!(l_flag->width = get_width_preci(width)))
-		return (false_ret(__func__));
-	return (True);
+	size_t 	i;
+	char 	*temp;
+	int  	*p_int;
+
+	i = 1;
+	while (ft_isdigit(width_or_preci[i]) == True)
+		i++;
+	if (!(temp = ft_strndup((const char*)&width_or_preci[1], i)))
+		return (NULL);
+	if (!(p_int = malloc(sizeof(int))))
+			return (NULL);
+	*p_int = ft_atoi(temp);
+	return ((void*)(p_int));
 }

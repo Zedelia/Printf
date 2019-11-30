@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 15:53:05 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 20:52:43 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -118,7 +118,7 @@ t_bool	flag_init(t_flag **l_flag, char *flag, va_list params);
 t_bool 	flag_parser(t_flag *l_flag, char *flags, va_list params);
 void 	flag_free(t_flag **l_flag);
 t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
-
+t_bool		flag_precision(t_flag *l_flag, char *precision, va_list params);
 
 // void 	flag_free_one(t_flag **l_flag);
 
@@ -128,6 +128,7 @@ t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
 ** cspdiuxX%
 */
 
+int 	*get_width_preci(char *width_or_preci);
 t_bool 	get_indicator(t_pattern *l_pattern);
 void 	init_get_fct_tab(void);
 
