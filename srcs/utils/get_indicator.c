@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   tests_utils.c                                    .::    .:/ .      .::   */
+/*   get_indicator.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/30 12:36:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 12:38:10 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/28 17:17:42 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 16:09:01 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
-// false_ret(__func__)
-t_bool false_ret(const char *namefunc)
+t_bool 	get_indicator(t_pattern *l_pattern)
 {
-	printf(RED"%s"RESET"\n", namefunc);
-	return (False);
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (l_pattern->pattern_cpy[i])
+	{
+		while (INDICATORS[j])
+		{
+			if (l_pattern->pattern_cpy[i] == INDICATORS[j])
+			{
+				l_pattern->indicateur = l_pattern->pattern_cpy[i];
+				return (True);
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (false_ret(__func__));
 }

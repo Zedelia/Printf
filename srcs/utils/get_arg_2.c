@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_copy.c                                   .::    .:/ .      .::   */
+/*   get_arg_2.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/30 15:49:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 15:49:41 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/30 15:58:34 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 16:08:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
-t_bool	pattern_copy(t_pattern *l_pattern)
+//-------------------------------------------------- A FAIRE
+void 	*get_p(va_list params)
 {
-	size_t n;
+	char		*p_p = NULL;
+	(void)params;
 
-	n = 1;
-	while (is_indicator(l_pattern->p_pattern[n]) == False)
-		n++;
-	if (!(l_pattern->pattern_cpy = ft_strndup(&(l_pattern->p_pattern[1]), n + 1)))
-		return (false_ret(__func__));
-	if (!(pattern_check(l_pattern)))
-		return (false_ret(__func__));
-	return (True);
+	return ((void *)p_p);
 }
+void 	*get_u(va_list params)
+{
+	char		*p_p = NULL;
+	(void)params;
+
+	return ((void *)p_p);
+}
+//--------------------------------------------------

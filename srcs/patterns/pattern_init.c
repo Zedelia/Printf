@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   format_init.c                                    .::    .:/ .      .::   */
+/*   pattern_init.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/21 17:01:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:42:25 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/21 17:34:03 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 16:08:19 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include "../../includes/ft_printf.h"
 
-#include "../includes/ft_printf.h"
-
-static t_bool error_format(t_format *s_format)
+t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params)
 {
-	ft_memdel((void **) &s_format->format);
-	s_format->format = ft_strdup("(null)\n");
-	return (false_ret(__func__));
-}
 
-t_bool	format_init(t_format **s_format, const char *format, va_list params)
-{
-	if (!(*s_format = malloc(sizeof(t_format))))
+	if (!(*l_pattern = malloc(sizeof(t_pattern))))
 		return (false_ret(__func__));
-	if (!((*s_format)->format = ft_strdup(format)))
+	(*l_pattern)->next = NULL;
+	(*l_pattern)->result = NULL;
+	(*l_pattern)->p_pattern = format;
+	(*l_pattern)->l_flag = NULL;
+	(*l_pattern)->pattern_cpy = NULL;
+	if (!(pattern_parser(*l_pattern, params)))
 		return (false_ret(__func__));
-	(*s_format)->l_pattern = NULL;
-	if (!(format_parser(*s_format, (*s_format)->format, params)))
-		return (error_format(*s_format));
+
+
+	// (*l_pattern)->result = convert_me(*l_pattern);
 	return (True);
 }

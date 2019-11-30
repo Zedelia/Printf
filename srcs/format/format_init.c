@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   flag_init.c                                      .::    .:/ .      .::   */
+/*   format_init.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/25 17:36:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 19:59:33 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/21 17:01:26 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 16:07:43 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
 
-t_bool	flag_init(t_flag **l_flag, char *flags, va_list params)
+#include "../../includes/ft_printf.h"
+
+static t_bool error_format(t_format *s_format)
 {
+	ft_memdel((void **) &s_format->format);
+	s_format->format = ft_strdup("(null)\n");
+	return (false_ret(__func__));
+}
 
-	if (!(*l_flag = malloc(sizeof(t_flag))))
+t_bool	format_init(t_format **s_format, const char *format, va_list params)
+{
+	if (!(*s_format = malloc(sizeof(t_format))))
 		return (false_ret(__func__));
-	(*l_flag)->precision = NULL;
-	(*l_flag)->width = NULL;
-	if (!(flag_parser(*l_flag, flags, params)))
+	if (!((*s_format)->format = ft_strdup(format)))
 		return (false_ret(__func__));
+	(*s_format)->l_pattern = NULL;
+	if (!(format_parser(*s_format, (*s_format)->format, params)))
+		return (error_format(*s_format));
 	return (True);
 }

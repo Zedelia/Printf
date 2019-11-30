@@ -6,12 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 10:05:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 13:41:05 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 16:08:14 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 void 	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag)
 {

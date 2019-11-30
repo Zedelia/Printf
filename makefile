@@ -3,30 +3,30 @@ NAME = printf
 INCLUDES = ft_printf
 
 SRCS = ft_printf \
-	format_init \
-	format_free \
-	format_parser \
-	pattern_init \
-	pattern_free \
-	pattern_parser \
-	utils \
-	convert_bases \
-	tests_struct \
-	tests_show_vargs \
-	flag_free \
-	flag_init \
-	flag_parser \
-	get_indicator \
-	flag_width \
-	pattern_check \
-	tests_utils \
-	pattern_copy \
-	pattern_errors_1 \
-	pattern_errors_2 \
-	pattern_errors_init \
-	get_arg_1 \
-	get_arg_2 \
-	get_arg_init
+	utils/utils \
+	utils/convert_bases \
+	utils/get_indicator \
+	utils/get_arg_1 \
+	utils/get_arg_2 \
+	utils/get_arg_init \
+	format/format_init \
+	format/format_free \
+	format/format_parser \
+	patterns/pattern_init \
+	patterns/pattern_free \
+	patterns/pattern_parser \
+	patterns/pattern_copy \
+	patterns/pattern_errors_1 \
+	patterns/pattern_errors_2 \
+	patterns/pattern_errors_init \
+	patterns/pattern_check \
+	flags/flag_free \
+	flags/flag_init \
+	flags/flag_parser \
+	flags/flag_width \
+	tests/tests_struct \
+	tests/tests_show_vargs \
+	tests/tests_utils
 
 LIB = libft/libft.a
 

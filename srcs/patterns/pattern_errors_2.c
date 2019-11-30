@@ -6,12 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:47:25 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 15:49:09 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 16:08:22 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 t_bool	error_digit_stars_together(t_pattern *l_pattern)
 {

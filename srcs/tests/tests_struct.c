@@ -6,12 +6,12 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 11:55:00 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 16:08:35 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 void 	show_format(t_format *s_format)
 {

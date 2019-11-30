@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_arg_2.c                                      .::    .:/ .      .::   */
+/*   tests_utils.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/30 15:58:34 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 15:59:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/30 12:36:10 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 16:08:40 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
-//-------------------------------------------------- A FAIRE
-void 	*get_p(va_list params)
+// false_ret(__func__)
+t_bool false_ret(const char *namefunc)
 {
-	char		*p_p = NULL;
-	(void)params;
-
-	return ((void *)p_p);
+	printf(RED"%s"RESET"\n", namefunc);
+	return (False);
 }
-void 	*get_u(va_list params)
-{
-	char		*p_p = NULL;
-	(void)params;
-
-	return ((void *)p_p);
-}
-//--------------------------------------------------

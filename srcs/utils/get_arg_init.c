@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   flag_width.c                                     .::    .:/ .      .::   */
+/*   get_arg_init.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 18:21:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 12:35:15 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/30 15:58:41 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 16:08:56 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
-t_bool		flag_width(t_flag *l_flag, char *flags, va_list params)
+void 	init_get_fct_tab(void)
 {
-	size_t 	i;
-	char 	*temp;
-	int  	*p_int;
+	g_get_fct[_c] = get_c;
+	g_get_fct[_s] = get_s;
+	g_get_fct[_p] = get_p;
+	g_get_fct[_d] = get_di;
+	g_get_fct[_i] = get_di;
+	g_get_fct[_u] = get_u;
+	g_get_fct[_x] = get_x;
+	g_get_fct[_big_x] = get_x;
+	g_get_fct[_percent] = get_percent;
+}
 
-	i = 0;
-	if (flags[0] == '*')
-	{
-		if (!(l_flag->width = get_di(params)))
-			return (false_ret(__func__));
-		return (True);
-	}
-	while (ft_isdigit(flags[i]) == True)
-		i++;
-	if (!(temp = ft_strndup((const char*)&flags[0], i)))
+t_bool 	get_arg(t_pattern *l_pattern, va_list params)
+{
+	t_get_fct 	*fonc;
+	size_t 		index;
+
+	index = ft_index(l_pattern->indicateur, INDICATORS);
+	fonc = g_get_fct[index];
+	l_pattern->varg = fonc(params);
+	if (!(l_pattern->varg))
 		return (false_ret(__func__));
 
-	if (!(p_int = malloc(sizeof(int))))
-			return (false_ret(__func__));
-	*p_int = ft_atoi(temp);
-	l_flag->width = (void*)(p_int);
 	return (True);
 }

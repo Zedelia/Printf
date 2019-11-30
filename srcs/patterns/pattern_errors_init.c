@@ -6,12 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:48:20 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 15:48:37 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 16:08:21 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 t_bool	get_errors(t_pattern *l_pattern)
 {

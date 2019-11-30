@@ -6,12 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 12:02:27 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 16:07:46 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 void format_add_pattern(t_format *s_format, t_pattern *l_pattern)
 {

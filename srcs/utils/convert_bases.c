@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_indicator.c                                  .::    .:/ .      .::   */
+/*   convert_bases.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/28 17:17:42 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 13:45:14 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/28 11:56:09 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 16:08:48 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
-t_bool 	get_indicator(t_pattern *l_pattern)
+char	*convert_base_int_to_hex(unsigned int var)
 {
-	int i;
-	int j;
+	unsigned int		tmp;
+	char				*hex;
 
-	i = 0;
-	j = 0;
-	while (l_pattern->pattern_cpy[i])
-	{
-		while (INDICATORS[j])
-		{
-			if (l_pattern->pattern_cpy[i] == INDICATORS[j])
-			{
-				l_pattern->indicateur = l_pattern->pattern_cpy[i];
-				return (True);
-			}
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (false_ret(__func__));
+	hex = "0123456789ABCDEF";
+	if (var > 16)
+		convert_base_int_to_hex(var / 16);
+	tmp = var % 16;
+	return (hex);
 }
