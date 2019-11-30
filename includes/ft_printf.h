@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 15:35:00 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 15:53:05 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -109,6 +109,7 @@ t_bool 	pattern_parser(t_pattern *l_pattern, va_list params);
 char	*convert_me(t_pattern *l_pattern);
 void 	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag);
 t_bool	pattern_copy(t_pattern *l_pattern);
+t_bool	pattern_check(t_pattern *l_pattern);
 /*
 ** Flags functions
 ** init, free, use and modify t_flags
@@ -178,8 +179,12 @@ t_get_error_fct		*g_get_error_fct[errors_size];
 
 t_bool 				get_errors(t_pattern *l_pattern);
 
-
-
+t_bool	error_several_flags(t_pattern *l_pattern);
+t_bool	error_too_many_stars(t_pattern *l_pattern);
+t_bool	error_zero_sc(t_pattern *l_pattern);
+t_bool	error_precision_c(t_pattern *l_pattern);
+t_bool	error_digit_stars_before_flag(t_pattern *l_pattern);
+t_bool	error_digit_stars_together(t_pattern *l_pattern);
 
 /*
 ** Tests functions
