@@ -17,10 +17,10 @@ t_bool	flag_init(t_flag **l_flag, char *flags, va_list params)
 {
 
 	if (!(*l_flag = malloc(sizeof(t_flag))))
-		return (False);
+		return (false_ret(__func__));
 	(*l_flag)->precision = NULL;
 	(*l_flag)->width = NULL;
 	if (!(flag_parser(*l_flag, flags, params)))
-		return (False);
+		return (false_ret(__func__));
 	return (True);
 }

@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 17:17:42 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 11:46:11 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 12:35:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@ char 	get_indicator(char *pattern)
 	int i;
 	int j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (pattern[i])
 	{
@@ -31,5 +31,5 @@ char 	get_indicator(char *pattern)
 		j = 0;
 		i++;
 	}
-	return (False);
+	return (false_ret(__func__));
 }

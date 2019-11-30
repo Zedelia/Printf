@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 19:41:59 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 12:42:31 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,13 +23,14 @@
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
 
+
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define YELLOW  "\x1b[33m"
 #define BLUE    "\x1b[34m"
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
-#define RESET   "\x1b[0m"
+#define RESET   "\033[0;37m"
 
 #define INDICATORS "cspdiuxX\%"
 #define FLAGS "-0.*"
@@ -83,7 +84,7 @@ struct      s_flag
 */
 int 	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 int		ft_is_flags(char c);
-int		ft_is_indicateur(char c);
+int		is_indicator(char c);
 size_t	ft_index(char c, const char *charset);
 char	*convert_base_int_to_hex(unsigned int var);
 /*
@@ -113,7 +114,7 @@ t_bool	pattern_copy(t_pattern *l_pattern);
 t_bool	flag_init(t_flag **l_flag, char *flag, va_list params);
 t_bool 	flag_parser(t_flag *l_flag, char *flags, va_list params);
 void 	flag_free(t_flag **l_flag);
-t_bool	flag_width(t_flag **l_flag, char *flags, va_list params);
+t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
 
 
 // void 	flag_free_one(t_flag **l_flag);
@@ -157,6 +158,8 @@ void 		*get_percent(va_list params);
 ** Tests functions
 **
 */
+t_bool false_ret(const char *namefunc);
+
 void 	show_format(t_format *s_format);
 void 	show_one_pattern(t_pattern *l_pattern);
 void 	show_pattern(t_pattern *l_pattern);

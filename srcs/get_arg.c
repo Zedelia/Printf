@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 12:13:52 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 20:05:49 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 11:55:18 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -95,6 +95,7 @@ t_bool 	get_arg(t_pattern *l_pattern, va_list params)
 	fonc = g_get_fct[index];
 	l_pattern->varg = fonc(params);
 	if (!(l_pattern->varg))
-		return (False);
+		return (false_ret(__func__));
+
 	return (True);
 }

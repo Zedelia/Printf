@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:54:26 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 12:02:27 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,18 +39,18 @@ t_bool	format_parser(t_format *s_format, char *format, va_list params)
 	if (format[0] == '%')
 	{
 		if (!(pattern_init(&l_pattern, cp_format, params)))
-			return (False);
+			return (false_ret(__func__));
 		format_add_pattern(s_format, l_pattern);
 	}
 	while (cp_format && (cp_format = ft_strchr(cp_format + 1, '%')))
 	{
 		if (!(pattern_init(&l_pattern, cp_format, params)))
-			return (False);
+			return (false_ret(__func__));
 		format_add_pattern(s_format, l_pattern);
 	}
-
-	//ca ce sont des tests : a supprimer
 	show_format(s_format);
+	//ca ce sont des tests : a supprimer
+
 
 	return (True);
 }

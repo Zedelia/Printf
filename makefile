@@ -19,7 +19,8 @@ SRCS = ft_printf \
 	flag_parser \
 	get_indicator \
 	flag_width \
-	pattern_check
+	pattern_check \
+	tests_utils
 
 LIB = libft/libft.a
 

@@ -6,14 +6,14 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 18:21:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 20:08:48 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 12:35:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_bool		flag_width(t_flag **l_flag, char *flags, va_list params)
+t_bool		flag_width(t_flag *l_flag, char *flags, va_list params)
 {
 	size_t 	i;
 	char 	*temp;
@@ -22,19 +22,18 @@ t_bool		flag_width(t_flag **l_flag, char *flags, va_list params)
 	i = 0;
 	if (flags[0] == '*')
 	{
-		if (!((*l_flag)->width = get_di(params)))
-			return (False);
+		if (!(l_flag->width = get_di(params)))
+			return (false_ret(__func__));
 		return (True);
 	}
 	while (ft_isdigit(flags[i]) == True)
 		i++;
 	if (!(temp = ft_strndup((const char*)&flags[0], i)))
-		return (False);
+		return (false_ret(__func__));
 
 	if (!(p_int = malloc(sizeof(int))))
-			return (False);
+			return (false_ret(__func__));
 	*p_int = ft_atoi(temp);
-printf(">>%zu\n",i);
-	(*l_flag)->width = (void*)(p_int);
+	l_flag->width = (void*)(p_int);
 	return (True);
 }

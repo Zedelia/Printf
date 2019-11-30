@@ -18,15 +18,15 @@ static t_bool error_format(t_format *s_format)
 {
 	ft_memdel((void **) &s_format->format);
 	s_format->format = ft_strdup("(null)\n");
-	return (False);
+	return (false_ret(__func__));
 }
 
 t_bool	format_init(t_format **s_format, const char *format, va_list params)
 {
 	if (!(*s_format = malloc(sizeof(t_format))))
-		return (False);
+		return (false_ret(__func__));
 	if (!((*s_format)->format = ft_strdup(format)))
-		return (False);
+		return (false_ret(__func__));
 	(*s_format)->l_pattern = NULL;
 	if (!(format_parser(*s_format, (*s_format)->format, params)))
 		return (error_format(*s_format));

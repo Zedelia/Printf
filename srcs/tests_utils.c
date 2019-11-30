@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   flag_parser.c                                    .::    .:/ .      .::   */
+/*   tests_utils.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 12:03:18 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 12:38:38 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/30 12:36:10 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 12:38:10 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_bool		flag_parser(t_flag *l_flag, char *flags, va_list params)
+// false_ret(__func__)
+t_bool false_ret(const char *namefunc)
 {
-	if (flags[0] == '0' ||flags[0] == '-')
-	{
-		l_flag->flag_type = flags[0];
-		if (!(flag_width(l_flag, flags, params)))
-			return (false_ret(__func__));
-	}
-	if (ft_isdigit(flags[0]) == True)
-	{
-		l_flag->flag_type = 'N';
-		if (!(flag_width(l_flag, flags, params)))
-			return (false_ret(__func__));
-	}
-	return (True);
+	printf(RED"%s"RESET"\n", namefunc);
+	return (False);
 }
