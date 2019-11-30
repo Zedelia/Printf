@@ -10,7 +10,6 @@ SRCS = ft_printf \
 	pattern_free \
 	pattern_parser \
 	utils \
-	get_arg \
 	convert_bases \
 	tests_struct \
 	tests_show_vargs \
@@ -24,7 +23,10 @@ SRCS = ft_printf \
 	pattern_copy \
 	pattern_errors_1 \
 	pattern_errors_2 \
-	pattern_errors_init
+	pattern_errors_init \
+	get_arg_1 \
+	get_arg_2 \
+	get_arg_init
 
 LIB = libft/libft.a
 

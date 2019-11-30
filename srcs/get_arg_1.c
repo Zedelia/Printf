@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_arg.c                                        .::    .:/ .      .::   */
+/*   get_arg_1.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/27 12:13:52 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 14:09:11 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/30 15:59:05 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -68,48 +68,4 @@ void 	*get_percent(va_list params)
 		return (NULL);
 	*p_percent = '%';
 	return ((void *)p_percent);
-}
-//-------------------------------------------------- A FAIRE
-void 	*get_p(va_list params)
-{
-	char		*p_p = NULL;
-	(void)params;
-
-	return ((void *)p_p);
-}
-void 	*get_u(va_list params)
-{
-	char		*p_p = NULL;
-	(void)params;
-
-	return ((void *)p_p);
-}
-//--------------------------------------------------
-
-
-void 	init_get_fct_tab(void)
-{
-	g_get_fct[_c] = get_c;
-	g_get_fct[_s] = get_s;
-	g_get_fct[_p] = get_p;
-	g_get_fct[_d] = get_di;
-	g_get_fct[_i] = get_di;
-	g_get_fct[_u] = get_u;
-	g_get_fct[_x] = get_x;
-	g_get_fct[_big_x] = get_x;
-	g_get_fct[_percent] = get_percent;
-}
-
-t_bool 	get_arg(t_pattern *l_pattern, va_list params)
-{
-	t_get_fct 	*fonc;
-	size_t 		index;
-
-	index = ft_index(l_pattern->indicateur, INDICATORS);
-	fonc = g_get_fct[index];
-	l_pattern->varg = fonc(params);
-	if (!(l_pattern->varg))
-		return (false_ret(__func__));
-
-	return (True);
 }
