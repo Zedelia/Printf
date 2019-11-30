@@ -40,8 +40,8 @@ int main(void)
 	// char a1 = 'e';
 	// char a2 = 's';
 
-	ft_printf("hello %-d hey %4568d %d \n", 2, 21, 4);
-	// printf("\n%12.*d", 14, 2, 3);
+	ft_printf("hello %-d hey %0.568c %d \n", 2, 21, 4);
+	// printf("\n%0*.0*d", 12,14);
 
 	return (0);
 }

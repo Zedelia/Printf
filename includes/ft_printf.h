@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 12:42:31 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 15:35:00 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,10 +39,10 @@ typedef enum
 {
 	False = 0,
 	True = 1,
-}		t_bool;
+}			t_bool;
 
 /*
-** Strut declarations
+** Struct declarations
 ** -----> s_format 		 : use to save and modify the entire printf first param
 ** -----> s_pattern : use to identify and apply pattern like '%...s'
 ** -----> s_flag		 : use to identify and apply flags
@@ -54,8 +54,8 @@ typedef struct s_flag t_flag;
 
 struct      s_format
 {
-	char*				format;
-	t_pattern*			l_pattern;
+	char*			format;
+	t_pattern*		l_pattern;
 };
 
 struct      s_pattern
@@ -82,11 +82,13 @@ struct      s_flag
 ** Utils functions
 **
 */
-int 	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
-int		ft_is_flags(char c);
-int		is_indicator(char c);
-size_t	ft_index(char c, const char *charset);
-char	*convert_base_int_to_hex(unsigned int var);
+int 		ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
+int			is_flags(char c);
+t_bool		is_indicator(char c);
+size_t		ft_index(char c, const char *charset);
+char		*convert_base_int_to_hex(unsigned int var);
+int			occurence_before(char c, char *charset, char before);
+int			occurence_after(char c, char *charset, char after);
 /*
 ** Format functions
 ** init, free, use and modify t_format
@@ -125,7 +127,7 @@ t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
 ** cspdiuxX%
 */
 
-char 	get_indicator(char *pattern);
+t_bool 	get_indicator(t_pattern *l_pattern);
 void 	init_get_fct_tab(void);
 
 typedef enum
@@ -145,38 +147,63 @@ typedef enum
 typedef void		*(t_get_fct)(va_list);
 t_get_fct			*g_get_fct[size];
 
-t_bool		get_arg(t_pattern *l_pattern, va_list params);
-void		*get_c(va_list params);
-void 		*get_s(va_list params);
-void	 	*get_p(va_list params);
-void 		*get_di(va_list params);
-void 		*get_u(va_list parans);
-void 		*get_x(va_list params);
-void 		*get_percent(va_list params);
+t_bool				get_arg(t_pattern *l_pattern, va_list params);
+void				*get_c(va_list params);
+void 				*get_s(va_list params);
+void	 			*get_p(va_list params);
+void 				*get_di(va_list params);
+void 				*get_u(va_list parans);
+void 				*get_x(va_list params);
+void 				*get_percent(va_list params);
+
+/*
+** Error_functions pointers Tab
+**
+*/
+void 	init_error_fct_tab(void);
+
+typedef enum
+{
+	_several_flags = 0,
+	_too_many_stars,
+	_zero_sc,
+	_precision_c,
+	_digit_stars_before_flag,
+	_digit_stars_together,
+	errors_size
+} 	t_type_error;
+
+typedef t_bool		(t_get_error_fct)(t_pattern*);
+t_get_error_fct		*g_get_error_fct[errors_size];
+
+t_bool 				get_errors(t_pattern *l_pattern);
+
+
+
 
 /*
 ** Tests functions
 **
 */
-t_bool false_ret(const char *namefunc);
+t_bool 				false_ret(const char *namefunc);
 
-void 	show_format(t_format *s_format);
-void 	show_one_pattern(t_pattern *l_pattern);
-void 	show_pattern(t_pattern *l_pattern);
-void 	show_one_flag(t_flag *l_flag);
-void 	show_flag(t_flag *l_flag);
-void 	init_show_varg(void);
+void 				show_format(t_format *s_format);
+void 				show_one_pattern(t_pattern *l_pattern);
+void 				show_pattern(t_pattern *l_pattern);
+void 				show_one_flag(t_flag *l_flag);
+void 				show_flag(t_flag *l_flag);
+void 				init_show_varg(void);
 
 typedef void		(t_show_varg)(t_pattern*);
 t_show_varg			*g_show_varg[size];
 
-void		show_varg(t_pattern *l_pattern);
-void		show_c(t_pattern *l_pattern);
-void 		show_s(t_pattern *l_pattern);
-void	 	show_p(t_pattern *l_pattern);
-void 		show_di(t_pattern *l_pattern);
-void 		show_u(t_pattern *l_pattern);
-void 		show_x(t_pattern *l_pattern);
-void 		show_percent(t_pattern *l_pattern);
+void				show_varg(t_pattern *l_pattern);
+void				show_c(t_pattern *l_pattern);
+void 				show_s(t_pattern *l_pattern);
+void	 			show_p(t_pattern *l_pattern);
+void 				show_di(t_pattern *l_pattern);
+void 				show_u(t_pattern *l_pattern);
+void 				show_x(t_pattern *l_pattern);
+void 				show_percent(t_pattern *l_pattern);
 
 #endif

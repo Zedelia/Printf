@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 12:13:52 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 11:55:18 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 14:09:11 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,6 +85,20 @@ void 	*get_u(va_list params)
 	return ((void *)p_p);
 }
 //--------------------------------------------------
+
+
+void 	init_get_fct_tab(void)
+{
+	g_get_fct[_c] = get_c;
+	g_get_fct[_s] = get_s;
+	g_get_fct[_p] = get_p;
+	g_get_fct[_d] = get_di;
+	g_get_fct[_i] = get_di;
+	g_get_fct[_u] = get_u;
+	g_get_fct[_x] = get_x;
+	g_get_fct[_big_x] = get_x;
+	g_get_fct[_percent] = get_percent;
+}
 
 t_bool 	get_arg(t_pattern *l_pattern, va_list params)
 {
