@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 20:51:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 14:01:18 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 14:03:11 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,13 +15,13 @@
 
 t_bool		flag_precision(t_flag *l_flag, char *precision, va_list params)
 {
-	if (precision[1] == '*')
+	if (precision[0] == '*')
 	{
 		if (!(l_flag->precision = get_di(params)))
 			return (false_ret(__func__));
 		return (True);
 	}
-	if (!is_indicator(precision[1]) && !(l_flag->precision = get_width_preci(precision)))
+	if (!is_indicator(precision[0]) && !(l_flag->precision = get_width_preci(precision)))
 		return (false_ret(__func__));
 	return (True);
 }
