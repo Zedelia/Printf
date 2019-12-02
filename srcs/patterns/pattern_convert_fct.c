@@ -6,7 +6,7 @@
 /*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 21:13:37 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 21:30:17 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,19 +20,17 @@ t_bool  convert_di(t_pattern *l_pattern)
 
 	precision = 0;
 	width = 0;
+	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
+	if (!(l_pattern->l_flag))
+		return (True);
 	if (l_pattern->l_flag->precision)
 		precision = *(int *)(l_pattern->l_flag->precision);
 	if (l_pattern->l_flag->width)
 		width = *(int *)(l_pattern->l_flag->width);
-	// if (precision && width && precision > width)
-	// {
 	// 	if (!(apply_precision(l_pattern)))
 	// 		return (false_ret(__func__));
 	// 	return (True);
-	// }
-	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
-	if (!(l_pattern->l_flag))
-		return (True);
+
 	if (!(apply_flags(l_pattern)))
 		return (false_ret(__func__));
 	return (True);
