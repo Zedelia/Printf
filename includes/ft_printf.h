@@ -6,7 +6,7 @@
 /*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 21:14:13 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 21:33:16 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,8 +44,8 @@ typedef enum
 /*
 ** Struct declarations
 ** -----> s_format 		 : use to save and modify the entire printf first param
-** -----> s_pattern : use to identify and apply pattern like '%...s'
-** -----> s_flag		 : use to identify and apply flags
+** -----> s_pattern 	: use to identify and apply pattern like '%...s'
+** -----> s_flag		 : use to identify flags
 */
 
 typedef struct s_pattern t_pattern;
@@ -90,8 +90,13 @@ char		*convert_base_int_to_hex(unsigned int var);
 int			occurence_before(char c, char *charset, char before);
 int			occurence_after(char c, char *charset, char after);
 
-
+/*
+** Convert functions
+** 
+*/
 t_bool 	apply_flags(t_pattern *l_pattern);
+t_bool 	apply_flag_zero(char *copy_width, t_pattern *l_pattern);
+t_bool 	apply_flag_tiret(char *copy_width, t_pattern *l_pattern);
 
 /*
 ** Format functions
