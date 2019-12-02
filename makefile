@@ -13,6 +13,7 @@ SRCS = ft_printf \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
+	format/format_apply_pattern \
 	patterns/pattern_init \
 	patterns/pattern_free \
 	patterns/pattern_parser \

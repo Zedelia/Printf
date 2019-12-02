@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 20:52:43 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 15:42:19 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -97,6 +97,7 @@ t_bool	format_init(t_format **s_format, const char *format, va_list params);
 void 	format_free(t_format **s_format);
 t_bool	format_parser(t_format *s_format, char *format, va_list params);
 void 	format_add_pattern(t_format *s_format, t_pattern *l_pattern);
+t_bool	format_apply_pattern(t_format *s_format);
 /*
 ** Pattern functions
 ** init, free, use and modify t_format
@@ -118,7 +119,7 @@ t_bool	flag_init(t_flag **l_flag, char *flag, va_list params);
 t_bool 	flag_parser(t_flag *l_flag, char *flags, va_list params);
 void 	flag_free(t_flag **l_flag);
 t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
-t_bool		flag_precision(t_flag *l_flag, char *precision, va_list params);
+t_bool	flag_precision(t_flag *l_flag, char *precision, va_list params);
 
 // void 	flag_free_one(t_flag **l_flag);
 
@@ -127,11 +128,6 @@ t_bool		flag_precision(t_flag *l_flag, char *precision, va_list params);
 ** Get_functions
 ** cspdiuxX%
 */
-
-int 	*get_width_preci(char *width_or_preci);
-t_bool 	get_indicator(t_pattern *l_pattern);
-void 	init_get_fct_tab(void);
-
 typedef enum
 {
 	_c = 0,
@@ -146,6 +142,7 @@ typedef enum
 	size
 } t_type_indicateur;
 
+void 				init_get_fct_tab(void);
 typedef void		*(t_get_fct)(va_list);
 t_get_fct			*g_get_fct[size];
 
@@ -158,12 +155,21 @@ void 				*get_u(va_list parans);
 void 				*get_x(va_list params);
 void 				*get_percent(va_list params);
 
+void 				init_apply_fct_tab(void);
+typedef t_bool		(t_apply_fct)(t_pattern*);
+t_apply_fct			*g_apply_fct[size];
+
+t_bool	pattern_apply(t_pattern *l_pattern);
+
+
+
+int 	*get_width_preci(char *width_or_preci);
+t_bool 	get_indicator(t_pattern *l_pattern);
+
 /*
 ** Error_functions pointers Tab
 **
 */
-void 	init_error_fct_tab(void);
-
 typedef enum
 {
 	_several_flags = 0,
@@ -175,11 +181,11 @@ typedef enum
 	errors_size
 } 	t_type_error;
 
+void 				init_error_fct_tab(void);
 typedef t_bool		(t_get_error_fct)(t_pattern*);
 t_get_error_fct		*g_get_error_fct[errors_size];
 
-t_bool 				get_errors(t_pattern *l_pattern);
-
+t_bool 	get_errors(t_pattern *l_pattern);
 t_bool	error_several_flags(t_pattern *l_pattern);
 t_bool	error_too_many_stars(t_pattern *l_pattern);
 t_bool	error_zero_sc(t_pattern *l_pattern);
