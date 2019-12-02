@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:42:19 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 15:51:14 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -97,7 +97,7 @@ t_bool	format_init(t_format **s_format, const char *format, va_list params);
 void 	format_free(t_format **s_format);
 t_bool	format_parser(t_format *s_format, char *format, va_list params);
 void 	format_add_pattern(t_format *s_format, t_pattern *l_pattern);
-t_bool	format_apply_pattern(t_format *s_format);
+
 /*
 ** Pattern functions
 ** init, free, use and modify t_format
@@ -155,11 +155,11 @@ void 				*get_u(va_list parans);
 void 				*get_x(va_list params);
 void 				*get_percent(va_list params);
 
-void 				init_apply_fct_tab(void);
-typedef t_bool		(t_apply_fct)(t_pattern*);
-t_apply_fct			*g_apply_fct[size];
+void 				init_convert_fct_tab(void);
+typedef t_bool		(t_convert_fct)(t_pattern*);
+t_apply_fct			*g_convert_fct[size];
 
-t_bool	pattern_apply(t_pattern *l_pattern);
+t_bool	pattern_convert(t_pattern *l_pattern);
 
 
 

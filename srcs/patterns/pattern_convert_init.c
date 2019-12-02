@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_apply_init.c                             .::    .:/ .      .::   */
+/*   pattern_convert_init.c                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/02 15:33:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:42:29 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/02 15:52:28 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/02 15:52:30 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void 	init_apply_fct_tab(void)
+void 	init_convert_fct_tab(void)
 {
-	g_apply_fct[_c] = apply_c;
-	g_apply_fct[_s] = apply_s;
-	g_apply_fct[_p] = apply_p;
-	g_apply_fct[_d] = apply_di;
-	g_apply_fct[_i] = apply_di;
-	g_apply_fct[_u] = apply_u;
-	g_apply_fct[_x] = apply_x;
-	g_apply_fct[_big_x] = apply_x;
-	g_apply_fct[_percent] = apply_percent;
+	g_convert_fct[_c] = convert_c;
+	g_convert_fct[_s] = convert_s;
+	g_convert_fct[_p] = convert_p;
+	g_convert_fct[_d] = convert_di;
+	g_convert_fct[_i] = convert_di;
+	g_convert_fct[_u] = convert_u;
+	g_convert_fct[_x] = convert_x;
+	g_convert_fct[_big_x] = convert_x;
+	g_convert_fct[_percent] = convert_percent;
 }
 
-t_bool 	pattern_apply(t_pattern *l_pattern)
+t_bool 	pattern_convert(t_pattern *l_pattern)
 {
-	t_apply_fct 	*fonc;
+	t_convert_fct 	*fonc;
 	size_t 			index;
 
-	init_apply_fct_tab();
+	init_convert_fct_tab();
 	index = ft_index(l_pattern->indicateur, INDICATORS);
-	fonc = g_apply_fct[index];
+	fonc = g_convert_fct[index];
 	if (!(l_pattern->result = fonc(l_pattern)))
 		return (false_ret(__func__));
 	return (True);

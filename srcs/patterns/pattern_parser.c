@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 10:05:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:47:23 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 15:50:10 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,5 @@ t_bool 	pattern_parser(t_pattern *l_pattern, va_list params)
 		pattern_add_flag(l_pattern, l_flag);
 		get_arg(l_pattern, params);
 	}
-	if (!(pattern_apply(l_pattern)))
-		return (false_ret(__func__));
 	return(True);
 }
