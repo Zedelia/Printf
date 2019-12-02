@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   pattern_convert_fct.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 19:16:57 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 20:15:43 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,21 +19,25 @@ t_bool apply_width_left(t_pattern *l_pattern)
 
 	int width;
 	int len;
-	int i;
 
-	width = *((int *)(l_pattern->l_flag->width));
-	i = width;
-	if (!(copy_width = malloc((char)*(&i + 1))))
+	width = *(int *)(l_pattern->l_flag->width);
+	if (!(copy_width = malloc(sizeof((char)*(&width + 1)))))
 		return (false_ret(__func__));
-	while (copy_width)
-		i++;
-	while ((len = ft_strlen(l_pattern->result) >= 0))
+	copy_width[width] = '\0';
+	width--;
+	len = ft_strlen(l_pattern->result) - 1;
+	while (len  >= 0)
 	{
-		copy_width[i] = l_pattern->result[len];
-		i--;
+		copy_width[width] = (l_pattern->result)[len];
+		width--;
 		len--;
 	}
-	l_pattern->result = copy_width;
+	while (width >= 0)
+	{	
+		copy_width[width] = ' ';
+		width--;
+	}
+	l_pattern->result = ft_strdup(copy_width);
 	return (True);
 }
 
@@ -43,6 +47,7 @@ t_bool  convert_di(t_pattern *l_pattern)
 	int 	width;
 	int precision;
 
+
 	if (l_pattern->l_flag->precision)
 		precision = *(int *)(l_pattern->l_flag->precision);
 	if (l_pattern->l_flag->width)
@@ -50,10 +55,12 @@ t_bool  convert_di(t_pattern *l_pattern)
 	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
 	if (!(l_pattern->l_flag))
 		return (True);
-	len = ft_strlen(l_pattern->result);
+	len = ft_strlen(l_pattern->varg);
 	if (width > len && width > precision && l_pattern->l_flag->flag_type == '-')
-		apply_width_left(l_pattern);
-
+	{
+		if (!(apply_width_left(l_pattern)))
+			return (false_ret(__func__));
+	}
 	return (True);
 }
 
