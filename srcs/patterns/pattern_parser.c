@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 10:05:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:50:10 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 18:36:01 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,13 +25,18 @@ t_bool 	pattern_parser(t_pattern *l_pattern, va_list params)
 	if (!(pattern_copy(l_pattern)))
 		return (false_ret(__func__));
 	l_pattern->len = ft_strlen(l_pattern->pattern_cpy);
-	get_arg(l_pattern, params);
+	if (is_indicator(l_pattern->pattern_cpy[0]) == True)
+	{
+		if (!(get_arg(l_pattern, params)))
+			return (false_ret(__func__));
+	}
 	if (is_indicator(l_pattern->pattern_cpy[0]) == False)
 	{
 		if (!(flag_init(&l_flag, l_pattern->pattern_cpy, params)))
 			return (false_ret(__func__));
 		pattern_add_flag(l_pattern, l_flag);
-		get_arg(l_pattern, params);
+		if (!(get_arg(l_pattern, params)))
+			return (false_ret(__func__));
 	}
 	return(True);
 }
