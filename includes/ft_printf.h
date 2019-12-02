@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.h                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:51:14 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 21:14:13 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -89,6 +89,10 @@ size_t		ft_index(char c, const char *charset);
 char		*convert_base_int_to_hex(unsigned int var);
 int			occurence_before(char c, char *charset, char before);
 int			occurence_after(char c, char *charset, char after);
+
+
+t_bool 	apply_flags(t_pattern *l_pattern);
+
 /*
 ** Format functions
 ** init, free, use and modify t_format
@@ -111,6 +115,7 @@ char	*convert_me(t_pattern *l_pattern);
 void 	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag);
 t_bool	pattern_copy(t_pattern *l_pattern);
 t_bool	pattern_check(t_pattern *l_pattern);
+t_bool  pattern_convert(t_pattern *l_pattern);
 /*
 ** Flags functions
 ** init, free, use and modify t_flags
@@ -157,10 +162,16 @@ void 				*get_percent(va_list params);
 
 void 				init_convert_fct_tab(void);
 typedef t_bool		(t_convert_fct)(t_pattern*);
-t_apply_fct			*g_convert_fct[size];
+t_convert_fct			*g_convert_fct[size];
 
 t_bool	pattern_convert(t_pattern *l_pattern);
-
+t_bool  convert_di(t_pattern *l_pattern);
+t_bool  convert_s(t_pattern *l_pattern);
+t_bool  convert_c(t_pattern *l_pattern);
+t_bool  convert_p(t_pattern *l_pattern);
+t_bool  convert_u(t_pattern *l_pattern);
+t_bool  convert_x(t_pattern *l_pattern);
+t_bool  convert_percent(t_pattern *l_pattern);
 
 
 int 	*get_width_preci(char *width_or_preci);

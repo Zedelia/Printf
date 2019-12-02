@@ -39,7 +39,9 @@ int main(void)
 	// char a = 'd';
 	// char a1 = 'e';
 	// char a2 = 's';
-	ft_printf("hello hey %3.5d %.6s  \n", 11, "123456");
+	ft_printf("hello hey %-10d   \n", 11);
+	printf("\n>> .%-10d.", 11);
+	printf("\n>> .%-5.4d.", 11);
 	// printf("%-2.d\n", 14);
 
 	return (0);

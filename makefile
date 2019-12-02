@@ -10,6 +10,7 @@ SRCS = ft_printf \
 	utils/get_arg_2 \
 	utils/get_arg_init \
 	utils/get_width_preci \
+	apply/apply_flags_di \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
@@ -22,6 +23,8 @@ SRCS = ft_printf \
 	patterns/pattern_errors_2 \
 	patterns/pattern_errors_init \
 	patterns/pattern_check \
+	patterns/pattern_convert_fct \
+	patterns/pattern_convert_init \
 	flags/flag_free \
 	flags/flag_init \
 	flags/flag_parser \
