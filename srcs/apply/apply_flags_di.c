@@ -6,14 +6,14 @@
 /*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 21:12:50 by melodiebos   #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 21:26:04 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 21:32:36 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool apply_width_tiret(char *copy_width, t_pattern *l_pattern)
+t_bool apply_flag_tiret(char *copy_width, t_pattern *l_pattern)
 {
 	int len ;
 	int width;
@@ -39,7 +39,7 @@ t_bool apply_width_tiret(char *copy_width, t_pattern *l_pattern)
 	return (True);
 }
 
-t_bool apply_width_zero(char *copy_width, t_pattern *l_pattern)
+t_bool apply_flag_zero(char *copy_width, t_pattern *l_pattern)
 {
 	int len ;
 	int width;
@@ -80,12 +80,12 @@ t_bool 	apply_flags(t_pattern *l_pattern)
 	copy_width[width] = '\0';
 	if (l_pattern->l_flag->flag_type == '0')
 	{
-		if (!(apply_width_zero(copy_width, l_pattern)))
+		if (!(apply_flag_zero(copy_width, l_pattern)))
 			return (false_ret(__func__));
 	}
 	if (l_pattern->l_flag->flag_type == '-')
 	{
-		if (!(apply_width_tiret(copy_width, l_pattern)))
+		if (!(apply_flag_tiret(copy_width, l_pattern)))
 			return (false_ret(__func__));
 	}
 	return (True);
