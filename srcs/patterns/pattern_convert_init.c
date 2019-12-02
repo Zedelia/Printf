@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:28 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:52:30 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 18:19:56 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ t_bool 	pattern_convert(t_pattern *l_pattern)
 	init_convert_fct_tab();
 	index = ft_index(l_pattern->indicateur, INDICATORS);
 	fonc = g_convert_fct[index];
-	if (!(l_pattern->result = fonc(l_pattern)))
+	if (!(fonc(l_pattern)))
 		return (false_ret(__func__));
 	return (True);
 }
