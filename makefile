@@ -11,8 +11,8 @@ SRCS = ft_printf \
 	utils/get_arg_init \
 	utils/get_width_preci \
 	apply/apply_flags_di \
-	apply/apply_flags_tiret_di \
-	apply/apply_flags_zero_di \
+	apply/apply_flags_di_tiret \
+	apply/apply_flags_di_zero \
 	format/format_init \
 	format/format_free \
 	format/format_parser \

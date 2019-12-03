@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   pattern_convert_fct.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
+/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 21:30:17 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 17:05:56 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,35 +15,25 @@
 
 t_bool  convert_di(t_pattern *l_pattern)
 {
-	int 	width;
-	int		precision;
-
-	precision = 0;
-	width = 0;
 	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
 	if (!(l_pattern->l_flag))
 		return (True);
-	if (l_pattern->l_flag->precision)
-		precision = *(int *)(l_pattern->l_flag->precision);
-	if (l_pattern->l_flag->width)
-		width = *(int *)(l_pattern->l_flag->width);
-	// 	if (!(apply_precision(l_pattern)))
-	// 		return (false_ret(__func__));
-	// 	return (True);
-
-	if (!(apply_flags(l_pattern)))
+	if (!(apply_flags_di(l_pattern)))
 		return (false_ret(__func__));
 	return (True);
 }
 
-t_bool  convert_s(t_pattern *l_pattern)
+t_bool  convert_c(t_pattern *l_pattern)
 {
-	if(l_pattern)
+	l_pattern->result = ((char *)l_pattern->varg);
+	if (!(l_pattern->l_flag))
 		return (True);
-	return (False);
+	// if (!(apply_flags_cs(l_pattern)))
+	// 	return (false_ret(__func__));
+	return (True);
 }
 
-t_bool  convert_c(t_pattern *l_pattern)
+t_bool  convert_s(t_pattern *l_pattern)
 {
 	if(l_pattern)
 		return (True);

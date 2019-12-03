@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 13:55:40 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 16:40:09 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,8 +27,6 @@ void format_add_pattern(t_format *s_format, t_pattern *l_pattern)
 	else
 		s_format->l_pattern = l_pattern;
 }
-
-
 
 t_bool	format_parser(t_format *s_format, char *format, va_list params)
 {

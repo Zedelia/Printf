@@ -6,14 +6,14 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:55:59 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:03:20 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 16:56:08 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool apply_flag_tiret(char *copy_result, t_pattern *l_pattern)
+t_bool apply_flag_di_tiret(char *copy_result, t_pattern *l_pattern)
 {
 	int len ;
 	int width;

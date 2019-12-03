@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 15:58:07 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 16:56:54 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -94,9 +94,9 @@ int			occurence_after(char c, char *charset, char after);
 ** Convert functions
 **
 */
-t_bool 	apply_flags(t_pattern *l_pattern);
-t_bool 	apply_flag_zero(t_pattern *l_pattern, char *copy_width);
-t_bool 	apply_flag_tiret(char *copy_width, t_pattern *l_pattern);
+t_bool 	apply_flags_di(t_pattern *l_pattern);
+t_bool 	apply_flag_di_zero(t_pattern *l_pattern, char *copy_width);
+t_bool 	apply_flag_di_tiret(char *copy_width, t_pattern *l_pattern);
 
 /*
 ** Format functions

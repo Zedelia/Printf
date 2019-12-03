@@ -6,14 +6,14 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 21:12:50 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:01:09 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 17:36:17 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-char  *create_result_str(t_pattern *l_pattern)
+static char  *create_result_str_di(t_pattern *l_pattern)
 {
 	int  width;
 	int precision;
@@ -38,19 +38,19 @@ char  *create_result_str(t_pattern *l_pattern)
 	return (copy_result);
 }
 
-t_bool 	apply_flags(t_pattern *l_pattern)
+t_bool 	apply_flags_di(t_pattern *l_pattern)
 {
 	char *copy_result;
 
-	copy_result = create_result_str(l_pattern);
+	copy_result = create_result_str_di(l_pattern);
 	if (l_pattern->l_flag->flag_type == '0')
 	{
-		if (!(apply_flag_zero(l_pattern, copy_result)))
+		if (!(apply_flag_di_zero(l_pattern, copy_result)))
 			return (false_ret(__func__));
 	}
 	if (l_pattern->l_flag->flag_type == '-')
 	{
-		if (!(apply_flag_tiret(copy_result, l_pattern)))
+		if (!(apply_flag_di_tiret(copy_result, l_pattern)))
 			return (false_ret(__func__));
 	}
 	ft_memdel((void**)&copy_result);
