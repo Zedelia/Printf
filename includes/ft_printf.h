@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.h                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
+/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 21:33:16 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 13:22:26 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,6 +55,7 @@ typedef struct s_flag t_flag;
 struct      s_format
 {
 	char*			format;
+	char* 			new_format;
 	t_pattern*		l_pattern;
 };
 
@@ -63,7 +64,6 @@ struct      s_pattern
 	char			*p_pattern;
 	char			*pattern_cpy;
 	char			*result;
-// repasser en void*
 	void		 	*varg;
 	char			indicateur;
 	int				len;
@@ -92,7 +92,7 @@ int			occurence_after(char c, char *charset, char after);
 
 /*
 ** Convert functions
-** 
+**
 */
 t_bool 	apply_flags(t_pattern *l_pattern);
 t_bool 	apply_flag_zero(char *copy_width, t_pattern *l_pattern);
@@ -106,7 +106,7 @@ t_bool	format_init(t_format **s_format, const char *format, va_list params);
 void 	format_free(t_format **s_format);
 t_bool	format_parser(t_format *s_format, char *format, va_list params);
 void 	format_add_pattern(t_format *s_format, t_pattern *l_pattern);
-
+t_bool	format_replace_pattern(t_format *s_format);
 /*
 ** Pattern functions
 ** init, free, use and modify t_format

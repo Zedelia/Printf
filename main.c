@@ -36,10 +36,13 @@ int test_char(int n, ...)
 
 int main(void)
 {
-	// char a = 'd';
-	// char a1 = 'e';
-	// char a2 = 's';
-	ft_printf("hello hey %-10d   \n", 11);
+	// TEST INT
+
+	ft_printf("Int :\n[%-10d]\n[%010d]\n[%-10.5d]\n[%-10.15d]\n",
+			12, 12, 12, 12);
+	// ft_printf("Int :\n[%-10d]\n[%010d]\n[%-10.5d]\n[%-10.15d]",
+	// 		1234567890, 1234567890, 1234567890, 1234567890);
+	printf("\n>> .%-10d.", 11);
 	printf("\n>> .%-10d.", 11);
 	printf("\n>> .%-5.4d.", 11);
 	// printf("%-2.d\n", 14);
