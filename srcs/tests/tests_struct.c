@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   tests_struct.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
+/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 13:16:30 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 21:28:48 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 12:14:29 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,6 +45,8 @@ void 	show_one_pattern(t_pattern *l_pattern)
 			printf("result : [%s]\n", l_pattern->result);
 		if (l_pattern->varg)
 			show_varg(l_pattern);
+		if (l_pattern->len)
+			printf("pattern_len : [%d]\n", l_pattern->len);
 		if (l_pattern->indicateur)
 			printf("indicateur : %c\n", l_pattern->indicateur);
 		if (l_pattern->l_flag)

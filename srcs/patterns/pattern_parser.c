@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 10:05:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 18:36:01 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 12:16:44 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ t_bool 	pattern_parser(t_pattern *l_pattern, va_list params)
 
 	if (!(pattern_copy(l_pattern)))
 		return (false_ret(__func__));
-	l_pattern->len = ft_strlen(l_pattern->pattern_cpy);
+	l_pattern->len = ft_strlen(l_pattern->pattern_cpy) + 1;
 	if (is_indicator(l_pattern->pattern_cpy[0]) == True)
 	{
 		if (!(get_arg(l_pattern, params)))
