@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 14:11:12 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 14:00:41 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 14:03:29 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ t_bool	format_replace_pattern(t_format *s_format)
 	{
 		i = 0;
 		while (format_tmp[i++] != '%')
-		if (!(format_start = ft_strndup(format_tmp, i - 1)))
+		if (!(format_start = ft_strndup(format_tmp, i)))
 			return (false_ret(__func__));
 		ft_memdel((void **)&format_tmp);
 		if (!(format_tmp = ft_strjoin(format_start, temp->p_pattern)))
