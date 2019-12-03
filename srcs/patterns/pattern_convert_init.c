@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   pattern_convert_init.c                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodiebos <melodiebos@student.le-101.f    +:+   +:    +:    +:+     */
+/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:28 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 19:50:33 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 13:42:41 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,9 @@ t_bool 	pattern_convert(t_pattern *l_pattern)
 	index = ft_index(l_pattern->indicateur, INDICATORS);
 	fonc = g_convert_fct[index];
 	if (!(fonc(l_pattern)))
+		return (false_ret(__func__));
+	if (!(l_pattern->p_pattern = ft_strjoin((const char*)l_pattern->result,
+			l_pattern->p_pattern + l_pattern->len)))
 		return (false_ret(__func__));
 	return (True);
 }
