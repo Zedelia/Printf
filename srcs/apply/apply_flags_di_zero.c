@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_zero_di.c                            .::    .:/ .      .::   */
+/*   apply_flags_di_zero.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:57:33 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:56:20 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 12:41:58 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -71,10 +71,8 @@ t_bool apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result)
 	int width;
     int preci;
 
-    preci = 0;
-	width = *(int *)(l_pattern->l_flag->width);
-    if (l_pattern->l_flag->precision)
-		preci = *(int *)(l_pattern->l_flag->precision);
+	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
 	if (preci > width)
 		cpy_result = flag_zero_di_case1(l_pattern, preci, cpy_result);
 	else if (preci == 0)

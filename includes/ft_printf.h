@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:24:36 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:54:30 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -99,7 +99,7 @@ t_bool 	apply_flag_di_zero(t_pattern *l_pattern, char *copy_width);
 t_bool 	apply_flag_di_tiret(char *copy_width, t_pattern *l_pattern);
 t_bool	apply_flags_cs(t_pattern *l_pattern);
 t_bool 	apply_flag_cs_tiret(t_pattern *l_pattern, char *copy_result);
-
+t_bool 	apply_flag_cs_none(t_pattern *l_pattern, char *copy_result);
 /*
 ** Format functions
 ** init, free, use and modify t_format

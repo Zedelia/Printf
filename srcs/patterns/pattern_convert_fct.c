@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:04:56 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 12:38:41 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,9 +36,14 @@ t_bool  convert_c(t_pattern *l_pattern)
 
 t_bool  convert_s(t_pattern *l_pattern)
 {
-	if(l_pattern)
+	if (!(l_pattern->result = ft_strdup(((char *)l_pattern->varg))))
+			return (false_ret(__func__));
+	if (!(l_pattern->l_flag))
 		return (True);
-	return (False);
+
+	if (!(apply_flags_cs(l_pattern)))
+		return (false_ret(__func__));
+	return (True);
 }
 
 t_bool  convert_p(t_pattern *l_pattern)

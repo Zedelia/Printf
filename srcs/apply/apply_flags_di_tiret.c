@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_tiret_di.c                           .::    .:/ .      .::   */
+/*   apply_flags_di_tiret.c                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:55:59 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:56:08 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 12:41:30 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,11 +23,9 @@ t_bool apply_flag_di_tiret(char *copy_result, t_pattern *l_pattern)
 
 	i = 0;
     j = 0;
-    precision = 0;
 	len = ft_strlen(l_pattern->result);
-	width = *(int *)(l_pattern->l_flag->width);
-    if (l_pattern->l_flag->precision)
-		precision = *(int *)(l_pattern->l_flag->precision);
+	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+    precision = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
 	while (i < precision - len)
 		copy_result[i++] = '0';
 	while ((l_pattern->result)[j])

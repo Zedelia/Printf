@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 21:12:50 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 17:36:17 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 12:42:06 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,10 +19,8 @@ static char  *create_result_str_di(t_pattern *l_pattern)
 	int precision;
 	char *copy_result;
 
-	precision = 0;
-	if (l_pattern->l_flag->precision)
-		precision = *(int *)(l_pattern->l_flag->precision);
-	width = *(int *)(l_pattern->l_flag->width);
+	precision = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
 	if (precision > width)
 	{
 		if (!(copy_result = malloc(sizeof(char)*(precision))))
