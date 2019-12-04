@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 18:34:56 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:06:14 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,9 +31,10 @@ void 	*get_c(va_list params)
 	char 		var;
 
 	var = va_arg(params, int);
-	if (!(p_c = malloc(sizeof(char))))
+	if (!(p_c = malloc(sizeof(char) * 2)))
 		return (NULL);
-	*p_c = var;
+	p_c[0] = var;
+	p_c[1] = '\0';
 	return ((void *)p_c);
 }
 

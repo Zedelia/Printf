@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   format_apply_pattern.c                           .::    .:/ .      .::   */
+/*   format_replace_pattern.c                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 14:11:12 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 14:05:27 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 10:57:36 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,10 +15,10 @@
 
 t_bool	format_replace_pattern(t_format *s_format)
 {
-	t_pattern *temp;
-	char 	*format_tmp;
-	char    *format_start;
-	int i;
+	t_pattern	*temp;
+	char		*format_tmp;
+	char		*format_start;
+	int 		i;
 
 	if (!(format_tmp = ft_strdup(s_format->format)))
 		return (false_ret(__func__));

@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 17:05:56 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:04:56 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,11 +25,12 @@ t_bool  convert_di(t_pattern *l_pattern)
 
 t_bool  convert_c(t_pattern *l_pattern)
 {
-	l_pattern->result = ((char *)l_pattern->varg);
+	if (!(l_pattern->result = ft_strdup(((char *)l_pattern->varg))))
+			return (false_ret(__func__));
 	if (!(l_pattern->l_flag))
 		return (True);
-	// if (!(apply_flags_cs(l_pattern)))
-	// 	return (false_ret(__func__));
+	if (!(apply_flags_cs(l_pattern)))
+		return (false_ret(__func__));
 	return (True);
 }
 

@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 17:03:54 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 18:27:23 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 10:54:10 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,7 +36,7 @@ char 	*flag_cs_tiret_case1(t_pattern *l_pattern, char *copy_result)
 	return (copy_result);
 }
 
-char 	*flag_cs_tiret_case2(l_pattern, copy_result)
+// char 	*flag_cs_tiret_case2(l_pattern, copy_result)
 
 t_bool 		apply_flag_cs_tiret(t_pattern *l_pattern, char *copy_result)
 {
