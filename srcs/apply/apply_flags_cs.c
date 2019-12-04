@@ -6,14 +6,14 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 17:03:54 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 10:54:10 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:47:11 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-char 	*flag_cs_tiret_case1(t_pattern *l_pattern, char *copy_result)
+static char 	*flag_cs_none_case1(t_pattern *l_pattern, char *copy_result)
 {
 	int width;
 	int preci;
@@ -21,57 +21,72 @@ char 	*flag_cs_tiret_case1(t_pattern *l_pattern, char *copy_result)
 
 	i = 0;
 	width = *(int *)(l_pattern->l_flag->width);
-	precision = *(int*)(l_pattern->l_flag->precision);
-	while (precision && l_pattern->result[i])
+	preci = *(int *)(l_pattern->l_flag->precision);
+	while (preci)
 	{
-		copy_result[i] = l_pattern->result[i++];
-		width--;
-		precision--;
-	}
-	while (width)
-	{
-		copy_result[i] = ' ';
-		width--;
+		copy_result[i] = l_pattern->result[i];
+		i++;
+		preci--;
 	}
 	return (copy_result);
 }
 
-// char 	*flag_cs_tiret_case2(l_pattern, copy_result)
 
-t_bool 		apply_flag_cs_tiret(t_pattern *l_pattern, char *copy_result)
+static char 	*flag_cs_none_case2(t_pattern *l_pattern, char *copy_result)
 {
-	int len ;
+	int width;
+	int preci;
+	int i;
 
-    if (l_pattern->l_flag->precision)
-		copy_result = flag_cs_tiret_case1(l_pattern, copy_result);
-	else
-		copy_result = flag_cs_tiret_case2(l_pattern, copy_result)
+	i = 0;
+	preci = 0;
+	width = *(int *)(l_pattern->l_flag->width);
+	if (l_pattern->l_flag->precision)
+		preci = *(int *)(l_pattern->l_flag->precision);
+	while (width - preci > 0)
 	{
-		while (l_pattern->result[i])
-		{
-			copy_result[i] = l_pattern->result[i++];
-			width--;
-		}
+		copy_result[i++] = ' ';
+		width--;
 	}
-	while (width)
-		copy_result[i] = ' ';
-	if (!(l_pattern->result = ft_strdup(copy_result)))
-		return (false_ret(__func__));
+	while (preci)
+	{
+		copy_result[i] = l_pattern->result[i];
+		i++;
+		preci--;
+	}
+	return (copy_result);
 }
+
 
 t_bool 		apply_flag_cs_none(t_pattern *l_pattern, char *copy_result)
 {
+	int width;
+	int preci;
+	int i;
 
+	i = 0;
+	preci = 0;
+	width = *(int *)(l_pattern->l_flag->width);
+	if (l_pattern->l_flag->precision)
+		preci = *(int *)(l_pattern->l_flag->precision);
+	if (preci > width)
+		copy_result = flag_cs_none_case1(l_pattern, copy_result);
+	else
+		copy_result = flag_cs_none_case2(l_pattern, copy_result);
+
+	if (!(l_pattern->result = ft_strdup(copy_result)))
+		return (false_ret(__func__));
+	return (True);
 }
 
-static char 	*create_result_str_sc(t_pattern *l_pattern)
+char 	*create_result_str_sc(t_pattern *l_pattern, char *copy_result)
 {
-	int with;
+	int width;
 	int preci;
 	int len;
 	int size ;
 
-	precision = 0;
+	preci = 0;
 	len = ft_strlen(l_pattern->result);
 	width = *(int *)(l_pattern->l_flag->width);
 	if (l_pattern->l_flag->precision)
@@ -94,17 +109,18 @@ t_bool 	apply_flags_cs(t_pattern *l_pattern)
 {
 	char *copy_result;
 
-	copy_result = create_result_str_sc(l_pattern);
-	if (l_pattern->l_flag->flag_type = '-')
+	copy_result = NULL;
+	copy_result = create_result_str_sc(l_pattern, copy_result);
+	if (l_pattern->l_flag->flag_type == '-')
 	{
 		if (!(apply_flag_cs_tiret(l_pattern, copy_result)))
 			return (false_ret(__func__));
 	}
-	else
-	{
-		if (!(apply_flag_cs_none(l_pattern, copy_result)))
-			return (false_ret(__func__));
-	}
-	t_memdel((void**)&copy_result);
+	// else
+	// {
+	// 	if (!(apply_flag_cs_none(l_pattern, copy_result)))
+	// 		return (false_ret(__func__));
+	// }
+	ft_memdel((void**)&copy_result);
 	return (True);
 }

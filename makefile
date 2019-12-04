@@ -13,6 +13,8 @@ SRCS = ft_printf \
 	apply/apply_flags_di \
 	apply/apply_flags_di_tiret \
 	apply/apply_flags_di_zero \
+	apply/apply_flags_cs \
+	apply/apply_flags_cs_tiret \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
