@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:57:33 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 12:41:58 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 23:46:41 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,9 +18,14 @@ char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
 	int len;
 
 	len = ft_strlen(l_pattern->result);
-	while (len  >= 0)
+	if (ft_atoi(l_pattern->result) < 0)
+	{
+		cpy_result[0] = '-';
+		len--;
+	}
+	while (len > 0)
 		cpy_result[preci--] = (l_pattern->result)[len--];
-	while (preci >= 0 )
+	while (preci > 0 )
 		cpy_result[preci--] = '0';
 	return (cpy_result);
 }
@@ -30,9 +35,15 @@ char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
 	int len;
 
 	len = ft_strlen(l_pattern->result);
-	while (len >= 0)
+	if (ft_atoi(l_pattern->result) < 0)
+	{
+		cpy_result[0] = '-';
+		width--;
+		len--;
+	}
+	while (len > 0)
 		cpy_result[width--] = (l_pattern->result)[len--];
-	while (width >= 0)
+	while (width > 0)
 		cpy_result[width--] = '0';
 	return (cpy_result);
 }
@@ -42,23 +53,27 @@ char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_
 	int len;
 
 	len = ft_strlen(l_pattern->result);
-	while (len >= 0)
+	while (len > 0)
 	{
 		cpy_result[width--] = (l_pattern->result)[len--];
 		preci--;
 	}
 	if (preci == 0)
 	{
-		while (width >= 0)
+		cpy_result[width] = ft_atoi(l_pattern->result) < 0 ? '-' : '0';
+		width = ft_atoi(l_pattern->result) < 0 ? width - 1 : width;
+		while (width > 0)
 			cpy_result[width--] = ' ';
 	}
 	else
 	{
-		while (preci > 0)
+		while (preci >= 0)
 		{
 			cpy_result[width--] = '0';
 			preci--;
 		}
+		cpy_result[width] = ft_atoi(l_pattern->result) < 0 ? '-' : '0';
+		width = ft_atoi(l_pattern->result) < 0 ? width - 1 : width;
 		while (width >= 0)
 			cpy_result[width--] = ' ';
 	}

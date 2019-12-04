@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 21:12:50 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 18:59:27 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 23:08:14 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,7 +39,11 @@ static char  *create_result_str_di(t_pattern *l_pattern)
 t_bool 	apply_flags_di(t_pattern *l_pattern)
 {
 	char *copy_result;
+	int width;
+    int precision;
 
+	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	precision = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
 	copy_result = create_result_str_di(l_pattern);
 	if (l_pattern->l_flag->flag_type == '0' || l_pattern->l_flag->flag_type == 'N')
 	{
@@ -48,7 +52,7 @@ t_bool 	apply_flags_di(t_pattern *l_pattern)
 	}
 	if (l_pattern->l_flag->flag_type == '-')
 	{
-		if (!(apply_flag_di_tiret(copy_result, l_pattern)))
+		if (!(apply_flag_di_tiret(copy_result, l_pattern, precision, width)))
 			return (false_ret(__func__));
 	}
 	ft_memdel((void**)&copy_result);

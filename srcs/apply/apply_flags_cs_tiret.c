@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:23:03 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 12:41:43 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 22:43:52 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,7 @@ static char 	*flag_cs_tiret_case2(t_pattern *l_pattern, char* copy_result)
 		i++;
 		width--;
 	}
-	while (width && copy_result[i])
+	while (width > 0 && copy_result[i])
 	{
 		copy_result[i] = ' ';
 		i++;

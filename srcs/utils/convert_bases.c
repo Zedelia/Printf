@@ -6,12 +6,14 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 11:56:09 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 16:08:48 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 00:01:12 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+
+// ne marche pas du tout a revoir
 
 char	*convert_base_int_to_hex(unsigned int var)
 {

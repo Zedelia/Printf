@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:08 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 19:00:00 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 22:27:58 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,6 +20,11 @@ int		ft_printf(const char *s, ...)
 
 	init_get_fct_tab();
 	va_start(params, s);
+	if (!ft_isincharset('%', s))
+	{
+		write(1, s, ft_strlen(s));
+		return(0);
+	}
 	if (!(format_init(&s_format, s, params)))
 		return (-1);
 	write(1, s_format->new_format, ft_strlen(s_format->new_format));

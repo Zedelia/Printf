@@ -85,7 +85,7 @@ clean:
 	rm -f ${OBJ}
 
 clean_test: clean
-	rm -f input_test input_test.c int_test int_test.c int_test.test simple_test simple_test.c
+	rm -f *_test_ *_test_.c
 
 
 run: ./${NAME}
