@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 21:12:50 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 18:33:42 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 18:59:27 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,7 +41,7 @@ t_bool 	apply_flags_di(t_pattern *l_pattern)
 	char *copy_result;
 
 	copy_result = create_result_str_di(l_pattern);
-	if (l_pattern->l_flag->flag_type == '0')
+	if (l_pattern->l_flag->flag_type == '0' || l_pattern->l_flag->flag_type == 'N')
 	{
 		if (!(apply_flag_di_zero(l_pattern, copy_result)))
 			return (false_ret(__func__));

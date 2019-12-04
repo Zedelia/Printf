@@ -5,9 +5,9 @@ import sys
 
 UNITTEST = {
     # nom du fichier : [format , value1, value2, ... ],
-    # "simple_test": ["simple"],
-    "int_test": ["%.10d : big brother is watching you", 1984],
-	"string_test": ["%s", "qwerty"]
+     "simple_test": ["simple"],
+    "int_test": ["Int :\n[%-10d]\n[%.10d]\n[%-10.5d]\n[%-10.15d]\n[%010d]\n[%010.5d]\n[%010.15d]", 12, 12, 12, 12, 12, 12, 12],
+    "string_test": ["%s %s", "qwerty", "coucou"]
 }
 
 
@@ -64,6 +64,7 @@ def compare(exec, repr_args):
     if not diff:
         print("\x1b[31mUnit Error: {} \033[0;37m".format(exec))
     else:
+        print("\x1b[32mPassed Test: {} \033[0;37m".format(exec))
         os.system("rm {exec} {exec}.test {exec}.c 2>&-".format(exec=exec))
 
 
