@@ -84,10 +84,14 @@ clean:
 	make clean -C libft
 	rm -f ${OBJ}
 
+clean_test: clean
+	rm -f input_test input_test.c int_test int_test.c int_test.test simple_test simple_test.c
+
+
 run: ./${NAME}
 	./${NAME} ${ARGS}
 
-fclean: clean
+fclean: clean clean_test
 	make fclean -C libft
 	rm -f ${NAME} gnl.a Icon srcs/Icon srcs/get_next_line.h.gch
 	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)"
