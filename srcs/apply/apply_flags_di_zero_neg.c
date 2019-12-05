@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/05 09:38:19 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 17:23:27 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 19:13:47 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,16 +36,17 @@ static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_resu
 		width = len;
 	while (len > 0)
 		cpy_result[width--] = (l_pattern->result)[len--];
-	cpy_result[width--] = '-';
 	if (l_pattern->l_flag->flag_type == 'N')
 	{
+		cpy_result[width--] = '-';
 		while (width >= 0)
 			cpy_result[width--] = ' ';
 	}
 	else if (l_pattern->l_flag->flag_type == '0')
 	{
-		while (width >= 0)
+		while (width > 0)
 			cpy_result[width--] = '0';
+		cpy_result[width--] = '-';
 	}
 	return (cpy_result);
 }
@@ -56,9 +57,9 @@ static char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, cha
 	int len;
 
 	len = ft_strlen(l_pattern->result) - 1;
-	if (preci > len)
+	width = (width > len) ? width - 1 : width;
 	{
-		while (preci > 0)
+		while (len > 0)
 		{
 			cpy_result[width--] = (l_pattern->result)[len--];
 			preci--;
@@ -69,14 +70,10 @@ static char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, cha
 			preci--;
 		}
 	}
-	while (len)
+	while (len >= 0)
 		cpy_result[width--] = (l_pattern->result)[len--];
-	if (width >= 0)
-	{
-		cpy_result[width--] = '-' ;
-		while (width >= 0)
+	while (width >= 0)
 			cpy_result[width--] = ' ';
-	}
 	return (cpy_result);
 }
 

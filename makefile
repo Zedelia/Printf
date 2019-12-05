@@ -87,7 +87,7 @@ clean:
 	rm -f ${OBJ}
 
 clean_test: clean
-	rm -f *_test *_test.c *_test.test
+	rm -f *_test *_test.c *_test.test one two
 	rm -rf *.dSYM
 
 run: ./${NAME}
