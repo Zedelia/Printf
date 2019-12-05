@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_di_zero.c                            .::    .:/ .      .::   */
+/*   apply_flags_di_zero_neg.c                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/03 15:57:33 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 12:41:58 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/05 09:38:19 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/05 09:50:20 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,9 +18,11 @@ char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
 	int len;
 
 	len = ft_strlen(l_pattern->result);
-	while (len  >= 0)
+	cpy_result[0] = '-';
+	len--;
+	while (len > 0)
 		cpy_result[preci--] = (l_pattern->result)[len--];
-	while (preci >= 0 )
+	while (preci > 0 )
 		cpy_result[preci--] = '0';
 	return (cpy_result);
 }
@@ -30,9 +32,12 @@ char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
 	int len;
 
 	len = ft_strlen(l_pattern->result);
-	while (len >= 0)
+	cpy_result[0] = '-';
+	width--;
+	len--;
+	while (len > 0)
 		cpy_result[width--] = (l_pattern->result)[len--];
-	while (width >= 0)
+	while (width > 0)
 		cpy_result[width--] = '0';
 	return (cpy_result);
 }
@@ -42,31 +47,24 @@ char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_
 	int len;
 
 	len = ft_strlen(l_pattern->result);
-	while (len >= 0)
+	while (len > 0)
 	{
 		cpy_result[width--] = (l_pattern->result)[len--];
 		preci--;
 	}
-	if (preci == 0)
+	while (preci >= 0)
 	{
-		while (width >= 0)
-			cpy_result[width--] = ' ';
+		cpy_result[width--] = '0';
+		preci--;
 	}
-	else
-	{
-		while (preci > 0)
-		{
-			cpy_result[width--] = '0';
-			preci--;
-		}
-		while (width >= 0)
-			cpy_result[width--] = ' ';
-	}
-
+	cpy_result[width] = '-' ;
+	width--;
+	while (width >= 0)
+		cpy_result[width--] = ' ';
 	return (cpy_result);
 }
 
-t_bool apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result)
+t_bool apply_flag_di_zero_neg(t_pattern *l_pattern, char *cpy_result)
 {
 	int width;
     int preci;

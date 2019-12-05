@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 21:12:50 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 18:59:27 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 09:52:10 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,25 +15,38 @@
 
 static char  *create_result_str_di(t_pattern *l_pattern)
 {
-	int  width;
-	int precision;
-	char *copy_result;
+	int  	width;
+	int 	precision;
+	char 	*copy_result;
+	int len;
 
+	copy_result = NULL;
+	len = ft_strlen(l_pattern->result);
 	precision = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
 	if (precision > width)
 	{
-		if (!(copy_result = malloc(sizeof(char)*(precision + 1))))
-			return (NULL);
-		copy_result[precision] = '\0';
+		precision = (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u') ? precision + 1 : precision;
+		copy_result = create_malloc(copy_result, precision);
+	}
+	else
+		copy_result = create_malloc(copy_result, width);
+	return (copy_result);
+}
+
+static t_bool	apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result)
+{
+	if (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u')
+	{
+		if (!(apply_flag_di_zero_neg(l_pattern, cpy_result)))
+			return (false_ret(__func__));
 	}
 	else
 	{
-		if (!(copy_result = malloc(sizeof(char)*(width + 1))))
-			return (NULL);
-		copy_result[width] = '\0';
+		if (!(apply_flag_di_zero_pos(l_pattern, cpy_result)))
+			return (false_ret(__func__));
 	}
-	return (copy_result);
+	return (True);
 }
 
 t_bool 	apply_flags_di(t_pattern *l_pattern)

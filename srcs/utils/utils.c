@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 11:40:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 16:09:04 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 09:03:23 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,4 +80,12 @@ int		occurence_after(char c, char *charset, char after)
 		i++;
 	}
 	return (ocur);
+}
+
+char 	*create_malloc(char *copy_result, int len)
+{
+	if (!(copy_result = malloc(sizeof(char)*(len + 1))))
+		return (NULL);
+	copy_result[len] = '\0';
+	return (copy_result);
 }

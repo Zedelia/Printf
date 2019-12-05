@@ -6,7 +6,8 @@ import sys
 UNITTEST = {
     # nom du fichier : [format , value1, value2, ... ],
      "simple_test": ["simple"],
-    "int_test": ["Int :\n[%-10d]\n[%.10d]\n[%-10.5d]\n[%-10.15d]\n[%010d]\n[%010.5d]\n[%010.15d]", 12, 12, 12, 12, 12, 12, 12],
+    "int_test": ["[%-10d] [%.10d] [%-10.5d] [%-10.15d] [%010d] [%010.5d] [%010.15d]", 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647],
+    "int_neg_test": ["[%-10d] [%.10d] [%-10.5d] [%-10.15d] [%010d] [%010.5d] [%010.15d]", -12, -12, -12, -12, -12, -12, -12],
     "string_test": ["%s %s", "qwerty", "coucou"]
 }
 
@@ -62,9 +63,11 @@ def compare(exec, repr_args):
     diff = open("one").read() == open("two").read()
     os.system("rm one two")
     if not diff:
-        print("\x1b[31mUnit Error: {} \033[0;37m".format(exec))
+        print("\x1b[31mUnit Error [FAIL]: {} \033[0;37m".format(exec))
+        os.system("cat {}.test".format(exec))
+        print("")
     else:
-        print("\x1b[32mPassed Test: {} \033[0;37m".format(exec))
+        print("\x1b[32mPassed Test [OK]: {} \033[0;37m".format(exec))
         os.system("rm {exec} {exec}.test {exec}.c 2>&-".format(exec=exec))
 
 

@@ -12,7 +12,8 @@ SRCS = ft_printf \
 	utils/get_width_preci \
 	apply/apply_flags_di \
 	apply/apply_flags_di_tiret \
-	apply/apply_flags_di_zero \
+	apply/apply_flags_di_zero_pos \
+	apply/apply_flags_di_zero_neg \
 	apply/apply_flags_cs \
 	apply/apply_flags_cs_tiret \
 	apply/apply_flags_cs_none \
@@ -85,8 +86,8 @@ clean:
 	rm -f ${OBJ}
 
 clean_test: clean
-	rm -f input_test input_test.c int_test int_test.c int_test.test simple_test simple_test.c
-
+	rm -f *_test *_test.c *_test.test
+	rm -rf *.dSYM
 
 run: ./${NAME}
 	./${NAME} ${ARGS}
