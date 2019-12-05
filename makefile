@@ -5,6 +5,7 @@ INCLUDES = ft_printf
 SRCS = ft_printf \
 	utils/utils \
 	utils/convert_bases \
+	utils/convert_di_check \
 	utils/get_indicator \
 	utils/get_arg_1 \
 	utils/get_arg_2 \

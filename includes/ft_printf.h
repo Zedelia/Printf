@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 09:41:05 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 14:24:34 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -90,6 +90,9 @@ char		*convert_base_int_to_hex(unsigned int var);
 int			occurence_before(char c, char *charset, char before);
 int			occurence_after(char c, char *charset, char after);
 char 	*create_malloc(char *copy_result, int len);
+t_bool	convert_di_check(t_pattern *l_pattern);
+
+
 /*
 ** Convert functions
 **
@@ -134,7 +137,6 @@ t_bool 	flag_parser(t_flag *l_flag, char *flags, va_list params);
 void 	flag_free(t_flag **l_flag);
 t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
 t_bool	flag_precision(t_flag *l_flag, char *precision, va_list params);
-
 // void 	flag_free_one(t_flag **l_flag);
 
 
@@ -165,7 +167,6 @@ void				*get_c(va_list params);
 void 				*get_s(va_list params);
 void	 			*get_p(va_list params);
 void 				*get_di(va_list params);
-void 				*get_u(va_list parans);
 void 				*get_x(va_list params);
 void 				*get_percent(va_list params);
 

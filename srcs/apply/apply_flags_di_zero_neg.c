@@ -6,14 +6,14 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/05 09:38:19 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 09:50:20 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 11:10:13 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
+static char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
 {
 	int len;
 
@@ -27,11 +27,12 @@ char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
 	return (cpy_result);
 }
 
-char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
+static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
 {
 	int len;
 
 	len = ft_strlen(l_pattern->result);
+	if (width > len)
 	cpy_result[0] = '-';
 	width--;
 	len--;
@@ -42,7 +43,8 @@ char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
 	return (cpy_result);
 }
 
-char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_result)
+
+static char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_result)
 {
 	int len;
 
