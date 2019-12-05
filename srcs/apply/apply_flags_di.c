@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 21:12:50 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 14:50:50 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 17:00:35 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,15 +24,17 @@ static char  *create_result_str_di(t_pattern *l_pattern)
 	len = ft_strlen(l_pattern->result);
 	precision = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	if (precision > width)
+	if (precision > width && precision > len)
 	{
 		precision = (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u') ? precision + 1 : precision;
 		copy_result = create_malloc(copy_result, precision);
 	}
 	else if (width == 0 && precision == 0)
-		copy_result = create_malloc(copy_result, len + 1);
-	else
+		copy_result = create_malloc(copy_result, len);
+	else if (width > len)
 		copy_result = create_malloc(copy_result, width);
+	else
+		copy_result = create_malloc(copy_result, len);
 	return (copy_result);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 14:24:34 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 16:01:03 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,9 @@
 # include <string.h>
 # include <ctype.h>
 # include <stdarg.h>
+# include <limits.h>
 # include "../libft/includes/libft.h"
+
 
 
 #define RED     "\x1b[31m"
@@ -89,10 +91,10 @@ size_t		ft_index(char c, const char *charset);
 char		*convert_base_int_to_hex(unsigned int var);
 int			occurence_before(char c, char *charset, char before);
 int			occurence_after(char c, char *charset, char after);
-char 	*create_malloc(char *copy_result, int len);
-t_bool	convert_di_check(t_pattern *l_pattern);
-
-
+char 		*create_malloc(char *copy_result, int len);
+t_bool		convert_di_check(t_pattern *l_pattern);
+char		*convert_base_int_to_unsigned(int temp);
+char		*ft_utoa(unsigned int nbr);
 /*
 ** Convert functions
 **
