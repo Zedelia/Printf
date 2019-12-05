@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/05 09:38:19 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 11:10:13 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 15:12:42 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,10 +32,9 @@ static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_resu
 	int len;
 
 	len = ft_strlen(l_pattern->result);
-	if (width > len)
+	width = (width > len) ? width : len;
 	cpy_result[0] = '-';
-	width--;
-	len--;
+	width = (width > len) ? width : width--;
 	while (len > 0)
 		cpy_result[width--] = (l_pattern->result)[len--];
 	while (width > 0)

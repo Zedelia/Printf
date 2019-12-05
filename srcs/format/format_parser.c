@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 14:34:17 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 15:11:22 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,6 +53,6 @@ t_bool	format_parser(t_format *s_format, char *format, va_list params)
 			return (false_ret(__func__));
 	}
 	//ca ce sont des tests : a supprimer-----
-	show_format(s_format);
+	// show_format(s_format);
 	return (True);
 }
