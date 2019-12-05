@@ -5,6 +5,7 @@ INCLUDES = ft_printf
 SRCS = ft_printf \
 	utils/utils \
 	utils/convert_bases \
+	utils/convert_di_check \
 	utils/get_indicator \
 	utils/get_arg_1 \
 	utils/get_arg_2 \
@@ -12,7 +13,8 @@ SRCS = ft_printf \
 	utils/get_width_preci \
 	apply/apply_flags_di \
 	apply/apply_flags_di_tiret \
-	apply/apply_flags_di_zero \
+	apply/apply_flags_di_zero_pos \
+	apply/apply_flags_di_zero_neg \
 	apply/apply_flags_cs \
 	apply/apply_flags_cs_tiret \
 	apply/apply_flags_cs_none \
@@ -85,8 +87,13 @@ clean:
 	rm -f ${OBJ}
 
 clean_test: clean
+<<<<<<< HEAD
 	rm -f *_test_ *_test_.c
 
+=======
+	rm -f *_test *_test.c *_test.test one two
+	rm -rf *.dSYM
+>>>>>>> temp-branch
 
 run: ./${NAME}
 	./${NAME} ${ARGS}

@@ -6,7 +6,11 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:34 by mbos         #+#   ##    ##    #+#       */
+<<<<<<< HEAD
 /*   Updated: 2019/12/04 22:47:39 by melodiebos  ###    #+. /#+    ###.fr     */
+=======
+/*   Updated: 2019/12/05 10:01:43 by melodiebos  ###    #+. /#+    ###.fr     */
+>>>>>>> temp-branch
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,11 +29,12 @@ void 	*get_u(va_list params)
     *p_int = var;
 	return ((void *)p_int);
 }
+<<<<<<< HEAD
 void 	*get_p(va_list params)
 {
 	char		*p_p = NULL;
 	(void)params;
+=======
+>>>>>>> temp-branch
 
-	return ((void *)p_p);
-}
 //--------------------------------------------------

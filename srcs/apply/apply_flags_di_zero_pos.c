@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_di_zero.c                            .::    .:/ .      .::   */
+/*   apply_flags_di_zero_pos.c                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:57:33 by melodieb     #+#   ##    ##    #+#       */
+<<<<<<< HEAD:srcs/apply/apply_flags_di_zero.c
 /*   Updated: 2019/12/05 00:24:11 by melodiebos  ###    #+. /#+    ###.fr     */
+=======
+/*   Updated: 2019/12/05 17:49:21 by melodiebos  ###    #+. /#+    ###.fr     */
+>>>>>>> temp-branch:srcs/apply/apply_flags_di_zero_pos.c
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
+static char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
 {
 	int len;
 
@@ -30,11 +34,12 @@ char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
 	return (cpy_result);
 }
 
-char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
+static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
 {
 	int len;
 
 	len = ft_strlen(l_pattern->result);
+<<<<<<< HEAD:srcs/apply/apply_flags_di_zero.c
 	if (ft_atoi(l_pattern->result) < 0)
 	{
 		cpy_result[0] = '-';
@@ -42,24 +47,42 @@ char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
 		len--;
 	}
 	while (len > 0)
+=======
+	width = (width > len) ? width : len;
+	while (len >= 0)
+>>>>>>> temp-branch:srcs/apply/apply_flags_di_zero_pos.c
 		cpy_result[width--] = (l_pattern->result)[len--];
-	while (width >= 0)
-		cpy_result[width--] = '0';
+	if (l_pattern->l_flag->flag_type == 'N')
+	{
+		while (width >= 0)
+			cpy_result[width--] = ' ';
+	}
+	else if (l_pattern->l_flag->flag_type == '0')
+	{
+		while (width >= 0)
+			cpy_result[width--] = '0';
+	}
 	return (cpy_result);
 }
 
-char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_result)
+static char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_result)
 {
 	int len;
 
 	len = ft_strlen(l_pattern->result);
+<<<<<<< HEAD:srcs/apply/apply_flags_di_zero.c
 	while (len > 0)
+=======
+
+	while (len >= 0)
+>>>>>>> temp-branch:srcs/apply/apply_flags_di_zero_pos.c
 	{
 		cpy_result[width--] = (l_pattern->result)[len--];
 		preci--;
 	}
-	if (preci == 0)
+	while (preci >= 0)
 	{
+<<<<<<< HEAD:srcs/apply/apply_flags_di_zero.c
 		cpy_result[width] = ft_atoi(l_pattern->result) < 0 ? '-' : '0';
 		width = ft_atoi(l_pattern->result) < 0 ? width - 1 : width;
 		while (width > 0)
@@ -76,12 +99,17 @@ char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_
 	width = ft_atoi(l_pattern->result) < 0 ? width - 1 : width;
 		while (width > 0)
 			cpy_result[width--] = ' ';
+=======
+		cpy_result[width--] = '0';
+		preci--;
+>>>>>>> temp-branch:srcs/apply/apply_flags_di_zero_pos.c
 	}
-
+	while (width >= 0)
+		cpy_result[width--] = ' ';
 	return (cpy_result);
 }
 
-t_bool apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result)
+t_bool		apply_flag_di_zero_pos(t_pattern *l_pattern, char *cpy_result)
 {
 	int width;
     int preci;

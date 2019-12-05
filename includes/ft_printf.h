@@ -6,7 +6,11 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
+<<<<<<< HEAD
 /*   Updated: 2019/12/04 23:08:45 by melodiebos  ###    #+. /#+    ###.fr     */
+=======
+/*   Updated: 2019/12/05 16:01:03 by melodiebos  ###    #+. /#+    ###.fr     */
+>>>>>>> temp-branch
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +25,9 @@
 # include <string.h>
 # include <ctype.h>
 # include <stdarg.h>
+# include <limits.h>
 # include "../libft/includes/libft.h"
+
 
 
 #define RED     "\x1b[31m"
@@ -89,14 +95,24 @@ size_t		ft_index(char c, const char *charset);
 char		*convert_base_int_to_hex(unsigned int var);
 int			occurence_before(char c, char *charset, char before);
 int			occurence_after(char c, char *charset, char after);
-
+char 		*create_malloc(char *copy_result, int len);
+t_bool		convert_di_check(t_pattern *l_pattern);
+char		*convert_base_int_to_unsigned(int temp);
+char		*ft_utoa(unsigned int nbr);
 /*
 ** Convert functions
 **
 */
 t_bool 	apply_flags_di(t_pattern *l_pattern);
+<<<<<<< HEAD
 t_bool 	apply_flag_di_zero(t_pattern *l_pattern, char *copy_width);
 t_bool 	apply_flag_di_tiret(char *copy_width, t_pattern *l_pattern, int precision, int width);
+=======
+t_bool	apply_flag_di_zero_pos(t_pattern *l_pattern, char *cpy_result);
+t_bool apply_flag_di_zero_neg(t_pattern *l_pattern, char *cpy_result);
+// t_bool 	apply_flag_di_zero(t_pattern *l_pattern, char *copy_width);
+t_bool 	apply_flag_di_tiret(char *copy_width, t_pattern *l_pattern);
+>>>>>>> temp-branch
 t_bool	apply_flags_cs(t_pattern *l_pattern);
 t_bool 	apply_flag_cs_tiret(t_pattern *l_pattern, char *copy_result);
 t_bool 	apply_flag_cs_none(t_pattern *l_pattern, char *copy_result);
@@ -132,7 +148,6 @@ t_bool 	flag_parser(t_flag *l_flag, char *flags, va_list params);
 void 	flag_free(t_flag **l_flag);
 t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
 t_bool	flag_precision(t_flag *l_flag, char *precision, va_list params);
-
 // void 	flag_free_one(t_flag **l_flag);
 
 
@@ -163,7 +178,6 @@ void				*get_c(va_list params);
 void 				*get_s(va_list params);
 void	 			*get_p(va_list params);
 void 				*get_di(va_list params);
-void 				*get_u(va_list parans);
 void 				*get_x(va_list params);
 void 				*get_percent(va_list params);
 
