@@ -6,30 +6,46 @@ import sys
 UNITTEST = {
     # nom du fichier : [format , value1, value2, ... ],
      "simple_test": ["simple"],
-    "int_zero_test": ["[%0d] [%0.0d] [%.0d] [%-10d] [%.10d] [%-10.5d] [%-10.15d] [%010d] [%010.5d] [%010.15d]",
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "int_test": ["[%0d] [%0.0d] [%.0d] [%-10d] [%.10d] [%-10.5d] [%-10.15d] [%010d] [%010.5d] [%010.15d]",
-		 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647],
-    "int_large_pos_test": ["[%30d] [%30.0d] [%.0d] [%-30d] [%.30d] [%-30.5d] [%-10.30d] [%030d] [%030.5d] [%010.35d]",
-		 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647],
-    "int_large_neg_test": ["[%30d] [%30.0d] [%.0d] [%-30d] [%.30d] [%-30.5d] [%-10.30d] [%030d] [%030.5d] [%010.35d]",
-		 -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647],
-    "int_neg_test": ["[%0d] [%0.0d] [%.0d] [%-10d] [%.10d] [%-10.5d] [%-10.15d] [%010d] [%010.5d] [%010.15d]",
-		 -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647],
-	"u_int_test": ["[%.0u] [%-10u] [%.10u] [%-10.5u] [%-10.15u] [%010u] [%010.5u] [%010.15u]", 0, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647],
-	"u_int_neg_test": ["[%.0u] [%-10u] [%.10u] [%-10.5u] [%-10.15u] [%010u] [%010.5u] [%010.15u]", -12, -12, -12, -12, -12, -12, -12, -12],
-    "string_test": ["%s %s", "qwerty", "coucou"]
+    "int_zero_01": ["[%0d]", 0],
+	"int_zero_02": ["[%0.0d]", 0],
+
+	#  [%.0d] [%15d] [%015.0d] [%15.0d] [%-15.0d] [%5d] [%05.0d] [%5.0d] [%-5.0d] [%05.5d] [%.5d] [%-5.5d] [%5.5d] [%0.15d] [%.15d] [%-5.15d] [%015.15d] [%15.15d] [%-15.15d] [%015.15d] [%.15d] [%-15.15d]",
+	# 	 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    # "int_pos_test": ["[%0d] [%0.0d] [%.0d] [%30d] [%030.0d] [%30.0d] [%-30.0d] [%5d] [%05.0d] [%5.0d] [%-5.0d] [%05.5d] [%.5d] [%-5.5d] [%5.5d] [%0.15d] [%.15d] [%-5.15d] [%015.15d] [%15.15d] [%-15.15d] [%015.15d] [%.15d] [%-15.15d]",
+	# 	 -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647],
+    # "int_neg_test": ["[%0d] [%0.0d] [%.0d] [%15d] [%015.0d] [%15.0d] [%-15.0d] [%5d] [%05.0d] [%5.0d] [%-5.0d] [%05.5d] [%.5d] [%-5.5d] [%5.5d] [%0.15d] [%.15d] [%-5.15d] [%015.15d] [%15.15d] [%-15.15d] [%015.15d] [%.15d] [%-15.15d]",
+ 	# 	 -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647],
+	# "u_ pos_int_test": ["[%0u] [%0.0u] [%.0u] [%30u] [%030.0u] [%30.0u] [%-30.0u] [%5u] [%05.0u] [%5.0u] [%-5.0u] [%05.5u] [%.5u] [%-5.5u] [%5.5u] [%0.15u] [%.15u] [%-5.15u] [%015.15u] [%15.15u] [%-15.15u] [%015.15u] [%.15u] [%-15.15u]",
+	# 	 -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647],
+	"u_neg_int_test":["[%0u] [%0.0u] [%.0u] [%30u] [%030.0u] [%30.0u] [%-30.0u] [%5u] [%05.0u] [%5.0u] [%-5.0u] [%05.5u] [%.5u] [%-5.5u] [%5.5u] [%0.15u] [%.15u] [%-5.15u] [%015.15u] [%15.15u] [%-15.15u] [%015.15u] [%.15u] [%-15.15u]",
+		 -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647, -2147483647],
+    "string_test": ["[%s] [%.0s] [%3s] [%30s] [%.3s] [%.30s] [%3.3s] [%30.3s] [%3.30s] [%30.30s]", "qwerty", "coucou"],
+	"string_test": ["%s %s", "qwerty", "coucou"]
 }
 
 
+
+
+
+
 MAIN_FILE = """
-#include "ft_printf.h" // la normalement tu mets #include "ft_printf.h"
+#include "ft_printf.h"
 
 int main()
 {{
-    ft_printf({}); // faut mettre votre ft_printf
+    ft_printf({});
 }}
 """
+
+MAIN_TEMOIN = """
+#include <stdio.h>
+
+int main()
+{{
+    printf({});
+}}
+"""
+
 
 
 def c_repr(vrepr):
@@ -48,27 +64,34 @@ def get_printf_args(list_arg):
 
 
 def create_main(filename, printf_args):
+    temoin = filename + '_temoin.c'
     filename += '.c'
     content = MAIN_FILE.format(printf_args)
     # print(content)
     with open(filename, 'w+') as stream:
         stream.write(content)
         stream.close()
-    return filename
+    content = MAIN_TEMOIN.format(printf_args)
+    with open(temoin, 'w+') as stream:
+        stream.write(content)
+        stream.close()
+    return filename, temoin
 
 
 def compile_main(filename, printf_args):
-    filenamec = create_main(filename, printf_args)
+    filenamec, temoin = create_main(filename, printf_args)
     # faut pas hésiter à ajouter vos lib et vos header et vos sources ...
     ret = os.system(
         "gcc {filename} -g -fsanitize=address srcs/*/*.c srcs/*.c -Iincludes libft/libft.a -o {out}".format(filename=filenamec, out=filename))
+    ret += os.system(
+        "gcc {filename} -g -fsanitize=address srcs/*/*.c srcs/*.c -Iincludes libft/libft.a -o {out}".format(filename=temoin, out=filename + '_temoin'))
     if ret:
         print("Error: compilation on file {}".format(filename))
 
 
 def compare(exec, repr_args):
     os.system("./{} > one; ".format(exec))
-    os.system("printf {} > two;".format(repr_args))
+    os.system("./{} > two;".format(exec + '_temoin'))
     os.system("diff one two > {}.test".format(exec))
     diff = open("one").read() == open("two").read()
     os.system("rm one two")
@@ -78,7 +101,7 @@ def compare(exec, repr_args):
         print("")
     else:
         print("\x1b[32mPassed Test [OK]: {} \033[0;37m".format(exec))
-        os.system("rm {exec} {exec}.test {exec}.c 2>&-".format(exec=exec))
+        os.system("rm {exec}_temoin {exec} {exec}.test {exec}.c {exec}_temoin.c 2>&-".format(exec=exec))
 
 
 def unit_test(dict_test):

@@ -46,6 +46,7 @@ SRCS = ft_printf \
 # convert_src = $(strip $(call hidden_format, $(1:%.c=%.o)))
 
 LIB = libft/libft.a
+LIB_PRINTF = lib_printf.a
 
 INCLUDES := $(patsubst %,includes/%.h,${INCLUDES})
 SRCS := $(patsubst %,srcs/%.c,${SRCS})
@@ -78,9 +79,13 @@ ${NAME}: ${OBJ} ${MAIN} ${LIB}
 cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
+lib : ${OBJ}
+	ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
+	ranlib $(LIB_PRINTF)
 
 $(LIB):
 	make bonus -C libft
+
 
 clean:
 	make clean -C libft

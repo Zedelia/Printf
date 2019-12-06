@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 16:19:41 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 11:40:17 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,26 @@ t_bool  convert_di(t_pattern *l_pattern)
 		return (True);
 	}
 	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
+	if (!(l_pattern->l_flag))
+		return (True);
+	if (!(apply_flags_di(l_pattern)))
+		return (false_ret(__func__));
+	return (True);
+}
+
+t_bool  convert_u(t_pattern *l_pattern)
+{
+	int temp;
+
+	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->precision)
+			&& *(int *)(l_pattern->l_flag->precision) == 0)
+	{
+		if (!(convert_di_check(l_pattern)))
+			return (false_ret(__func__));
+		return (True);
+	}
+	temp = *((unsigned int *)l_pattern->varg);
+	l_pattern->result = ft_utoa(temp);
 	if (!(l_pattern->l_flag))
 		return (True);
 	if (!(apply_flags_di(l_pattern)))
@@ -60,25 +80,6 @@ t_bool  convert_p(t_pattern *l_pattern)
 	return (False);
 }
 
-t_bool  convert_u(t_pattern *l_pattern)
-{
-	int temp;
-
-	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->precision)
-			&& *(int *)(l_pattern->l_flag->precision) == 0)
-	{
-		if (!(convert_di_check(l_pattern)))
-			return (false_ret(__func__));
-		return (True);
-	}
-	temp = *((unsigned int *)l_pattern->varg);
-	l_pattern->result = ft_utoa(temp);
-	if (!(l_pattern->l_flag))
-		return (True);
-	if (!(apply_flags_di(l_pattern)))
-		return (false_ret(__func__));
-	return (True);
-}
 
 t_bool  convert_x(t_pattern *l_pattern)
 {
