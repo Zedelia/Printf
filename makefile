@@ -91,20 +91,9 @@ clean:
 	make clean -C libft
 	rm -f ${OBJ}
 
-<<<<<<< HEAD
-clean_test: clean
-<<<<<<< HEAD
-	rm -f *_test_ *_test_.c
-
-=======
-	rm -f *_test *_test.c *_test.test one two
-	rm -rf *.dSYM
->>>>>>> temp-branch
-=======
 clean_test:
 	rm -R *.dSYM
 	rm -f test_* one two
->>>>>>> temp-branch
 
 run: ./${NAME}
 	./${NAME} ${ARGS}

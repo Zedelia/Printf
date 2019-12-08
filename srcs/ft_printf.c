@@ -3,14 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/21 17:01:08 by mbos         #+#   ##    ##    #+#       */
-<<<<<<< HEAD
-/*   Updated: 2019/12/04 22:27:58 by melodiebos  ###    #+. /#+    ###.fr     */
-=======
-/*   Updated: 2019/12/05 08:47:29 by melodiebos  ###    #+. /#+    ###.fr     */
->>>>>>> temp-branch
+/*   Created: 2019/12/08 19:58:51 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/08 19:59:00 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,11 +23,7 @@ int		ft_printf(const char *s, ...)
 	if (!ft_isincharset('%', s))
 	{
 		write(1, s, ft_strlen(s));
-<<<<<<< HEAD
-		return(0);
-=======
 		return (0);
->>>>>>> temp-branch
 	}
 	if (!(format_init(&s_format, s, params)))
 		return (-1);

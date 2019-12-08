@@ -5,16 +5,8 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/02 21:12:50 by melodieb     #+#   ##    ##    #+#       */
-<<<<<<< HEAD
-<<<<<<< HEAD
-/*   Updated: 2019/12/04 23:08:14 by melodiebos  ###    #+. /#+    ###.fr     */
-=======
-/*   Updated: 2019/12/05 17:47:59 by melodiebos  ###    #+. /#+    ###.fr     */
->>>>>>> temp-branch
-=======
-/*   Updated: 2019/12/08 16:35:04 by melodiebos  ###    #+. /#+    ###.fr     */
->>>>>>> temp-branch
+/*   Created: 2019/12/08 19:58:28 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/08 19:58:41 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,14 +59,8 @@ t_bool 	apply_flags_di(t_pattern *l_pattern)
 	int width;
     int precision;
 
-<<<<<<< HEAD
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	precision = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
-	copy_result = create_result_str_di(l_pattern);
-=======
 	if (!(copy_result = create_result_str_di(l_pattern)))
 		return (false_ret(__func__));
->>>>>>> temp-branch
 	if (l_pattern->l_flag->flag_type == '0' || l_pattern->l_flag->flag_type == 'N')
 	{
 		if (!(apply_flag_di_zero(l_pattern, copy_result)))
