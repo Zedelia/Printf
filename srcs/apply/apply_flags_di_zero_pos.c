@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:57:33 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 17:49:21 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/08 15:40:19 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,7 +41,7 @@ static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_resu
 	else if (l_pattern->l_flag->flag_type == '0')
 	{
 		while (width >= 0)
-			cpy_result[width--] = '0';
+			cpy_result[width--] = ' ';
 	}
 	return (cpy_result);
 }

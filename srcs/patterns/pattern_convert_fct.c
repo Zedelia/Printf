@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 11:40:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/08 15:41:53 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,8 @@
 t_bool  convert_di(t_pattern *l_pattern)
 {
 	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->precision)
-			&& *(int *)(l_pattern->l_flag->precision) == 0)
+			&& *(int *)(l_pattern->l_flag->precision) == 0
+			&& !(l_pattern->l_flag->width))
 	{
 		if (!(convert_di_check(l_pattern)))
 			return (false_ret(__func__));

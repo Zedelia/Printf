@@ -91,9 +91,9 @@ clean:
 	make clean -C libft
 	rm -f ${OBJ}
 
-clean_test: clean
-	rm -f *_test *_test.c *_test.test one two
-	rm -rf *.dSYM
+clean_test:
+	rm -R *.dSYM
+	rm -f test_*  one two
 
 run: ./${NAME}
 	./${NAME} ${ARGS}
