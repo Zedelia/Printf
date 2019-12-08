@@ -7,9 +7,13 @@
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*   Updated: 2019/12/04 23:08:45 by melodiebos  ###    #+. /#+    ###.fr     */
 =======
 /*   Updated: 2019/12/05 16:01:03 by melodiebos  ###    #+. /#+    ###.fr     */
+>>>>>>> temp-branch
+=======
+/*   Updated: 2019/12/08 16:17:31 by melodiebos  ###    #+. /#+    ###.fr     */
 >>>>>>> temp-branch
 /*                                                         /                  */
 /*                                                        /                   */
@@ -96,7 +100,6 @@ char		*convert_base_int_to_hex(unsigned int var);
 int			occurence_before(char c, char *charset, char before);
 int			occurence_after(char c, char *charset, char after);
 char 		*create_malloc(char *copy_result, int len);
-t_bool		convert_di_check(t_pattern *l_pattern);
 char		*convert_base_int_to_unsigned(int temp);
 char		*ft_utoa(unsigned int nbr);
 /*
@@ -105,9 +108,13 @@ char		*ft_utoa(unsigned int nbr);
 */
 t_bool 	apply_flags_di(t_pattern *l_pattern);
 <<<<<<< HEAD
+<<<<<<< HEAD
 t_bool 	apply_flag_di_zero(t_pattern *l_pattern, char *copy_width);
 t_bool 	apply_flag_di_tiret(char *copy_width, t_pattern *l_pattern, int precision, int width);
 =======
+=======
+t_bool		apply_di_arg_zero(t_pattern *l_pattern);
+>>>>>>> temp-branch
 t_bool	apply_flag_di_zero_pos(t_pattern *l_pattern, char *cpy_result);
 t_bool apply_flag_di_zero_neg(t_pattern *l_pattern, char *cpy_result);
 // t_bool 	apply_flag_di_zero(t_pattern *l_pattern, char *copy_width);

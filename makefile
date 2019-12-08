@@ -5,7 +5,6 @@ INCLUDES = ft_printf
 SRCS = ft_printf \
 	utils/utils \
 	utils/convert_bases \
-	utils/convert_di_check \
 	utils/get_indicator \
 	utils/get_arg_1 \
 	utils/get_arg_2 \
@@ -18,6 +17,7 @@ SRCS = ft_printf \
 	apply/apply_flags_cs \
 	apply/apply_flags_cs_tiret \
 	apply/apply_flags_cs_none \
+	apply/apply_di_arg_zero \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
@@ -46,6 +46,7 @@ SRCS = ft_printf \
 # convert_src = $(strip $(call hidden_format, $(1:%.c=%.o)))
 
 LIB = libft/libft.a
+LIB_PRINTF = lib_printf.a
 
 INCLUDES := $(patsubst %,includes/%.h,${INCLUDES})
 SRCS := $(patsubst %,srcs/%.c,${SRCS})
@@ -78,14 +79,19 @@ ${NAME}: ${OBJ} ${MAIN} ${LIB}
 cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
+lib : ${OBJ}
+	ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
+	ranlib $(LIB_PRINTF)
 
 $(LIB):
 	make bonus -C libft
+
 
 clean:
 	make clean -C libft
 	rm -f ${OBJ}
 
+<<<<<<< HEAD
 clean_test: clean
 <<<<<<< HEAD
 	rm -f *_test_ *_test_.c
@@ -94,15 +100,19 @@ clean_test: clean
 	rm -f *_test *_test.c *_test.test one two
 	rm -rf *.dSYM
 >>>>>>> temp-branch
+=======
+clean_test:
+	rm -R *.dSYM
+	rm -f test_* one two
+>>>>>>> temp-branch
 
 run: ./${NAME}
 	./${NAME} ${ARGS}
 
-fclean: clean clean_test
+fclean: clean
 	make fclean -C libft
 	rm -f ${NAME} gnl.a Icon srcs/Icon srcs/get_next_line.h.gch
 	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)"
-
 
 norm:
 	norminette ${SRCS} ${INCLUDES}
