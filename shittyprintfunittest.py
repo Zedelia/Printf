@@ -5,6 +5,7 @@ import sys
 
 UNITTEST = {
     # nom du fichier : [format , value1, value2, ... ],
+
      "simple_test": ["simple"],
     "test_int_zero_01": ["[%0d]", 0],
 	"test_int_zero_02": ["[%0.0d]", 0],
@@ -19,6 +20,8 @@ UNITTEST = {
 	"test_int_zero_11": ["[%0.15d]", 0],
 	"test_int_zero_12": ["[%.15d]", 0],
 	"test_int_zero_13": ["[%-5.15d]", 0],
+	"test_int_zero_14": ["[%015.15d]", 0],
+	"test_int_zero_15": ["[%15.15d]", 0],
 	"test_int_zero_14": ["[%015.15d]", 0],
     "test_int_zero_15": ["[%15.15d]", 0],
 	"test_int_zero_16": ["[%-15.15d]", 0],

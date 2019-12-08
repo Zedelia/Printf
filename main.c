@@ -38,11 +38,11 @@ int main(void)
 {
 	// TEST INT
 
-	ft_printf("[%015.0d]\n", 0);
-	printf("[%015.0d]\n", 0);
+	ft_printf("[%.5d]\n", 0);
+	printf("[%.5d]\n", 0);
 
-	ft_printf("\n\n[%.0d]\n", 0);
-	printf("[%.0d]\n", 0);
+	ft_printf("\n\n[%.5d]\n", 2147483647);
+	printf("[%.5d]\n", 2147483647);
 
 //----------------------------------
 

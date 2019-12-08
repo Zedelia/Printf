@@ -5,7 +5,6 @@ INCLUDES = ft_printf
 SRCS = ft_printf \
 	utils/utils \
 	utils/convert_bases \
-	utils/convert_di_check \
 	utils/get_indicator \
 	utils/get_arg_1 \
 	utils/get_arg_2 \
@@ -18,6 +17,7 @@ SRCS = ft_printf \
 	apply/apply_flags_cs \
 	apply/apply_flags_cs_tiret \
 	apply/apply_flags_cs_none \
+	apply/apply_di_arg_zero \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
@@ -93,16 +93,15 @@ clean:
 
 clean_test:
 	rm -R *.dSYM
-	rm -f test_*  one two
+	rm -f test_* one two
 
 run: ./${NAME}
 	./${NAME} ${ARGS}
 
-fclean: clean clean_test
+fclean: clean
 	make fclean -C libft
 	rm -f ${NAME} gnl.a Icon srcs/Icon srcs/get_next_line.h.gch
 	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)"
-
 
 norm:
 	norminette ${SRCS} ${INCLUDES}

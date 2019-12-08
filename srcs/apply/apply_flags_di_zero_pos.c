@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:57:33 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 15:40:19 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/08 16:53:24 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,9 +17,13 @@ static char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_resu
 {
 	int len;
 
-	len = ft_strlen(l_pattern->result);
+	len = ft_strlen(l_pattern->result) - 1;
 	while (len  >= 0)
-		cpy_result[preci--] = (l_pattern->result)[len--];
+	{
+		cpy_result[len] = (l_pattern->result)[len];
+		preci--;
+		len--;
+	}
 	while (preci >= 0 )
 		cpy_result[preci--] = '0';
 	return (cpy_result);
@@ -78,7 +82,7 @@ t_bool		apply_flag_di_zero_pos(t_pattern *l_pattern, char *cpy_result)
 		cpy_result = flag_zero_di_case1(l_pattern, preci, cpy_result);
 	else if (preci == 0)
 		cpy_result = flag_zero_di_case2(l_pattern, width, cpy_result);
-	else if (preci < width)
+	else if (preci <= width)
 		cpy_result = flag_zero_di_case3(l_pattern, preci, width, cpy_result);
 	if (!(l_pattern->result = ft_strdup(cpy_result)))
 		return (false_ret(__func__));
