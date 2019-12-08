@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:50:08 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 12:40:58 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/08 19:26:29 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,6 +83,22 @@ static char 	*flag_cs_none_case3(t_pattern *l_pattern, char *copy_result)
 	return (copy_result);
 }
 
+static char		*flag_cs_none_case4(t_pattern *l_pattern, char *copy_result)
+{
+	int width;
+	int i;
+
+	i = 0;
+	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	while (width > 0)
+	{
+		copy_result[i++] = ' ';
+		width--;
+	}
+	return (copy_result);
+}
+
+
 t_bool 		apply_flag_cs_none(t_pattern *l_pattern, char *copy_result)
 {
 	int width;
@@ -96,6 +112,8 @@ t_bool 		apply_flag_cs_none(t_pattern *l_pattern, char *copy_result)
 		copy_result = flag_cs_none_case1(l_pattern, copy_result);
 	else if (preci)
 		copy_result = flag_cs_none_case2(l_pattern, copy_result);
+	else if (l_pattern->l_flag->precision && preci == 0)
+		copy_result = flag_cs_none_case4(l_pattern, copy_result);
 	else
 		copy_result = flag_cs_none_case3(l_pattern, copy_result);
 	if (!(l_pattern->result = ft_strdup(copy_result)))

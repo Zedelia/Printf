@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 16:50:38 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/08 19:20:21 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,7 +67,6 @@ t_bool  convert_s(t_pattern *l_pattern)
 			return (false_ret(__func__));
 	if (!(l_pattern->l_flag))
 		return (True);
-
 	if (!(apply_flags_cs(l_pattern)))
 		return (false_ret(__func__));
 	return (True);

@@ -38,8 +38,8 @@ int main(void)
 {
 	// TEST INT
 
-	ft_printf("\n\n[[%15d]]\n", -2147483647);
-	printf("[[%15d]]\n", -2147483647);
+	ft_printf("\n\n[%5.0s]\n", "qwerty");
+	printf("[%5.0s]", "qwerty");
 
 
 //----------------------------------
