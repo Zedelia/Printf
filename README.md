@@ -14,10 +14,11 @@ To be done :
 
 - p conversions
 - hexa conversions
+- flags %
 - Check printf return values
 - check error return values
 - list errors et test them all
 - check tests list and add some if possible
+- Creer un header par objet et un header global
 - norminette
 - check files' header
--

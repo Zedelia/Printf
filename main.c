@@ -33,13 +33,17 @@ int test_char(int n, ...)
 
 
 
-
 int main(void)
 {
 	// TEST INT
+	unsigned int s = 124;
+	char *blah;
 
-	ft_printf("\n\n[%5.0s]\n", "qwerty");
-	printf("[%5.0s]", "qwerty");
+	blah = ft_utoa(s);
+	printf("[%s]\n", blah);
+	printf("[%x]\n", s);
+
+	// ft_printf("\n\n[%s]\n", s);
 
 //----------------------------------
 
