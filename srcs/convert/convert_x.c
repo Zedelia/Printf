@@ -1,48 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   convert_diu.c                                    .::    .:/ .      .::   */
+/*   convert_x.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 14:31:07 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 14:32:41 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 20:21:04 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 20:48:53 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool  convert_di(t_pattern *l_pattern)
+t_bool  convert_x(t_pattern *l_pattern)
 {
-	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->precision)
-			&& *(int *)(l_pattern->l_flag->precision) == 0)
-	{
-			if (!(apply_diux_arg_zero(l_pattern)))
-				return (false_ret(__func__));
-		return (True);
-	}
-	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
-	if (!(l_pattern->l_flag))
-		return (True);
-	if (!(apply_diux(l_pattern)))
-		return (false_ret(__func__));
-	return (True);
-}
+	int cmp;
+	int len;
 
-t_bool  convert_u(t_pattern *l_pattern)
-{
-	int temp;
-
-	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->precision)
+	len = ft_strlen((char *)l_pattern->varg);
+	cmp = ft_strncmp("0", (const char *)l_pattern->varg, len);
+	if (cmp == 0 && (l_pattern->l_flag->precision)
 			&& *(int *)(l_pattern->l_flag->precision) == 0)
 	{
 		if (!(apply_diux_arg_zero(l_pattern)))
 			return (false_ret(__func__));
 		return (True);
 	}
-	temp = *((unsigned int *)l_pattern->varg);
-	l_pattern->result = ft_utoa(temp);
+	if (!(l_pattern->result = ft_strdup(((char *)l_pattern->varg))))
+			return (false_ret(__func__));
 	if (!(l_pattern->l_flag))
 		return (True);
 	if (!(apply_diux(l_pattern)))

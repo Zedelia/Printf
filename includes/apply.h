@@ -17,15 +17,15 @@
 /*
 ** Convert functions
 */
-t_bool	apply_di(t_pattern *l_pattern);
-t_bool	apply_di_arg_zero(t_pattern *l_pattern);
-t_bool	apply_di_zero_pos(t_pattern *l_pattern, char *cpy_result);
-t_bool	apply_di_zero_neg(t_pattern *l_pattern, char *cpy_result);
-t_bool	apply_di_tiret(char *copy_width, t_pattern *l_pattern);
+t_bool	apply_diux(t_pattern *l_pattern);
+t_bool	apply_diux_arg_zero(t_pattern *l_pattern);
+t_bool	apply_diux_zero_pos(t_pattern *l_pattern, char *cpy_result);
+t_bool	apply_diux_zero_neg(t_pattern *l_pattern, char *cpy_result);
+t_bool	apply_diux_tiret(char *copy_width, t_pattern *l_pattern);
 t_bool	apply_cs(t_pattern *l_pattern);
 t_bool	apply_cs_tiret(t_pattern *l_pattern, char *copy_result);
 t_bool	apply_cs_none(t_pattern *l_pattern, char *copy_result);
-t_bool	apply_di_zero(t_pattern *l_pattern, char *cpy_result);
+t_bool	apply_diux_zero(t_pattern *l_pattern, char *cpy_result);
 t_bool	apply_percent(t_pattern *l_pattern);
 
 #endif

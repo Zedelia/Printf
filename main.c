@@ -37,13 +37,15 @@ int main(void)
 {
 	// TEST INT
 
-	// char *s = NULL;
-
-
+	// unsigned long long nbr = 254446375;
+	// char *str;
+	// const char *base = "0123456789abcdef";
+	//
+	// str = ft_ltoabase(nbr, base);
 	// printf("[%-15%]\n");
-	printf("\n[%-4.10s]\n","qwerty");
+	printf("\n[%0.0x]\n", 4147483647);
 
-	ft_printf("[%-4.10s]", "qwerty");
+	ft_printf("[%0.0x]", 4147483647);
 
 	// ft_printf("\n\n[%s]\n", s);
 

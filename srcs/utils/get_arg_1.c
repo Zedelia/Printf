@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:44:53 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 20:43:30 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,34 +25,16 @@ void 	*get_di(va_list params)
 	return ((void *)p_int);
 }
 
-void 	*get_c(va_list params)
+void 	*get_u(va_list params)
 {
-	char		*p_c;
-	char 		var;
+	unsigned int	*p_int;
+	unsigned int 	var;
 
-	var = va_arg(params, int);
-	if (!(p_c = malloc(sizeof(char) * 2)))
+	var = va_arg(params, unsigned int);
+    if (!(p_int = malloc(sizeof(unsigned int))))
 		return (NULL);
-	p_c[0] = var;
-	p_c[1] = '\0';
-	return ((void *)p_c);
-}
-
-void 	*get_s(va_list params)
-{
-	char		*p_s;
-	char 		*var;
-
-	var = va_arg(params, char*);
-	if (!(var))
-	{
-		if (!(p_s = ft_strdup("(null)")))
-			return (NULL);
-		return ((void *)p_s);
-	}
-	if (!(p_s = ft_strdup(var)))
-		return (NULL);
-	return ((void *)p_s);
+    *p_int = var;
+	return ((void *)p_int);
 }
 
 void 	*get_x(va_list params)
@@ -60,7 +42,7 @@ void 	*get_x(va_list params)
 	char		*p_x;
 	char 		*var;
 
-	var = convert_base_int_to_hex(va_arg(params, int));
+	var = ft_ltoabase(va_arg(params, unsigned long long), "0123456789abcdef");
 	if (!(p_x = ft_strdup(var)))
 		return (NULL);
 	return ((void *)p_x);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_di_zero_neg.c                        .::    .:/ .      .::   */
+/*   apply_diux_zero_neg.c                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -76,7 +76,7 @@ static char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, cha
 	return (cpy_result);
 }
 
-t_bool apply_di_zero_neg(t_pattern *l_pattern, char *cpy_result)
+t_bool apply_diux_zero_neg(t_pattern *l_pattern, char *cpy_result)
 {
 	int width;
     int preci;

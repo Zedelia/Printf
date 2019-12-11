@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/08 19:59:10 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 18:49:26 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 20:31:05 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,7 @@ void 	init_convert_fct_tab(void)
 	g_convert_fct[_d] = convert_di;
 	g_convert_fct[_i] = convert_di;
 	g_convert_fct[_u] = convert_u;
-	g_convert_fct[_x] = convert_di;
+	g_convert_fct[_x] = convert_x;
 	g_convert_fct[_big_x] = convert_x;
 	g_convert_fct[_percent] = convert_percent;
 }
