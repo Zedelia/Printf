@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:06:14 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 15:44:53 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,6 +44,12 @@ void 	*get_s(va_list params)
 	char 		*var;
 
 	var = va_arg(params, char*);
+	if (!(var))
+	{
+		if (!(p_s = ft_strdup("(null)")))
+			return (NULL);
+		return ((void *)p_s);
+	}
 	if (!(p_s = ft_strdup(var)))
 		return (NULL);
 	return ((void *)p_s);

@@ -36,12 +36,12 @@ int test_char(int n, ...)
 int main(void)
 {
 	// TEST INT
-	unsigned int s = 124;
-	char *blah;
 
-	blah = ft_utoa(s);
-	printf("[%s]\n", blah);
-	printf("[%x]\n", s);
+	char *s = NULL;
+
+
+	printf("[%s]\n", s);
+	ft_printf("[%s]\n", s);
 
 	// ft_printf("\n\n[%s]\n", s);
 

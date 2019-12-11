@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 14:25:37 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:13:38 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 15:50:15 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,14 +15,14 @@
 
 static t_bool check_string(t_pattern *l_pattern)
 {
-	if (!(l_pattern->result = ft_strdup("(null)\n")))
+	if (!(l_pattern->result = ft_strdup("(null)")))
 		return (false_ret(__func__));
 	return (True);
 }
 
 t_bool  convert_c(t_pattern *l_pattern)
 {
-	if (l_pattern->varg == NULL)
+	if (ft_strncmp((const char *)l_pattern->varg, STRING_NULL, 6) == 0)
 		return (check_string(l_pattern));
 	if (!(l_pattern->result = ft_strdup(((char *)l_pattern->varg))))
 			return (false_ret(__func__));
@@ -35,7 +35,7 @@ t_bool  convert_c(t_pattern *l_pattern)
 
 t_bool  convert_s(t_pattern *l_pattern)
 {
-	if (l_pattern->varg == NULL)
+	if (ft_strncmp((const char *)l_pattern->varg, STRING_NULL, 6) == 0)
 		return (check_string(l_pattern));
 	if (!(l_pattern->result = ft_strdup(((char *)l_pattern->varg))))
 			return (false_ret(__func__));

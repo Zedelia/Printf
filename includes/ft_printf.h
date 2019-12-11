@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:27:14 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 15:47:07 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,7 @@
 
 # define INDICATORS "cspdiuxX\%"
 # define FLAGS "-0.*"
+# define STRING_NULL "(null)"
 
 typedef enum
 {
