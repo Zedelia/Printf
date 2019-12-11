@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 14:42:25 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:02:51 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 21:47:05 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,7 @@ typedef enum
 	_precision_c,
 	_digit_stars_before_flag,
 	_digit_stars_together,
+	_preci_and_p,
 	errors_size
 }	t_type_error;
 
@@ -39,5 +40,7 @@ t_bool	error_zero_sc(t_pattern *l_pattern);
 t_bool	error_precision_c(t_pattern *l_pattern);
 t_bool	error_digit_stars_before_flag(t_pattern *l_pattern);
 t_bool	error_digit_stars_together(t_pattern *l_pattern);
+t_bool	error_preci_and_p(t_pattern *l_pattern);
+t_bool	error_zeroflag_and_p(t_pattern *l_pattern);
 
 #endif

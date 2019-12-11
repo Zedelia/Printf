@@ -25,6 +25,7 @@ SRCS = ft_printf \
 	convert/convert_sc \
 	convert/convert_percent \
 	convert/convert_x \
+	convert/convert_p \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
@@ -37,7 +38,6 @@ SRCS = ft_printf \
 	patterns/pattern_errors_2 \
 	patterns/pattern_errors_init \
 	patterns/pattern_check \
-	patterns/pattern_convert_fct \
 	patterns/pattern_convert_init \
 	flags/flag_free \
 	flags/flag_init \

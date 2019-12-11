@@ -37,12 +37,13 @@ int main(void)
 {
 	// TEST INT
 
-	unsigned int s = 124;
-	char *blah;
-
-	blah = ft_utoa(s);
-	printf("[%25p]\n", blah);
-	// printf("[%x]\n", );
+	// unsigned int s = 124;
+	// char *blah;
+	//
+	// blah = "gihshvd;oshi";
+	printf("[%-222p]\n", "coucou");
+	ft_printf("[%-222p]\n", "coucou");
+	// ft_printf("[%25p]\n", "coucou");
 
 	// PAS DE PRECISION AVEC P
 

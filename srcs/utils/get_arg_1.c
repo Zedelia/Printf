@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 21:24:04 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 21:36:58 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,18 +50,20 @@ void 	*get_x(va_list params)
 
 void 	*get_p(va_list params)
 {
-	t_uintmax	value;
-	char		*value_str;
-	char		*p_p;
-	char		*fill_char;
+	void	*value;
+	char	*p_p;
+	char	*fill_char;
 
-	value = va_arg(params, t_uintmax);
-	if (!(value_str = ft_ltoabase(value, "0123456789abcdef")))
+	if (!(value = va_arg(params, void*)))
+	{
+		if(!(p_p = ft_strdup("0x0")))
+			return (NULL);
+		return ((void *)p_p);
+	}
+	if (!(p_p = ft_ltoabase((t_uintmax)value, "0123456789abcdef")))
 		return (NULL);
 	fill_char = "0x";
-	if (!(p_p = ft_strjoin(p_p, value_str)))
+	if (!(p_p = ft_strjoin(fill_char, p_p)))
 		return (NULL);
-	ft_memdel((void **)value_str);
 	return ((void *)p_p);
-
 }

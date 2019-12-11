@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 16:29:37 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 21:28:30 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@ void 	init_get_fct_tab(void)
 {
 	g_get_fct[_c] = get_c;
 	g_get_fct[_s] = get_s;
-	// g_get_fct[_p] = get_p;
+	g_get_fct[_p] = get_p;
 	g_get_fct[_d] = get_di;
 	g_get_fct[_i] = get_di;
 	g_get_fct[_u] = get_di;
