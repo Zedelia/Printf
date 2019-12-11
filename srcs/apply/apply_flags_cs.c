@@ -6,14 +6,14 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 17:03:54 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 22:42:13 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 14:26:35 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-char 	*create_result_str_sc(t_pattern *l_pattern, char *copy_result)
+static char 	*create_result_str_sc(t_pattern *l_pattern, char *copy_result)
 {
 	int width;
 	int preci;

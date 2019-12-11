@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_convert_fct.c                            .::    .:/ .      .::   */
+/*   flags.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:27:46 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 14:37:06 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 15:05:21 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#ifndef FLAGS_H
+# define FLAGS_H
+# include "ft_printf.h"
+/*
+** Flags functions
+** init, free, use and modify t_flags
+*/
+t_bool	flag_init(t_flag **l_flag, char *flag, va_list params);
+t_bool	flag_parser(t_flag *l_flag, char *flags, va_list params);
+void	flag_free(t_flag **l_flag);
+t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
+t_bool	flag_precision(t_flag *l_flag, char *precision, va_list params);
 
-
-t_bool  convert_p(t_pattern *l_pattern)
-{
-	if(l_pattern)
-		return (True);
-	return (False);
-}
-
-
-t_bool  convert_x(t_pattern *l_pattern)
-{
-	if(l_pattern)
-		return (True);
-	return (False);
-}
-
-t_bool  convert_percent(t_pattern *l_pattern)
-{
-	if(l_pattern)
-		return (True);
-	return (False);
-}
+#endif

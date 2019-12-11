@@ -3,7 +3,8 @@ NAME = printf
 INCLUDES = ft_printf
 
 SRCS = ft_printf \
-	utils/utils \
+	utils/utils_1 \
+	utils/utils_2 \
 	utils/convert_bases \
 	utils/get_indicator \
 	utils/get_arg_1 \
@@ -18,6 +19,8 @@ SRCS = ft_printf \
 	apply/apply_flags_cs_tiret \
 	apply/apply_flags_cs_none \
 	apply/apply_di_arg_zero \
+	convert/convert_diu \
+	convert/convert_sc \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
