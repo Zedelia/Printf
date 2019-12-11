@@ -21,6 +21,7 @@ SRCS = ft_printf \
 	apply/apply_di_arg_zero \
 	convert/convert_diu \
 	convert/convert_sc \
+	convert/convert_percent \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
@@ -92,6 +93,7 @@ $(LIB):
 
 clean:
 	make clean -C libft
+	rm -f includes/*.gch
 	rm -f ${OBJ}
 
 clean_test:

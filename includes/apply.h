@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 14:46:28 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:05:27 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:59:38 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,5 +25,6 @@ t_bool	apply_flag_di_tiret(char *copy_width, t_pattern *l_pattern);
 t_bool	apply_flags_cs(t_pattern *l_pattern);
 t_bool	apply_flag_cs_tiret(t_pattern *l_pattern, char *copy_result);
 t_bool	apply_flag_cs_none(t_pattern *l_pattern, char *copy_result);
+t_bool	apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result);
 
 #endif

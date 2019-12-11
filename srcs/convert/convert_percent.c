@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_check.c                                  .::    .:/ .      .::   */
+/*   convert_percent.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 18:26:42 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:14:39 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 17:23:10 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 17:57:24 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool	pattern_check(t_pattern *l_pattern)
+t_bool  convert_percent(t_pattern *l_pattern)
 {
-	if (!(get_indicator(l_pattern)))
+	if (!(l_pattern->result = malloc(sizeof(char) * 2)))
 		return (false_ret(__func__));
-	init_error_fct_tab();
-	if (!(get_errors(l_pattern)))
+	l_pattern->result[0] = l_pattern->indicateur;
+	l_pattern->result[1] = '\0';
+	if (!(l_pattern->l_flag))
+		return (True);
+	if (!(apply_flags_percent(l_pattern)))
 		return (false_ret(__func__));
-	return (True);
+	return (False);
 }

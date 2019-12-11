@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/08 19:58:28 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 16:28:50 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:59:16 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,21 +36,6 @@ static char  *create_result_str_di(t_pattern *l_pattern)
 	else
 		copy_result = create_malloc(copy_result, len);
 	return (copy_result);
-}
-
-static t_bool	apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result)
-{
-	if (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u')
-	{
-		if (!(apply_flag_di_zero_neg(l_pattern, cpy_result)))
-			return (false_ret(__func__));
-	}
-	else
-	{
-		if (!(apply_flag_di_zero_pos(l_pattern, cpy_result)))
-			return (false_ret(__func__));
-	}
-	return (True);
 }
 
 t_bool 	apply_flags_di(t_pattern *l_pattern)

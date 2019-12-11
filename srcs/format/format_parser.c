@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 19:23:08 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:14:42 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,15 +40,15 @@ t_bool	format_parser(t_format *s_format, char *format, va_list params)
 			return (false_ret(__func__));
 		format_add_pattern(s_format, l_pattern);
 	}
-	while (cp_format && (cp_format = ft_strchr(cp_format + 1, '%')))
+	while (cp_format && (cp_format = ft_strchr(cp_format, '%')))
 	{
 		if (!(pattern_init(&l_pattern, cp_format, params)))
 			return (false_ret(__func__));
 		format_add_pattern(s_format, l_pattern);
+		cp_format = cp_format + l_pattern->len;
 	}
 	if (s_format->l_pattern)
 	{
-
 		if (!(format_replace_pattern(s_format)))
 			return (false_ret(__func__));
 	}

@@ -19,6 +19,5 @@ To be done :
 - check error return values
 - list errors et test them all
 - check tests list and add some if possible
-- Creer un header par objet et un header global
+- check leaks
 - norminette
-- check files' header

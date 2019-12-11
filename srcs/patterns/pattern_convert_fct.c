@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:52:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:27:46 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:26:16 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,13 +23,6 @@ t_bool  convert_p(t_pattern *l_pattern)
 
 
 t_bool  convert_x(t_pattern *l_pattern)
-{
-	if(l_pattern)
-		return (True);
-	return (False);
-}
-
-t_bool  convert_percent(t_pattern *l_pattern)
 {
 	if(l_pattern)
 		return (True);

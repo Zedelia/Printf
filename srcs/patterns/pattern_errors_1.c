@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:46:58 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 16:08:23 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:44:17 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,15 +15,18 @@
 
 t_bool	error_several_flags(t_pattern *l_pattern)
 {
-	if (ft_isincharset('-', l_pattern->pattern_cpy)
-			&& occurence_before('0', l_pattern->pattern_cpy, '-') > 0)
-		return (false_ret(__func__));
-	if (ft_strchr(l_pattern->pattern_cpy, '-')
-			&& ft_strchr(l_pattern->pattern_cpy, '-')[1] == '0')
-		return (false_ret(__func__));
-	if (occurence_before('-', l_pattern->pattern_cpy, '.') > 1
-			|| occurence_after('-', l_pattern->pattern_cpy, '.') > 0)
-		return (false_ret(__func__));
+	if (l_pattern->indicateur != '%')
+	{
+		if (ft_isincharset('-', l_pattern->pattern_cpy)
+				&& occurence_before('0', l_pattern->pattern_cpy, '-') > 0)
+			return (false_ret(__func__));
+		if (ft_strchr(l_pattern->pattern_cpy, '-')
+				&& ft_strchr(l_pattern->pattern_cpy, '-')[1] == '0')
+			return (false_ret(__func__));
+		if (occurence_before('-', l_pattern->pattern_cpy, '.') > 1
+				|| occurence_after('-', l_pattern->pattern_cpy, '.') > 0)
+			return (false_ret(__func__));
+	}
 	return (True);
 }
 

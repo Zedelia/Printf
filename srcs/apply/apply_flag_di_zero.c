@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_check.c                                  .::    .:/ .      .::   */
+/*   apply_flag_di_zero.c                             .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 18:26:42 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:14:39 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 17:59:19 by melodieb     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 17:59:27 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool	pattern_check(t_pattern *l_pattern)
+t_bool	apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result)
 {
-	if (!(get_indicator(l_pattern)))
-		return (false_ret(__func__));
-	init_error_fct_tab();
-	if (!(get_errors(l_pattern)))
-		return (false_ret(__func__));
+	if (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u')
+	{
+		if (!(apply_flag_di_zero_neg(l_pattern, cpy_result)))
+			return (false_ret(__func__));
+	}
+	else
+	{
+		if (!(apply_flag_di_zero_pos(l_pattern, cpy_result)))
+			return (false_ret(__func__));
+	}
 	return (True);
 }
