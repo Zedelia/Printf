@@ -37,15 +37,16 @@ int main(void)
 {
 	// TEST INT
 
-	// unsigned long long nbr = 254446375;
-	// char *str;
-	// const char *base = "0123456789abcdef";
-	//
-	// str = ft_ltoabase(nbr, base);
-	// printf("[%-15%]\n");
-	printf("\n[%0.0x]\n", 4147483647);
+	unsigned int s = 124;
+	char *blah;
 
-	ft_printf("[%0.0x]", 4147483647);
+	blah = ft_utoa(s);
+	printf("[%25p]\n", blah);
+	// printf("[%x]\n", );
+
+	// PAS DE PRECISION AVEC P
+
+	// ft_printf("[%0.0x]", 4147483647);
 
 	// ft_printf("\n\n[%s]\n", s);
 

@@ -25,9 +25,9 @@ char	*convert_base_int_to_hex(unsigned int var)
 	return (hex);
 }
 
-size_t		ft_unbrlen(unsigned long long nbr)
+size_t		ft_unbrlen(t_uintmax nbr)
 {
-	unsigned long long	dividor;
+	t_uintmax	dividor;
 	int					len;
 
 	dividor = ULONG_MAX - 8446744073709551615;
