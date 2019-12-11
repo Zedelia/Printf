@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_cs_tiret.c                           .::    .:/ .      .::   */
+/*   apply_cs_tiret.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:23:03 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 22:43:52 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 19:31:20 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,7 @@ static char 	*flag_cs_tiret_case1(t_pattern *l_pattern, char *copy_result)
 		width--;
 		preci--;
 	}
-	while (width && copy_result[i])
+	while (width > 0)
 	{
 		copy_result[i] = ' ';
 		i++;
@@ -53,7 +53,7 @@ static char 	*flag_cs_tiret_case2(t_pattern *l_pattern, char* copy_result)
 		i++;
 		width--;
 	}
-	while (width > 0 && copy_result[i])
+	while (width > 0)
 	{
 		copy_result[i] = ' ';
 		i++;

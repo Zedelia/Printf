@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_di_tiret.c                           .::    .:/ .      .::   */
+/*   apply_di_tiret.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 15:55:59 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 19:56:11 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 19:25:59 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ static t_bool 	apply_di_tiret_neg(char *copy_result, t_pattern *l_pattern)
 		copy_result[i++] = '0';
 	while ((l_pattern->result)[j])
 		copy_result[i++] = (l_pattern->result)[j++];
-    while (width - i > 0 && copy_result[i])
+    while (width - i > 0)
         copy_result[i++] = ' ';
 	if (!(l_pattern->result = ft_strdup(copy_result)))
 		return (false_ret(__func__));
@@ -59,7 +59,7 @@ static t_bool 	apply_di_tiret_pos(char *copy_result, t_pattern *l_pattern)
 		copy_result[i++] = '0';
 	while ((l_pattern->result)[j])
 		copy_result[i++] = (l_pattern->result)[j++];
-	while (width - i > 0 && copy_result[i])
+	while (width - i > 0)
 		copy_result[i++] = ' ';
 	if (!(l_pattern->result = ft_strdup(copy_result)))
 		return (false_ret(__func__));

@@ -62,7 +62,7 @@ SRCS := $(patsubst %,srcs/%.c,${SRCS})
 MAIN = main.c
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 DFLAGS =
 COMP =${CC} -g -fsanitize=address -I ${INCLUDES}
 COMPf := ${CC} ${CFLAGS} -I ${INCLUDES}

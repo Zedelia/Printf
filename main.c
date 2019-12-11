@@ -37,12 +37,13 @@ int main(void)
 {
 	// TEST INT
 
-	char *s = NULL;
+	// char *s = NULL;
 
 
-	printf("[%-15%]\n");
-	printf("[%015%]\n");
-	ft_printf("[%015.15%]\n");
+	// printf("[%-15%]\n");
+	printf("\n[%-4.10s]\n","qwerty");
+
+	ft_printf("[%-4.10s]", "qwerty");
 
 	// ft_printf("\n\n[%s]\n", s);
 

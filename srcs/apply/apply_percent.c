@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 17:19:42 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 18:51:12 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 18:53:00 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ static char  *create_result_str_percent(t_pattern *l_pattern)
 	return (copy_result);
 }
 
-char	*apply_percent_none(t_pattern *l_pattern, char *copy_result)
+static char	*apply_percent_none(t_pattern *l_pattern, char *copy_result)
 {
 	int width;
 	int i;
@@ -40,7 +40,7 @@ char	*apply_percent_none(t_pattern *l_pattern, char *copy_result)
 	return (copy_result);
 }
 
-char	*apply_percent_tiret(t_pattern *l_pattern, char *copy_result)
+static char	*apply_percent_tiret(t_pattern *l_pattern, char *copy_result)
 {
 	int width;
 	int i ;
@@ -53,7 +53,7 @@ char	*apply_percent_tiret(t_pattern *l_pattern, char *copy_result)
 	return (copy_result);
 }
 
-char	*apply_percent_zero(t_pattern *l_pattern, char *copy_result)
+static char	*apply_percent_zero(t_pattern *l_pattern, char *copy_result)
 {
 	int width;
 	int i;
