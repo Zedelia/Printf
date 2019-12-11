@@ -40,9 +40,9 @@ int main(void)
 	char *s = NULL;
 
 
-	printf("[%0%]\n");
-	// printf("[%.45x]\n",123456);
-	// ft_printf("[%-0.15%]\n");
+	printf("[%-15%]\n");
+	printf("[%015%]\n");
+	ft_printf("[%015.15%]\n");
 
 	// ft_printf("\n\n[%s]\n", s);
 

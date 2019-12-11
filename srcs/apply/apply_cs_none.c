@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_cs_none.c                            .::    .:/ .      .::   */
+/*   apply_cs_none.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -99,7 +99,7 @@ static char		*flag_cs_none_case4(t_pattern *l_pattern, char *copy_result)
 }
 
 
-t_bool 		apply_flag_cs_none(t_pattern *l_pattern, char *copy_result)
+t_bool 		apply_cs_none(t_pattern *l_pattern, char *copy_result)
 {
 	int width;
 	int preci;

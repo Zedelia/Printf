@@ -11,14 +11,16 @@ SRCS = ft_printf \
 	utils/get_arg_2 \
 	utils/get_arg_init \
 	utils/get_width_preci \
-	apply/apply_flags_di \
-	apply/apply_flags_di_tiret \
-	apply/apply_flags_di_zero_pos \
-	apply/apply_flags_di_zero_neg \
-	apply/apply_flags_cs \
-	apply/apply_flags_cs_tiret \
-	apply/apply_flags_cs_none \
+	apply/apply_di \
+	apply/apply_di_tiret \
+	apply/apply_di_zero_pos \
+	apply/apply_di_zero_neg \
+	apply/apply_cs \
+	apply/apply_cs_tiret \
+	apply/apply_cs_none \
 	apply/apply_di_arg_zero \
+	apply/apply_percent \
+	apply/apply_di_zero \
 	convert/convert_diu \
 	convert/convert_sc \
 	convert/convert_percent \

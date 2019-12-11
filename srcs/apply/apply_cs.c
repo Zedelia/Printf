@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_cs.c                                 .::    .:/ .      .::   */
+/*   apply_cs.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -37,7 +37,7 @@ static char 	*create_result_str_sc(t_pattern *l_pattern, char *copy_result)
 	return (copy_result);
 }
 
-t_bool 	apply_flags_cs(t_pattern *l_pattern)
+t_bool 	apply_cs(t_pattern *l_pattern)
 {
 	char *copy_result;
 
@@ -45,12 +45,12 @@ t_bool 	apply_flags_cs(t_pattern *l_pattern)
 	copy_result = create_result_str_sc(l_pattern, copy_result);
 	if (l_pattern->l_flag->flag_type == '-')
 	{
-		if (!(apply_flag_cs_tiret(l_pattern, copy_result)))
+		if (!(apply_cs_tiret(l_pattern, copy_result)))
 			return (false_ret(__func__));
 	}
 	else
 	{
-		if (!(apply_flag_cs_none(l_pattern, copy_result)))
+		if (!(apply_cs_none(l_pattern, copy_result)))
 			return (false_ret(__func__));
 	}
 	if (!(l_pattern->result = ft_strdup(copy_result)))

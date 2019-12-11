@@ -28,7 +28,7 @@ t_bool  convert_c(t_pattern *l_pattern)
 			return (false_ret(__func__));
 	if (!(l_pattern->l_flag))
 		return (True);
-	if (!(apply_flags_cs(l_pattern)))
+	if (!(apply_cs(l_pattern)))
 		return (false_ret(__func__));
 	return (True);
 }
@@ -41,7 +41,7 @@ t_bool  convert_s(t_pattern *l_pattern)
 			return (false_ret(__func__));
 	if (!(l_pattern->l_flag))
 		return (True);
-	if (!(apply_flags_cs(l_pattern)))
+	if (!(apply_cs(l_pattern)))
 		return (false_ret(__func__));
 	return (True);
 }

@@ -34,7 +34,7 @@ t_bool	apply_di_arg_zero(t_pattern *l_pattern)
 	}
 	else
 	{
-		if (!(apply_flags_di(l_pattern)))
+		if (!(apply_di(l_pattern)))
 			return (false_ret(__func__));
 		while(l_pattern->result[i])
 			l_pattern->result[i++] = ' ';

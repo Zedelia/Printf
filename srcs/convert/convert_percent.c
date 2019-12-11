@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 17:23:10 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 17:57:24 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 18:49:15 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,7 @@ t_bool  convert_percent(t_pattern *l_pattern)
 	l_pattern->result[1] = '\0';
 	if (!(l_pattern->l_flag))
 		return (True);
-	if (!(apply_flags_percent(l_pattern)))
+	if (!(apply_percent(l_pattern)))
 		return (false_ret(__func__));
-	return (False);
+	return (True);
 }

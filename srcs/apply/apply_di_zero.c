@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flag_di_zero.c                             .::    .:/ .      .::   */
+/*   apply_di_zero.c                             .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -13,16 +13,16 @@
 
 #include "../../includes/ft_printf.h"
 
-t_bool	apply_flag_di_zero(t_pattern *l_pattern, char *cpy_result)
+t_bool	apply_di_zero(t_pattern *l_pattern, char *cpy_result)
 {
 	if (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u')
 	{
-		if (!(apply_flag_di_zero_neg(l_pattern, cpy_result)))
+		if (!(apply_di_zero_neg(l_pattern, cpy_result)))
 			return (false_ret(__func__));
 	}
 	else
 	{
-		if (!(apply_flag_di_zero_pos(l_pattern, cpy_result)))
+		if (!(apply_di_zero_pos(l_pattern, cpy_result)))
 			return (false_ret(__func__));
 	}
 	return (True);

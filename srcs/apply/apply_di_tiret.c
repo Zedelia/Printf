@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_di_tiret.c                           .::    .:/ .      .::   */
+/*   apply_di_tiret.c                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -14,7 +14,7 @@
 #include "../../includes/ft_printf.h"
 
 
-static t_bool 	apply_flag_di_tiret_neg(char *copy_result, t_pattern *l_pattern)
+static t_bool 	apply_di_tiret_neg(char *copy_result, t_pattern *l_pattern)
 {
 	int len ;
 	int width;
@@ -42,7 +42,7 @@ static t_bool 	apply_flag_di_tiret_neg(char *copy_result, t_pattern *l_pattern)
 }
 
 
-static t_bool 	apply_flag_di_tiret_pos(char *copy_result, t_pattern *l_pattern)
+static t_bool 	apply_di_tiret_pos(char *copy_result, t_pattern *l_pattern)
 {
 	int len ;
 	int width;
@@ -66,16 +66,16 @@ static t_bool 	apply_flag_di_tiret_pos(char *copy_result, t_pattern *l_pattern)
 	return (True);
 }
 
-t_bool apply_flag_di_tiret(char *copy_result, t_pattern *l_pattern)
+t_bool apply_di_tiret(char *copy_result, t_pattern *l_pattern)
 {
 	if (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u')
 	{
-		if (!(apply_flag_di_tiret_neg(copy_result, l_pattern)))
+		if (!(apply_di_tiret_neg(copy_result, l_pattern)))
 			return (false_ret(__func__));
 	}
 	else
 	{
-		if (!(apply_flag_di_tiret_pos(copy_result, l_pattern)))
+		if (!(apply_di_tiret_pos(copy_result, l_pattern)))
 			return (false_ret(__func__));
 	}
 	return (True);

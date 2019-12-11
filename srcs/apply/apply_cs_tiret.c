@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_flags_cs_tiret.c                           .::    .:/ .      .::   */
+/*   apply_cs_tiret.c                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -63,7 +63,7 @@ static char 	*flag_cs_tiret_case2(t_pattern *l_pattern, char* copy_result)
 }
 
 
-t_bool 		apply_flag_cs_tiret(t_pattern *l_pattern, char *copy_result)
+t_bool 		apply_cs_tiret(t_pattern *l_pattern, char *copy_result)
 {
     if (l_pattern->l_flag->precision)
 		copy_result = flag_cs_tiret_case1(l_pattern, copy_result);
