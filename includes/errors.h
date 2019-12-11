@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 14:42:25 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 21:47:05 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 21:56:32 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,10 +22,10 @@ typedef enum
 	_several_flags = 0,
 	_too_many_stars,
 	_zero_sc,
-	_precision_c,
+	_precision_cp,
 	_digit_stars_before_flag,
 	_digit_stars_together,
-	_preci_and_p,
+	_zeroflag_cp,
 	errors_size
 }	t_type_error;
 
@@ -37,10 +37,9 @@ t_bool	get_errors(t_pattern *l_pattern);
 t_bool	error_several_flags(t_pattern *l_pattern);
 t_bool	error_too_many_stars(t_pattern *l_pattern);
 t_bool	error_zero_sc(t_pattern *l_pattern);
-t_bool	error_precision_c(t_pattern *l_pattern);
+t_bool	error_precision_cp(t_pattern *l_pattern);
 t_bool	error_digit_stars_before_flag(t_pattern *l_pattern);
 t_bool	error_digit_stars_together(t_pattern *l_pattern);
-t_bool	error_preci_and_p(t_pattern *l_pattern);
-t_bool	error_zeroflag_and_p(t_pattern *l_pattern);
+t_bool	error_zeroflag_cp(t_pattern *l_pattern);
 
 #endif

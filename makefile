@@ -83,6 +83,9 @@ all : ${OBJ} ${NAME}
 ${NAME}: ${OBJ} ${MAIN} ${LIB}
 		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
+test_p: ${OBJ} ${LIB}
+		 ${COMP} -o test ${OBJ} ${LIB} tests_p.c
+
 cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 

@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:46:58 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 17:44:17 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 21:54:23 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,9 +47,10 @@ t_bool	error_zero_sc(t_pattern *l_pattern)
 	return (True);
 }
 
-t_bool	error_precision_c(t_pattern *l_pattern)
+t_bool	error_precision_cp(t_pattern *l_pattern)
 {
-	if (ft_isincharset('.', l_pattern->pattern_cpy) && l_pattern->indicateur == 'c')
+	if (ft_isincharset('.', l_pattern->pattern_cpy) &&
+		(l_pattern->indicateur == 'c' || l_pattern->indicateur == 'p'))
 		return (false_ret(__func__));
 	return (True);
 }

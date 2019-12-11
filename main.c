@@ -37,19 +37,11 @@ int main(void)
 {
 	// TEST INT
 
-	// unsigned int s = 124;
-	// char *blah;
-	//
-	// blah = "gihshvd;oshi";
-	printf("[%-222p]\n", "coucou");
-	ft_printf("[%-222p]\n", "coucou");
-	// ft_printf("[%25p]\n", "coucou");
 
-	// PAS DE PRECISION AVEC P
+	printf("[%4p]\n", "lol");
+	ft_printf("[%4p]\n", "lol");
 
-	// ft_printf("[%0.0x]", 4147483647);
 
-	// ft_printf("\n\n[%s]\n", s);
 
 //----------------------------------
 
