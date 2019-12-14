@@ -227,7 +227,7 @@ UNITTEST = {
 	# "test_percent_25": ["[%25%]"],
 	# "test_percent_26": ["[%025%]"],
 	# "test_all_mixeu_01": ["[%25%], [%-12u], [%12.5s], [%-4c], [%21.6d], [%0u], [%-5d]", 12, "qwerty", 'X', 12, 45678965, -6],
-	"test_all_mixed_02": ["[%12.*s], [%-4c], [%21.6d], [%0u], [%-5d], [%-*x]", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456],
+	"test_all_mixed_02": ["[%12.*s], [%-4c], [%21.6d], [%0u],  [%-*x], [%-5d],", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456],
 }
 
 
@@ -289,9 +289,9 @@ def compile_main(filename, printf_args):
     filenamec, temoin = create_main(filename, printf_args)
     # faut pas hésiter à ajouter vos lib et vos header et vos sources ...
     ret = os.system(
-        "gcc {filename} -g -fsanitize=address srcs/*/*.o srcs/*.o -Iincludes libft/libft.a -o {out}".format(filename=filenamec, out=filename))
+        "gcc {filename} -Wall -Wextra -Werror srcs/*/*.o srcs/*.o -Iincludes libft/libft.a -o {out}".format(filename=filenamec, out=filename))
     ret += os.system(
-        "gcc {filename} -g -fsanitize=address srcs/*/*.o srcs/*.o -Iincludes libft/libft.a -o {out}".format(filename=temoin, out=filename + '_temoin'))
+        "gcc {filename} -Wall -Wextra -Werror srcs/*/*.o srcs/*.o -Iincludes libft/libft.a -o {out}".format(filename=temoin, out=filename + '_temoin'))
     if ret:
         print("Error: compilation on file {}".format(filename))
 
