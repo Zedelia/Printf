@@ -38,9 +38,8 @@ int main(void)
 	// TEST INT
 
 
-	printf("[%4p]\n", "lol");
-	ft_printf("[%4p]\n", "lol");
-
+	printf(" [%-*x],\n", 2, 456);
+	ft_printf("[%-*x],\n", 2, 456);
 
 
 //----------------------------------

@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:47:25 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 21:55:49 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 09:54:31 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,22 +19,22 @@ t_bool	error_digit_stars_together(t_pattern *l_pattern)
 
 	i = 0;
 	if ((ft_isincharset('.', l_pattern->pattern_cpy)
-		&& occurence_before('*', l_pattern->pattern_cpy, '.') == 1))
+		&& occurence_after('*', l_pattern->pattern_cpy, '.') == 1))
 	{
-		while (l_pattern->pattern_cpy[i] != '.')
+		while (l_pattern->pattern_cpy[i] != l_pattern->indicateur)
 		{
 			if (ft_isdigit(l_pattern->pattern_cpy[i]))
-				return (false_ret(__func__));
+				return (True);
 			i++;
 		}
 	}
-	if ((ft_isincharset('.', l_pattern->pattern_cpy)
-		&& occurence_after('*', l_pattern->pattern_cpy, '.') == 1))
+	if (occurence_before('*', l_pattern->pattern_cpy, l_pattern->indicateur) == 1
+			&& (ft_isincharset('.', l_pattern->pattern_cpy)))
 	{
-		while (l_pattern->pattern_cpy[i] != '.')
+		while (l_pattern->pattern_cpy[i] != l_pattern->indicateur)
 		{
 			if (ft_isdigit(l_pattern->pattern_cpy[i]))
-				return (false_ret(__func__));
+				return (True);
 			i++;
 		}
 	}

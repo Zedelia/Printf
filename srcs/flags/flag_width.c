@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 18:21:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 19:29:42 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 09:04:49 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 t_bool		flag_width(t_flag *l_flag, char *width, va_list params)
 {
-	if (width[0] == '*')
+	if (width[1] == '*')
 	{
 		if (!(l_flag->width = get_di(params)))
 			return (false_ret(__func__));

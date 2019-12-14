@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_diux_zero_pos.c                        .::    .:/ .      .::   */
+/*   apply_diux_zero_pos.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/08 19:56:41 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 19:58:21 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 10:36:12 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,7 +51,7 @@ static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_resu
 	else if (l_pattern->l_flag->flag_type == '0')
 	{
 		while (width >= 0)
-			cpy_result[width--] = ' ';
+			cpy_result[width--] = '0';
 	}
 	return (cpy_result);
 }
@@ -89,9 +89,9 @@ t_bool		apply_diux_zero_pos(t_pattern *l_pattern, char *cpy_result)
 
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
 	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
-	if (preci > width)
+	if ((l_pattern->l_flag->precision) && preci > width)
 		cpy_result = flag_zero_di_case1(l_pattern, preci, cpy_result);
-	else if (preci == 0)
+	else if (!(l_pattern->l_flag->precision))
 		cpy_result = flag_zero_di_case2(l_pattern, width, cpy_result);
 	else if (preci <= width)
 		cpy_result = flag_zero_di_case3(l_pattern, preci, width, cpy_result);

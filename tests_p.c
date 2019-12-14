@@ -34,6 +34,8 @@ int main(void)
 
 	printf("\n[%1p]\n", "lol");
 	ft_printf("[%1p]\n", "lol");
-	
+
+		"test_string_16": ["[%s]", NULL],
+
 	return (0);
 }
