@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   apply_diux_arg_zero.c                              .::    .:/ .      .::   */
+/*   apply_diux_arg_zero.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/05 11:22:51 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 16:50:22 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 14:40:56 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,6 +27,8 @@ t_bool	apply_diux_arg_zero(t_pattern *l_pattern)
 
 	i = 0;
 	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
+	if (l_pattern->l_flag->arg_neg == True)
+		return (True);
 	if ((!(l_pattern->l_flag->width) || *(int *)(l_pattern->l_flag->width) == 0))
 	{
 		if (!(convert_zero(l_pattern)))
