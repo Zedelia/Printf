@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/05 09:38:19 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 10:35:56 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 14:14:49 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -63,16 +63,30 @@ static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_resu
 static char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_result)
 {
 	int len;
+	int i;
 
+	i = 0;
 	len = ft_strlen(l_pattern->result);
-	width = (width > len) ? width : len;
-	while (len >= 0)
+	i = (width > len) ? width : len;
+	while (len > 0)
 	{
-		cpy_result[width--] = (l_pattern->result)[len--];
+		cpy_result[i--] = (l_pattern->result)[len--];
 		preci--;
+		width--;
 	}
-	while (width >= 0)
-			cpy_result[width--] = ' ';
+	while (preci >=0)
+	{
+		cpy_result[i--] = '0';
+		preci--;
+		width--;
+	}
+	cpy_result[i--] = '-';
+	width--;
+	while (width >= 0 && i >= 0)
+	{
+		cpy_result[i--] = ' ';
+		width--;
+	}
 	return (cpy_result);
 }
 
@@ -83,6 +97,7 @@ t_bool apply_diux_zero_neg(t_pattern *l_pattern, char *cpy_result)
 
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
 	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	preci = (l_pattern->l_flag->arg_neg) ? preci - 1 : preci;
 	if ((l_pattern->l_flag->precision) && preci >= width)
 		cpy_result = flag_zero_di_case1(l_pattern, preci, cpy_result);
 	else if (!(l_pattern->l_flag->precision))

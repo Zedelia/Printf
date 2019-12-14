@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 21:18:48 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 14:10:13 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -93,6 +93,7 @@ struct		s_flag
 	char	flag_type;
 	void	*precision;
 	void	*width;
+	t_bool	arg_neg;
 };
 
 # include "patterns.h"
