@@ -26,7 +26,7 @@ t_bool 	get_indicator(t_pattern *l_pattern)
 		{
 			if (l_pattern->pattern_cpy[i] == INDICATORS[j])
 			{
-				l_pattern->indicateur = l_pattern->pattern_cpy[i];
+				l_pattern->indicator = l_pattern->pattern_cpy[i];
 				return (True);
 			}
 			j++;

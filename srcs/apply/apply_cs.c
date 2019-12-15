@@ -22,7 +22,7 @@ static char 	*create_result_str_sc(t_pattern *l_pattern, char *copy_result)
 
 	len = ft_strlen(l_pattern->result);
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
 	if (width > len)
 		size = width;
 	else if (width > preci)
@@ -43,7 +43,7 @@ t_bool 	apply_cs(t_pattern *l_pattern)
 
 	copy_result = NULL;
 	copy_result = create_result_str_sc(l_pattern, copy_result);
-	if (l_pattern->l_flag->flag_type == '-')
+	if (l_pattern->l_flag->type == '-')
 	{
 		if (!(apply_cs_tiret(l_pattern, copy_result)))
 			return (false_ret(__func__));

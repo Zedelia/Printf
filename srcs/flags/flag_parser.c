@@ -17,19 +17,19 @@ t_bool		flag_parser(t_flag *l_flag, char *flags, va_list params)
 {
 	if (flags[0] == '0' || flags[0] == '-')
 	{
-		l_flag->flag_type = flags[0];
+		l_flag->type = flags[0];
 		if (!(flag_width(l_flag, &flags[1], params)))
 			return (false_ret(__func__));
 	}
 	else
 	{
-		l_flag->flag_type = 'N';
+		l_flag->type = 'N';
 		if (!(flag_width(l_flag, &flags[0], params)))
 			return (false_ret(__func__));
 	}
 	if (ft_isincharset('.', flags))
 	{
-		if (!flag_precision(l_flag, ft_strchr(flags, '.') + 1, params))
+		if (!flag_preci(l_flag, ft_strchr(flags, '.') + 1, params))
 			return (false_ret(__func__));
 	}
 	return (True);

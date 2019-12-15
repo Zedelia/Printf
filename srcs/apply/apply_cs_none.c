@@ -21,7 +21,7 @@ static char 	*flag_cs_none_case1(t_pattern *l_pattern, char *copy_result)
 
 	i = 0;
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
 	while (preci && l_pattern->result[i])
 	{
 		copy_result[i] = l_pattern->result[i];
@@ -42,7 +42,7 @@ static char 	*flag_cs_none_case2(t_pattern *l_pattern, char *copy_result)
 	i = 0;
 	j = 0;
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
 	if (preci > 0)
 	{
 		while (width - preci > 0)
@@ -107,12 +107,12 @@ t_bool 		apply_cs_none(t_pattern *l_pattern, char *copy_result)
 
 	i = 0;
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
 	if (preci > width)
 		copy_result = flag_cs_none_case1(l_pattern, copy_result);
 	else if (preci)
 		copy_result = flag_cs_none_case2(l_pattern, copy_result);
-	else if (l_pattern->l_flag->precision && preci == 0)
+	else if (l_pattern->l_flag->preci && preci == 0)
 		copy_result = flag_cs_none_case4(l_pattern, copy_result);
 	else
 		copy_result = flag_cs_none_case3(l_pattern, copy_result);

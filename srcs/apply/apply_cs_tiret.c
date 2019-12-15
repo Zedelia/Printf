@@ -21,7 +21,7 @@ static char 	*flag_cs_tiret_case1(t_pattern *l_pattern, char *copy_result)
 
 	i = 0;
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
 	while (preci && l_pattern->result[i])
 	{
 		copy_result[i] = l_pattern->result[i];
@@ -46,7 +46,7 @@ static char 	*flag_cs_tiret_case2(t_pattern *l_pattern, char* copy_result)
 
 	i = 0;
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
+	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
 	while (l_pattern->result[i])
 	{
 		copy_result[i] = l_pattern->result[i];
@@ -65,7 +65,7 @@ static char 	*flag_cs_tiret_case2(t_pattern *l_pattern, char* copy_result)
 
 t_bool 		apply_cs_tiret(t_pattern *l_pattern, char *copy_result)
 {
-    if (l_pattern->l_flag->precision)
+    if (l_pattern->l_flag->preci)
 		copy_result = flag_cs_tiret_case1(l_pattern, copy_result);
 	else
 		copy_result = flag_cs_tiret_case2(l_pattern, copy_result);

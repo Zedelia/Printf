@@ -20,8 +20,8 @@ t_bool  convert_x(t_pattern *l_pattern)
 
 	len = ft_strlen((char *)l_pattern->varg);
 	cmp = ft_strncmp("0", (const char *)l_pattern->varg, len);
-	if (cmp == 0 && (l_pattern->l_flag->precision)
-			&& *(int *)(l_pattern->l_flag->precision) == 0)
+	if (cmp == 0 && (l_pattern->l_flag->preci)
+			&& *(int *)(l_pattern->l_flag->preci) == 0)
 	{
 		if (!(apply_diux_arg_zero(l_pattern)))
 			return (false_ret(__func__));

@@ -15,16 +15,16 @@
 
 t_bool	error_several_flags(t_pattern *l_pattern)
 {
-	if (l_pattern->indicateur != '%')
+	if (l_pattern->indicator != '%')
 	{
 		if (ft_isincharset('-', l_pattern->pattern_cpy)
-				&& occurence_before('0', l_pattern->pattern_cpy, '-') > 0)
+				&& occur_before('0', l_pattern->pattern_cpy, '-') > 0)
 			return (false_ret(__func__));
 		if (ft_strchr(l_pattern->pattern_cpy, '-')
 				&& ft_strchr(l_pattern->pattern_cpy, '-')[1] == '0')
 			return (false_ret(__func__));
-		if (occurence_before('-', l_pattern->pattern_cpy, '.') > 1
-				|| occurence_after('-', l_pattern->pattern_cpy, '.') > 0)
+		if (occur_before('-', l_pattern->pattern_cpy, '.') > 1
+				|| occur_after('-', l_pattern->pattern_cpy, '.') > 0)
 			return (false_ret(__func__));
 	}
 	return (True);
@@ -32,9 +32,9 @@ t_bool	error_several_flags(t_pattern *l_pattern)
 
 t_bool	error_too_many_stars(t_pattern *l_pattern)
 {
-	if (occurence_before('*', l_pattern->pattern_cpy, '.') > 1)
+	if (occur_before('*', l_pattern->pattern_cpy, '.') > 1)
 		return (false_ret(__func__));
-	if (occurence_after('*', l_pattern->pattern_cpy, '.') > 1)
+	if (occur_after('*', l_pattern->pattern_cpy, '.') > 1)
 		return (false_ret(__func__));
 	return (True);
 }
@@ -42,15 +42,15 @@ t_bool	error_too_many_stars(t_pattern *l_pattern)
 t_bool	error_zero_sc(t_pattern *l_pattern)
 {
 	if (l_pattern->pattern_cpy[0] == '0'
-			&& (l_pattern->indicateur == 's' || l_pattern->indicateur == 'c'))
+			&& (l_pattern->indicator == 's' || l_pattern->indicator == 'c'))
 		return (false_ret(__func__));
 	return (True);
 }
 
-t_bool	error_precision_cp(t_pattern *l_pattern)
+t_bool	error_preci_cp(t_pattern *l_pattern)
 {
 	if (ft_isincharset('.', l_pattern->pattern_cpy) &&
-		(l_pattern->indicateur == 'c' || l_pattern->indicateur == 'p'))
+		(l_pattern->indicator == 'c' || l_pattern->indicator == 'p'))
 		return (false_ret(__func__));
 	return (True);
 }

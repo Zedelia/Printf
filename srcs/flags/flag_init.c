@@ -18,7 +18,7 @@ t_bool	flag_init(t_flag **l_flag, char *flags, va_list params)
 
 	if (!(*l_flag = malloc(sizeof(t_flag))))
 		return (false_ret(__func__));
-	(*l_flag)->precision = NULL;
+	(*l_flag)->preci = NULL;
 	(*l_flag)->width = NULL;
 	(*l_flag)->arg_neg = False;
 	if (!(flag_parser(*l_flag, flags, params)))

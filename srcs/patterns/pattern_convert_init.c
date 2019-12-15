@@ -32,7 +32,7 @@ t_bool 	pattern_convert(t_pattern *l_pattern)
 	size_t 			index;
 
 	init_convert_fct_tab();
-	index = ft_index(l_pattern->indicateur, INDICATORS);
+	index = ft_index(l_pattern->indicator, INDICATORS);
 	fonc = g_convert_fct[index];
 	if (!(fonc(l_pattern)))
 		return (false_ret(__func__));

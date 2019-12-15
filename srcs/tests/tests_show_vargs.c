@@ -61,7 +61,7 @@ void 	show_varg(t_pattern *l_pattern)
 	size_t 		index;
 
 	init_show_varg();
-	index = ft_index(l_pattern->indicateur, INDICATORS);
+	index = ft_index(l_pattern->indicator, INDICATORS);
 	fonc = g_show_varg[index];
 	fonc(l_pattern);
 }

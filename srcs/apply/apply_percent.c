@@ -72,11 +72,11 @@ t_bool	apply_percent(t_pattern *l_pattern)
 
 	if (!(copy_result = create_result_str_percent(l_pattern)))
 		return (false_ret(__func__));
-	if (l_pattern->l_flag->flag_type == 'N')
+	if (l_pattern->l_flag->type == 'N')
 		copy_result = apply_percent_none(l_pattern, copy_result);
-	else if (l_pattern->l_flag->flag_type == '-')
+	else if (l_pattern->l_flag->type == '-')
 		copy_result = apply_percent_tiret(l_pattern, copy_result);
-	else if (l_pattern->l_flag->flag_type == '0')
+	else if (l_pattern->l_flag->type == '0')
 		copy_result = apply_percent_zero(l_pattern, copy_result);
 	if (!(l_pattern->result = ft_strdup(copy_result)))
 		return (false_ret(__func__));

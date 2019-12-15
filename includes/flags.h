@@ -22,6 +22,6 @@ t_bool	flag_init(t_flag **l_flag, char *flag, va_list params);
 t_bool	flag_parser(t_flag *l_flag, char *flags, va_list params);
 void	flag_free(t_flag **l_flag);
 t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
-t_bool	flag_precision(t_flag *l_flag, char *precision, va_list params);
+t_bool	flag_preci(t_flag *l_flag, char *preci, va_list params);
 
 #endif

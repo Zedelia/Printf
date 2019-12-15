@@ -38,7 +38,7 @@ int		is_flags(char c)
 	return (false_ret(__func__));
 }
 
-int		occurence_before(char c, char *charset, char before)
+int		occur_before(char c, char *charset, char before)
 {
 	int i;
 	int ocur;
@@ -54,7 +54,7 @@ int		occurence_before(char c, char *charset, char before)
 	return (ocur);
 }
 
-int		occurence_after(char c, char *charset, char after)
+int		occur_after(char c, char *charset, char after)
 {
 	int i;
 	int ocur;

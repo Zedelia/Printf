@@ -43,7 +43,7 @@ SRCS = ft_printf \
 	flags/flag_init \
 	flags/flag_parser \
 	flags/flag_width \
-	flags/flag_precision \
+	flags/flag_preci \
 	tests/tests_struct \
 	tests/tests_show_vargs \
 	tests/tests_utils

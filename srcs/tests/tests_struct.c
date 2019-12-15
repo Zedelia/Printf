@@ -47,8 +47,8 @@ void 	show_one_pattern(t_pattern *l_pattern)
 			show_varg(l_pattern);
 		if (l_pattern->len)
 			printf("pattern_len : [%d]\n", l_pattern->len);
-		if (l_pattern->indicateur)
-			printf("indicateur : %c\n", l_pattern->indicateur);
+		if (l_pattern->indicator)
+			printf("indicator : %c\n", l_pattern->indicator);
 		if (l_pattern->l_flag)
 			printf("l_flag : %p\n", l_pattern->l_flag);
 		show_flag(l_pattern->l_flag);
@@ -82,10 +82,10 @@ void 	show_one_flag(t_flag *l_flag)
 		printf (MAGENTA"Flag : (null)\n"RESET);
 	else if (l_flag)
 	{
-		if (l_flag->flag_type)
-			printf(MAGENTA"flag : %c\n", l_flag->flag_type);
-		if (l_flag->precision)
-			printf("precision : %d\n", *((int *)l_flag->precision));
+		if (l_flag->type)
+			printf(MAGENTA"flag : %c\n", l_flag->type);
+		if (l_flag->preci)
+			printf("preci : %d\n", *((int *)l_flag->preci));
 		if (l_flag->width)
 			printf("width : %d\n", *((int *)l_flag->width));
 		printf(MAGENTA"\n.....end.....<<"RESET"\n\n");

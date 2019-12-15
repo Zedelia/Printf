@@ -22,7 +22,7 @@ typedef enum
 	_several_flags = 0,
 	_too_many_stars,
 	_zero_sc,
-	_precision_cp,
+	_preci_cp,
 	_digit_stars_before_flag,
 	_digit_stars_together,
 	_zeroflag_cp,
@@ -37,7 +37,7 @@ t_bool	get_errors(t_pattern *l_pattern);
 t_bool	error_several_flags(t_pattern *l_pattern);
 t_bool	error_too_many_stars(t_pattern *l_pattern);
 t_bool	error_zero_sc(t_pattern *l_pattern);
-t_bool	error_precision_cp(t_pattern *l_pattern);
+t_bool	error_preci_cp(t_pattern *l_pattern);
 t_bool	error_digit_stars_before_flag(t_pattern *l_pattern);
 t_bool	error_digit_stars_together(t_pattern *l_pattern);
 t_bool	error_zeroflag_cp(t_pattern *l_pattern);

@@ -19,19 +19,19 @@ t_bool	error_digit_stars_together(t_pattern *l_pattern)
 
 	i = 0;
 	if ((ft_isincharset('.', l_pattern->pattern_cpy)
-		&& occurence_after('*', l_pattern->pattern_cpy, '.') == 1))
+		&& occur_after('*', l_pattern->pattern_cpy, '.') == 1))
 	{
-		while (l_pattern->pattern_cpy[i] != l_pattern->indicateur)
+		while (l_pattern->pattern_cpy[i] != l_pattern->indicator)
 		{
 			if (ft_isdigit(l_pattern->pattern_cpy[i]))
 				return (True);
 			i++;
 		}
 	}
-	if (occurence_before('*', l_pattern->pattern_cpy, l_pattern->indicateur) == 1
+	if (occur_before('*', l_pattern->pattern_cpy, l_pattern->indicator) == 1
 			&& (ft_isincharset('.', l_pattern->pattern_cpy)))
 	{
-		while (l_pattern->pattern_cpy[i] != l_pattern->indicateur)
+		while (l_pattern->pattern_cpy[i] != l_pattern->indicator)
 		{
 			if (ft_isdigit(l_pattern->pattern_cpy[i]))
 				return (True);
@@ -44,7 +44,7 @@ t_bool	error_digit_stars_together(t_pattern *l_pattern)
 t_bool	error_zeroflag_cp(t_pattern *l_pattern)
 {
 	if (l_pattern->pattern_cpy[0] == '0' &&
-		(l_pattern->indicateur == 'c' || l_pattern->indicateur == 'p'))
+		(l_pattern->indicator == 'c' || l_pattern->indicator == 'p'))
 		return (false_ret(__func__));
 	return (True);
 }

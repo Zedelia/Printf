@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 14:10:13 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 11:41:52 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,7 +58,7 @@ typedef enum
 	_big_x,
 	_percent,
 	size
-}	t_type_indicateur;
+}	t_type_indicator;
 /*
 ** Struct declarations
 ** -----> s_format 		 : use to save and modify the entire printf first param
@@ -82,7 +82,7 @@ struct		s_pattern
 	char			*pattern_cpy;
 	char			*result;
 	void			*varg;
-	char			indicateur;
+	char			indicator;
 	int				len;
 	t_flag			*l_flag;
 	t_pattern		*next;
@@ -90,8 +90,8 @@ struct		s_pattern
 
 struct		s_flag
 {
-	char	flag_type;
-	void	*precision;
+	char	type;
+	void	*preci;
 	void	*width;
 	t_bool	arg_neg;
 };
@@ -113,8 +113,8 @@ int			is_flags(char c);
 t_bool		is_indicator(char c);
 size_t		ft_index(char c, const char *charset);
 char		*convert_base_int_to_hex(unsigned int var);
-int			occurence_before(char c, char *charset, char before);
-int			occurence_after(char c, char *charset, char after);
+int			occur_before(char c, char *charset, char before);
+int			occur_after(char c, char *charset, char after);
 char		*create_malloc(char *copy_result, int len);
 char		*convert_base_int_to_unsigned(int temp);
 char		*ft_utoa(unsigned int nbr);

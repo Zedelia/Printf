@@ -31,7 +31,7 @@ t_bool 	get_arg(t_pattern *l_pattern, va_list params)
 	t_get_fct 	*fonc;
 	size_t 		index;
 
-	index = ft_index(l_pattern->indicateur, INDICATORS);
+	index = ft_index(l_pattern->indicator, INDICATORS);
 	fonc = g_get_fct[index];
 	l_pattern->varg = fonc(params);
 	if (!(l_pattern->varg))

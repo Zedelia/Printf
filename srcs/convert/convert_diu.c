@@ -15,8 +15,8 @@
 
 t_bool  convert_di(t_pattern *l_pattern)
 {
-	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->precision)
-			&& *(int *)(l_pattern->l_flag->precision) == 0)
+	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->preci)
+			&& *(int *)(l_pattern->l_flag->preci) == 0)
 	{
 			if (!(apply_diux_arg_zero(l_pattern)))
 				return (false_ret(__func__));
@@ -34,8 +34,8 @@ t_bool  convert_u(t_pattern *l_pattern)
 {
 	int temp;
 
-	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->precision)
-			&& *(int *)(l_pattern->l_flag->precision) == 0)
+	if (*((int *)l_pattern->varg) == 0 && (l_pattern->l_flag->preci)
+			&& *(int *)(l_pattern->l_flag->preci) == 0)
 	{
 		if (!(apply_diux_arg_zero(l_pattern)))
 			return (false_ret(__func__));

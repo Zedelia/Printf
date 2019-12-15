@@ -22,8 +22,8 @@ t_bool		flag_width(t_flag *l_flag, char *width, va_list params)
 		if (*(int *)(l_flag->width) < 0)
 		{
 			*(int *)(l_flag->width) = -*(int *)(l_flag->width);
-			if (l_flag->flag_type != '-')
-				l_flag->flag_type = '-';
+			if (l_flag->type != '-')
+				l_flag->type = '-';
 		}
 		return (True);
 	}

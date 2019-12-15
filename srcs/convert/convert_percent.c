@@ -17,7 +17,7 @@ t_bool  convert_percent(t_pattern *l_pattern)
 {
 	if (!(l_pattern->result = malloc(sizeof(char) * 2)))
 		return (false_ret(__func__));
-	l_pattern->result[0] = l_pattern->indicateur;
+	l_pattern->result[0] = l_pattern->indicator;
 	l_pattern->result[1] = '\0';
 	if (!(l_pattern->l_flag))
 		return (True);

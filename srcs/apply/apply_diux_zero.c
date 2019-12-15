@@ -15,7 +15,7 @@
 
 t_bool	apply_diux_zero(t_pattern *l_pattern, char *cpy_result)
 {
-	if (ft_atoi(l_pattern->result) < 0 && l_pattern->indicateur != 'u')
+	if (ft_atoi(l_pattern->result) < 0 && l_pattern->indicator != 'u')
 	{
 		if (!(apply_diux_zero_neg(l_pattern, cpy_result)))
 			return (false_ret(__func__));

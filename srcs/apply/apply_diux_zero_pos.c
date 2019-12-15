@@ -43,12 +43,12 @@ static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_resu
 	width = (width > len) ? width : len;
 	while (len >= 0)
 		cpy_result[width--] = (l_pattern->result)[len--];
-	if (l_pattern->l_flag->flag_type == 'N')
+	if (l_pattern->l_flag->type == 'N')
 	{
 		while (width >= 0)
 			cpy_result[width--] = ' ';
 	}
-	else if (l_pattern->l_flag->flag_type == '0')
+	else if (l_pattern->l_flag->type == '0')
 	{
 		while (width >= 0)
 			cpy_result[width--] = '0';
@@ -88,10 +88,10 @@ t_bool		apply_diux_zero_pos(t_pattern *l_pattern, char *cpy_result)
     int preci;
 
 	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->precision) ? *(int *)(l_pattern->l_flag->precision) : 0;
-	if ((l_pattern->l_flag->precision) && preci > width)
+	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
+	if ((l_pattern->l_flag->preci) && preci > width)
 		cpy_result = flag_zero_di_case1(l_pattern, preci, cpy_result);
-	else if (!(l_pattern->l_flag->precision))
+	else if (!(l_pattern->l_flag->preci))
 		cpy_result = flag_zero_di_case2(l_pattern, width, cpy_result);
 	else if (preci <= width)
 		cpy_result = flag_zero_di_case3(l_pattern, preci, width, cpy_result);

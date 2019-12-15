@@ -34,7 +34,7 @@ void 	init_error_fct_tab(void)
 	g_get_error_fct[_several_flags] = error_several_flags;
 	g_get_error_fct[_too_many_stars] = error_too_many_stars;
 	g_get_error_fct[_zero_sc] = error_zero_sc;
-	g_get_error_fct[_precision_cp] = error_precision_cp;
+	g_get_error_fct[_preci_cp] = error_preci_cp;
 	g_get_error_fct[_digit_stars_before_flag] = error_digit_stars_before_flag;
 	g_get_error_fct[_digit_stars_together] = error_digit_stars_together;
 	g_get_error_fct[_zeroflag_cp] = error_zeroflag_cp;
