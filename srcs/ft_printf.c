@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/08 19:58:51 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 18:29:47 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 11:06:55 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,6 +30,5 @@ int		ft_printf(const char *s, ...)
 	write(1, s_format->new_format, ft_strlen(s_format->new_format));
 	format_free(&s_format);
 	va_end(params);
-	// show_format(s_format);
 	return (0);
 }

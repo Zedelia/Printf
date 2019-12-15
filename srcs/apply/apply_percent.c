@@ -6,7 +6,7 @@
 /*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 17:19:42 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 18:53:00 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 10:59:55 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,6 +80,6 @@ t_bool	apply_percent(t_pattern *l_pattern)
 		copy_result = apply_percent_zero(l_pattern, copy_result);
 	if (!(l_pattern->result = ft_strdup(copy_result)))
 		return (false_ret(__func__));
-	// show_pattern(l_pattern);
+	ft_memdel((void**)&copy_result);
 	return (True);
 }
