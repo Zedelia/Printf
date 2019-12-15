@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_copy.c                                   .::    .:/ .      .::   */
+/*   pattern_cpy.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -13,7 +13,7 @@
 
 #include "../../includes/ft_printf.h"
 
-t_bool	pattern_copy(t_pattern *l_pattern)
+t_bool	pattern_cpy(t_pattern *l_pattern)
 {
 	size_t n;
 

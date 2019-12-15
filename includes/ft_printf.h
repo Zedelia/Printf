@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 17:01:16 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 11:41:52 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 11:54:00 by melodiebos  ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -115,7 +115,7 @@ size_t		ft_index(char c, const char *charset);
 char		*convert_base_int_to_hex(unsigned int var);
 int			occur_before(char c, char *charset, char before);
 int			occur_after(char c, char *charset, char after);
-char		*create_malloc(char *copy_result, int len);
+char		*create_malloc(char *cpy_result, int len);
 char		*convert_base_int_to_unsigned(int temp);
 char		*ft_utoa(unsigned int nbr);
 

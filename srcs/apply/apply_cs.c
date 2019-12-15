@@ -13,7 +13,7 @@
 
 #include "../../includes/ft_printf.h"
 
-static char 	*create_result_str_sc(t_pattern *l_pattern, char *copy_result)
+static char 	*create_result_str_sc(t_pattern *l_pattern, char *cpy_result)
 {
 	int width;
 	int preci;
@@ -31,30 +31,30 @@ static char 	*create_result_str_sc(t_pattern *l_pattern, char *copy_result)
 		size = preci;
 	else
 		size = len;
-	if (!(copy_result = malloc(sizeof(char)*(size + 1))))
+	if (!(cpy_result = malloc(sizeof(char)*(size + 1))))
 		return (NULL);
-	copy_result[size] = '\0';
-	return (copy_result);
+	cpy_result[size] = '\0';
+	return (cpy_result);
 }
 
 t_bool 	apply_cs(t_pattern *l_pattern)
 {
-	char *copy_result;
+	char *cpy_result;
 
-	copy_result = NULL;
-	copy_result = create_result_str_sc(l_pattern, copy_result);
+	cpy_result = NULL;
+	cpy_result = create_result_str_sc(l_pattern, cpy_result);
 	if (l_pattern->l_flag->type == '-')
 	{
-		if (!(apply_cs_tiret(l_pattern, copy_result)))
+		if (!(apply_cs_tiret(l_pattern, cpy_result)))
 			return (false_ret(__func__));
 	}
 	else
 	{
-		if (!(apply_cs_none(l_pattern, copy_result)))
+		if (!(apply_cs_none(l_pattern, cpy_result)))
 			return (false_ret(__func__));
 	}
-	if (!(l_pattern->result = ft_strdup(copy_result)))
+	if (!(l_pattern->result = ft_strdup(cpy_result)))
 		return (false_ret(__func__));
-	ft_memdel((void**)&copy_result);
+	ft_memdel((void**)&cpy_result);
 	return (True);
 }

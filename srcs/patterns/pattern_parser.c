@@ -22,7 +22,7 @@ t_bool 	pattern_parser(t_pattern *l_pattern, va_list params)
 {
 	t_flag *l_flag;
 
-	if (!(pattern_copy(l_pattern)))
+	if (!(pattern_cpy(l_pattern)))
 		return (false_ret(__func__));
 	l_pattern->len = ft_strlen(l_pattern->pattern_cpy) + 1;
 	if (is_indicator(l_pattern->pattern_cpy[0]) == True)

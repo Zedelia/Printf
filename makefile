@@ -33,7 +33,7 @@ SRCS = ft_printf \
 	patterns/pattern_init \
 	patterns/pattern_free \
 	patterns/pattern_parser \
-	patterns/pattern_copy \
+	patterns/pattern_cpy \
 	patterns/pattern_errors_1 \
 	patterns/pattern_errors_2 \
 	patterns/pattern_errors_init \

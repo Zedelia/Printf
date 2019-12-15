@@ -25,7 +25,7 @@ void	pattern_free_one(t_pattern **l_pattern);
 t_bool	pattern_apply(char *format, t_pattern *conv);
 t_bool	pattern_parser(t_pattern *l_pattern, va_list params);
 void	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag);
-t_bool	pattern_copy(t_pattern *l_pattern);
+t_bool	pattern_cpy(t_pattern *l_pattern);
 t_bool	pattern_check(t_pattern *l_pattern);
 t_bool	pattern_convert(t_pattern *l_pattern);
 

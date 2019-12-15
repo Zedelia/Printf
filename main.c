@@ -37,8 +37,8 @@ int main(void)
 {
 	// TEST INT
 
-	ft_printf("[%.*x]\n", 25, 2147483647);
-	printf("[%.*x]", 25, 2147483647);
+	ft_printf("[%.*x]\n", 25, 0);
+	printf("[%.*x]", 25, 0);
 
 
 
