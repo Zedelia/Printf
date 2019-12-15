@@ -13,26 +13,26 @@
 
 #include "../../includes/ft_printf.h"
 
-static char 	*flag_cs_none_case1(t_pattern *l_pattern, char *cpy_result)
+static char 	*flag_cs_none_case1(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int preci;
 	int i;
 
 	i = 0;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
-	while (preci && l_pattern->result[i])
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
+	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
+	while (preci && l_input->output[i])
 	{
-		cpy_result[i] = l_pattern->result[i];
+		cpy_output[i] = l_input->output[i];
 		i++;
 		preci--;
 	}
-	return (cpy_result);
+	return (cpy_output);
 }
 
 
-static char 	*flag_cs_none_case2(t_pattern *l_pattern, char *cpy_result)
+static char 	*flag_cs_none_case2(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int preci;
@@ -41,25 +41,25 @@ static char 	*flag_cs_none_case2(t_pattern *l_pattern, char *cpy_result)
 
 	i = 0;
 	j = 0;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
+	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
 	if (preci > 0)
 	{
 		while (width - preci > 0)
 		{
-			cpy_result[i++] = ' ';
+			cpy_output[i++] = ' ';
 			width--;
 		}
 		while (preci > 0)
 		{
-			cpy_result[i++] = l_pattern->result[j++];
+			cpy_output[i++] = l_input->output[j++];
 			preci--;
 		}
 	}
-	return (cpy_result);
+	return (cpy_output);
 }
 
-static char 	*flag_cs_none_case3(t_pattern *l_pattern, char *cpy_result)
+static char 	*flag_cs_none_case3(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int i;
@@ -68,55 +68,55 @@ static char 	*flag_cs_none_case3(t_pattern *l_pattern, char *cpy_result)
 
 	i = 0;
 	j = 0;
-	len = ft_strlen(l_pattern->result);
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	len = ft_strlen(l_input->output);
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	if (width > len)
 	{
 		while (width - len > 0)
 		{
-			cpy_result[i++] = ' ';
+			cpy_output[i++] = ' ';
 			width--;
 		}
 	}
-	while (l_pattern->result[j])
-		cpy_result[i++] = l_pattern->result[j++];
-	return (cpy_result);
+	while (l_input->output[j])
+		cpy_output[i++] = l_input->output[j++];
+	return (cpy_output);
 }
 
-static char		*flag_cs_none_case4(t_pattern *l_pattern, char *cpy_result)
+static char		*flag_cs_none_case4(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int i;
 
 	i = 0;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	while (width > 0)
 	{
-		cpy_result[i++] = ' ';
+		cpy_output[i++] = ' ';
 		width--;
 	}
-	return (cpy_result);
+	return (cpy_output);
 }
 
 
-t_bool 		apply_cs_none(t_pattern *l_pattern, char *cpy_result)
+t_bool 		apply_cs_none(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int preci;
 	int i;
 
 	i = 0;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
+	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
 	if (preci > width)
-		cpy_result = flag_cs_none_case1(l_pattern, cpy_result);
+		cpy_output = flag_cs_none_case1(l_input, cpy_output);
 	else if (preci)
-		cpy_result = flag_cs_none_case2(l_pattern, cpy_result);
-	else if (l_pattern->l_flag->preci && preci == 0)
-		cpy_result = flag_cs_none_case4(l_pattern, cpy_result);
+		cpy_output = flag_cs_none_case2(l_input, cpy_output);
+	else if (l_input->l_flag->preci && preci == 0)
+		cpy_output = flag_cs_none_case4(l_input, cpy_output);
 	else
-		cpy_result = flag_cs_none_case3(l_pattern, cpy_result);
-	if (!(l_pattern->result = ft_strdup(cpy_result)))
+		cpy_output = flag_cs_none_case3(l_input, cpy_output);
+	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
 	return (True);
 }

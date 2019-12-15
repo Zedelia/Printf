@@ -6,80 +6,80 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:22 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:01:24 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 12:08:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static char  *create_result_str_percent(t_pattern *l_pattern)
+static char  *create_output_str_percent(t_input *l_input)
 {
 	int  	width;
-	char 	*cpy_result;
+	char 	*cpy_output;
 
-	cpy_result = NULL;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	cpy_output = NULL;
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	if (width > 1)
-		cpy_result = create_malloc(cpy_result, width);
+		cpy_output = create_malloc(cpy_output, width);
 	else
-		cpy_result = create_malloc(cpy_result, 1);
-	return (cpy_result);
+		cpy_output = create_malloc(cpy_output, 1);
+	return (cpy_output);
 }
 
-static char	*apply_percent_none(t_pattern *l_pattern, char *cpy_result)
+static char	*apply_percent_none(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int i;
 
 	i = 0;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	while (i < width - 1)
-		cpy_result[i++] = ' ';
-	cpy_result[i] = '%';
-	return (cpy_result);
+		cpy_output[i++] = ' ';
+	cpy_output[i] = '%';
+	return (cpy_output);
 }
 
-static char	*apply_percent_tiret(t_pattern *l_pattern, char *cpy_result)
+static char	*apply_percent_tiret(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int i ;
 
 	i = 1;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	cpy_result[0] = '%';
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
+	cpy_output[0] = '%';
 	while (i < width)
-		cpy_result[i++] = ' ';
-	return (cpy_result);
+		cpy_output[i++] = ' ';
+	return (cpy_output);
 }
 
-static char	*apply_percent_zero(t_pattern *l_pattern, char *cpy_result)
+static char	*apply_percent_zero(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int i;
 
 	i = 0;
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	while (i < width - 1)
-		cpy_result[i++] = '0';
-	cpy_result[i] = '%';
-	return (cpy_result);
+		cpy_output[i++] = '0';
+	cpy_output[i] = '%';
+	return (cpy_output);
 }
 
-t_bool	apply_percent(t_pattern *l_pattern)
+t_bool	apply_percent(t_input *l_input)
 {
-	char *cpy_result;
+	char *cpy_output;
 
-	if (!(cpy_result = create_result_str_percent(l_pattern)))
+	if (!(cpy_output = create_output_str_percent(l_input)))
 		return (false_ret(__func__));
-	if (l_pattern->l_flag->type == 'N')
-		cpy_result = apply_percent_none(l_pattern, cpy_result);
-	else if (l_pattern->l_flag->type == '-')
-		cpy_result = apply_percent_tiret(l_pattern, cpy_result);
-	else if (l_pattern->l_flag->type == '0')
-		cpy_result = apply_percent_zero(l_pattern, cpy_result);
-	if (!(l_pattern->result = ft_strdup(cpy_result)))
+	if (l_input->l_flag->type == 'N')
+		cpy_output = apply_percent_none(l_input, cpy_output);
+	else if (l_input->l_flag->type == '-')
+		cpy_output = apply_percent_tiret(l_input, cpy_output);
+	else if (l_input->l_flag->type == '0')
+		cpy_output = apply_percent_zero(l_input, cpy_output);
+	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
-	ft_memdel((void**)&cpy_result);
+	ft_memdel((void**)&cpy_output);
 	return (True);
 }

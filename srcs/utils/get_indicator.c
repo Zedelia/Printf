@@ -13,20 +13,20 @@
 
 #include "../../includes/ft_printf.h"
 
-t_bool 	get_indicator(t_pattern *l_pattern)
+t_bool 	get_indicator(t_input *l_input)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	while (l_pattern->pattern_cpy[i])
+	while (l_input->input_cpy[i])
 	{
 		while (INDICATORS[j])
 		{
-			if (l_pattern->pattern_cpy[i] == INDICATORS[j])
+			if (l_input->input_cpy[i] == INDICATORS[j])
 			{
-				l_pattern->indicator = l_pattern->pattern_cpy[i];
+				l_input->indicator = l_input->input_cpy[i];
 				return (True);
 			}
 			j++;

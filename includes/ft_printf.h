@@ -62,10 +62,10 @@ typedef enum
 /*
 ** Struct declarations
 ** -----> s_format 		 : use to save and modify the entire printf first param
-** -----> s_pattern 	: use to identify and apply pattern like '%...s'
+** -----> s_input 	: use to identify and apply input like '%...s'
 ** -----> s_flag		 : use to identify flags
 */
-typedef struct s_pattern	t_pattern;
+typedef struct s_input	t_input;
 typedef struct s_format	t_format;
 typedef struct s_flag		t_flag;
 
@@ -73,19 +73,19 @@ struct		s_format
 {
 	char			*format;
 	char			*new_format;
-	t_pattern		*l_pattern;
+	t_input		*l_input;
 };
 
-struct		s_pattern
+struct		s_input
 {
-	char			*p_pattern;
-	char			*pattern_cpy;
-	char			*result;
+	char			*p_input;
+	char			*input_cpy;
+	char			*output;
 	void			*varg;
 	char			indicator;
 	int				len;
 	t_flag			*l_flag;
-	t_pattern		*next;
+	t_input		*next;
 };
 
 struct		s_flag
@@ -96,7 +96,7 @@ struct		s_flag
 	t_bool	arg_neg;
 };
 
-# include "patterns.h"
+# include "inputs.h"
 # include "apply.h"
 # include "convert.h"
 # include "errors.h"
@@ -115,7 +115,7 @@ size_t		ft_index(char c, const char *charset);
 char		*convert_base_int_to_hex(unsigned int var);
 int			occur_before(char c, char *charset, char before);
 int			occur_after(char c, char *charset, char after);
-char		*create_malloc(char *cpy_result, int len);
+char		*create_malloc(char *cpy_output, int len);
 char		*convert_base_int_to_unsigned(int temp);
 char		*ft_utoa(unsigned int nbr);
 

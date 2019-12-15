@@ -26,42 +26,42 @@ void 	init_show_varg(void)
 	g_show_varg[_percent] = show_percent;
 }
 
-void 	show_c(t_pattern *l_pattern)
+void 	show_c(t_input *l_input)
 {
-	printf("arg_c : %c\n", *((char *)l_pattern->varg));
+	printf("arg_c : %c\n", *((char *)l_input->varg));
 }
-void 	show_s(t_pattern *l_pattern)
+void 	show_s(t_input *l_input)
 {
-	printf("arg_s :%s\n", (char*)l_pattern->varg);
+	printf("arg_s :%s\n", (char*)l_input->varg);
 }
-void 	show_p(t_pattern *l_pattern)
+void 	show_p(t_input *l_input)
 {
-	printf("arg_p : %p\n", l_pattern->varg);
+	printf("arg_p : %p\n", l_input->varg);
 }
-void 	show_di(t_pattern *l_pattern)
+void 	show_di(t_input *l_input)
 {
-	printf("arg_di : %d\n", *((int *)l_pattern->varg));
+	printf("arg_di : %d\n", *((int *)l_input->varg));
 }
-void 	show_u(t_pattern *l_pattern)
+void 	show_u(t_input *l_input)
 {
-	printf("arg_u : %u\n", (unsigned int)l_pattern->varg);
+	printf("arg_u : %u\n", (unsigned int)l_input->varg);
 }
-void 	show_x(t_pattern *l_pattern)
+void 	show_x(t_input *l_input)
 {
-	printf("arg_xX : %x\n", (unsigned int)l_pattern->varg);
+	printf("arg_xX : %x\n", (unsigned int)l_input->varg);
 }
-void 	show_percent(t_pattern *l_pattern)
+void 	show_percent(t_input *l_input)
 {
-	printf("arg_%% %c\n", (char)l_pattern->varg);
+	printf("arg_%% %c\n", (char)l_input->varg);
 }
 
-void 	show_varg(t_pattern *l_pattern)
+void 	show_varg(t_input *l_input)
 {
 	t_show_varg	*fonc;
 	size_t 		index;
 
 	init_show_varg();
-	index = ft_index(l_pattern->indicator, INDICATORS);
+	index = ft_index(l_input->indicator, INDICATORS);
 	fonc = g_show_varg[index];
-	fonc(l_pattern);
+	fonc(l_input);
 }

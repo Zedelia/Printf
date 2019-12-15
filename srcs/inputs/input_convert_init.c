@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:02:51 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 12:08:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,18 +26,18 @@ void 	init_convert_fct_tab(void)
 	g_convert_fct[_percent] = convert_percent;
 }
 
-t_bool 	pattern_convert(t_pattern *l_pattern)
+t_bool 	input_convert(t_input *l_input)
 {
 	t_convert_fct 	*fonc;
 	size_t 			index;
 
 	init_convert_fct_tab();
-	index = ft_index(l_pattern->indicator, INDICATORS);
+	index = ft_index(l_input->indicator, INDICATORS);
 	fonc = g_convert_fct[index];
-	if (!(fonc(l_pattern)))
+	if (!(fonc(l_input)))
 		return (false_ret(__func__));
-	if (!(l_pattern->p_pattern = ft_strjoin((const char*)l_pattern->result,
-			l_pattern->p_pattern + l_pattern->len)))
+	if (!(l_input->p_input = ft_strjoin((const char*)l_input->output,
+			l_input->p_input + l_input->len)))
 		return (false_ret(__func__));
 	return (True);
 }

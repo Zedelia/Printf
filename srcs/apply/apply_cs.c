@@ -13,16 +13,16 @@
 
 #include "../../includes/ft_printf.h"
 
-static char 	*create_result_str_sc(t_pattern *l_pattern, char *cpy_result)
+static char 	*create_output_str_sc(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int preci;
 	int len;
 	int size ;
 
-	len = ft_strlen(l_pattern->result);
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
+	len = ft_strlen(l_input->output);
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
+	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
 	if (width > len)
 		size = width;
 	else if (width > preci)
@@ -31,30 +31,30 @@ static char 	*create_result_str_sc(t_pattern *l_pattern, char *cpy_result)
 		size = preci;
 	else
 		size = len;
-	if (!(cpy_result = malloc(sizeof(char)*(size + 1))))
+	if (!(cpy_output = malloc(sizeof(char)*(size + 1))))
 		return (NULL);
-	cpy_result[size] = '\0';
-	return (cpy_result);
+	cpy_output[size] = '\0';
+	return (cpy_output);
 }
 
-t_bool 	apply_cs(t_pattern *l_pattern)
+t_bool 	apply_cs(t_input *l_input)
 {
-	char *cpy_result;
+	char *cpy_output;
 
-	cpy_result = NULL;
-	cpy_result = create_result_str_sc(l_pattern, cpy_result);
-	if (l_pattern->l_flag->type == '-')
+	cpy_output = NULL;
+	cpy_output = create_output_str_sc(l_input, cpy_output);
+	if (l_input->l_flag->type == '-')
 	{
-		if (!(apply_cs_tiret(l_pattern, cpy_result)))
+		if (!(apply_cs_tiret(l_input, cpy_output)))
 			return (false_ret(__func__));
 	}
 	else
 	{
-		if (!(apply_cs_none(l_pattern, cpy_result)))
+		if (!(apply_cs_none(l_input, cpy_output)))
 			return (false_ret(__func__));
 	}
-	if (!(l_pattern->result = ft_strdup(cpy_result)))
+	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
-	ft_memdel((void**)&cpy_result);
+	ft_memdel((void**)&cpy_output);
 	return (True);
 }

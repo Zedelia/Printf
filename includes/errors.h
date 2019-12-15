@@ -30,16 +30,16 @@ typedef enum
 }	t_type_error;
 
 void				init_error_fct_tab(void);
-typedef t_bool		(t_get_error_fct)(t_pattern*);
+typedef t_bool		(t_get_error_fct)(t_input*);
 t_get_error_fct		*g_get_error_fct[errors_size];
 
-t_bool	get_errors(t_pattern *l_pattern);
-t_bool	error_several_flags(t_pattern *l_pattern);
-t_bool	error_too_many_stars(t_pattern *l_pattern);
-t_bool	error_zero_sc(t_pattern *l_pattern);
-t_bool	error_preci_cp(t_pattern *l_pattern);
-t_bool	error_digit_stars_before_flag(t_pattern *l_pattern);
-t_bool	error_digit_stars_together(t_pattern *l_pattern);
-t_bool	error_zeroflag_cp(t_pattern *l_pattern);
+t_bool	get_errors(t_input *l_input);
+t_bool	error_several_flags(t_input *l_input);
+t_bool	error_too_many_stars(t_input *l_input);
+t_bool	error_zero_sc(t_input *l_input);
+t_bool	error_preci_cp(t_input *l_input);
+t_bool	error_digit_stars_before_flag(t_input *l_input);
+t_bool	error_digit_stars_together(t_input *l_input);
+t_bool	error_zeroflag_cp(t_input *l_input);
 
 #endif

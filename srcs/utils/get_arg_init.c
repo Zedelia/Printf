@@ -26,15 +26,15 @@ void 	init_get_fct_tab(void)
 	g_get_fct[_percent] = get_percent;
 }
 
-t_bool 	get_arg(t_pattern *l_pattern, va_list params)
+t_bool 	get_arg(t_input *l_input, va_list params)
 {
 	t_get_fct 	*fonc;
 	size_t 		index;
 
-	index = ft_index(l_pattern->indicator, INDICATORS);
+	index = ft_index(l_input->indicator, INDICATORS);
 	fonc = g_get_fct[index];
-	l_pattern->varg = fonc(params);
-	if (!(l_pattern->varg))
+	l_input->varg = fonc(params);
+	if (!(l_input->varg))
 		return (false_ret(__func__));
 	return (True);
 }

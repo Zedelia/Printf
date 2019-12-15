@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   patterns.h                                       .::    .:/ .      .::   */
+/*   inputs.h                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -11,22 +11,22 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef PATTERNS_H
-# define PATTERNS_H
+#ifndef inputS_H
+# define inputS_H
 
 # include "ft_printf.h"
 /*
-** Pattern functions
+** input functions
 ** init, free, use and modify t_format
 */
-t_bool	pattern_init(t_pattern **l_pattern, char *format, va_list params);
-void	pattern_free(t_pattern **l_pattern);
-void	pattern_free_one(t_pattern **l_pattern);
-t_bool	pattern_apply(char *format, t_pattern *conv);
-t_bool	pattern_parser(t_pattern *l_pattern, va_list params);
-void	pattern_add_flag(t_pattern *l_pattern, t_flag *l_flag);
-t_bool	pattern_cpy(t_pattern *l_pattern);
-t_bool	pattern_check(t_pattern *l_pattern);
-t_bool	pattern_convert(t_pattern *l_pattern);
+t_bool	input_init(t_input **l_input, char *format, va_list params);
+void	input_free(t_input **l_input);
+void	input_free_one(t_input **l_input);
+t_bool	input_apply(char *format, t_input *conv);
+t_bool	input_parser(t_input *l_input, va_list params);
+void	input_add_flag(t_input *l_input, t_flag *l_flag);
+t_bool	input_cpy(t_input *l_input);
+t_bool	input_check(t_input *l_input);
+t_bool	input_convert(t_input *l_input);
 
 #endif

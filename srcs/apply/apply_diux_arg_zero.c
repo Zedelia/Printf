@@ -13,33 +13,33 @@
 
 #include "../../includes/ft_printf.h"
 
-static t_bool 	convert_zero(t_pattern *l_pattern)
+static t_bool 	convert_zero(t_input *l_input)
 {
-	if (!(l_pattern->result = malloc(sizeof(char))))
+	if (!(l_input->output = malloc(sizeof(char))))
 		return (false_ret(__func__));
-	l_pattern->result[0] = '\0';
+	l_input->output[0] = '\0';
 	return (True);
 }
 
-t_bool	apply_diux_arg_zero(t_pattern *l_pattern)
+t_bool	apply_diux_arg_zero(t_input *l_input)
 {
 	int i;
 
 	i = 0;
-	l_pattern->result = ft_itoa(*((int *)l_pattern->varg));
-	if (l_pattern->l_flag->arg_neg == True)
+	l_input->output = ft_itoa(*((int *)l_input->varg));
+	if (l_input->l_flag->arg_neg == True)
 		return (True);
-	if ((!(l_pattern->l_flag->width) || *(int *)(l_pattern->l_flag->width) == 0))
+	if ((!(l_input->l_flag->width) || *(int *)(l_input->l_flag->width) == 0))
 	{
-		if (!(convert_zero(l_pattern)))
+		if (!(convert_zero(l_input)))
 			return (false_ret(__func__));
 	}
 	else
 	{
-		if (!(apply_diux(l_pattern)))
+		if (!(apply_diux(l_input)))
 			return (false_ret(__func__));
-		while(l_pattern->result[i])
-			l_pattern->result[i++] = ' ';
+		while(l_input->output[i])
+			l_input->output[i++] = ' ';
 	}
 	return (True);
 }

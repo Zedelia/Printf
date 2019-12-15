@@ -6,14 +6,14 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:03:20 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:03:20 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 12:08:17 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool	get_errors(t_pattern *l_pattern)
+t_bool	get_errors(t_input *l_input)
 {
 	size_t 				index;
 	t_get_error_fct		*fonc;
@@ -22,7 +22,7 @@ t_bool	get_errors(t_pattern *l_pattern)
 	while (index != errors_size)
 	{
 		fonc = g_get_error_fct[index];
-		if (fonc(l_pattern) == False)
+		if (fonc(l_input) == False)
 			return (false_ret(__func__));
 		index++;
 	}

@@ -22,7 +22,7 @@
 t_bool	format_init(t_format **s_format, const char *format, va_list params);
 void	format_free(t_format **s_format);
 t_bool	format_parser(t_format *s_format, char *format, va_list params);
-void	format_add_pattern(t_format *s_format, t_pattern *l_pattern);
-t_bool	format_replace_pattern(t_format *s_format);
+void	format_add_input(t_format *s_format, t_input *l_input);
+t_bool	format_replace_input(t_format *s_format);
 
 #endif

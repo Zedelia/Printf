@@ -23,10 +23,10 @@ size_t	ft_index(char c, const char *charset)
 	return (i);
 }
 
-char 	*create_malloc(char *cpy_result, int len)
+char 	*create_malloc(char *cpy_output, int len)
 {
-	if (!(cpy_result = malloc(sizeof(char)*(len + 1))))
+	if (!(cpy_output = malloc(sizeof(char)*(len + 1))))
 		return (NULL);
-	cpy_result[len] = '\0';
-	return (cpy_result);
+	cpy_output[len] = '\0';
+	return (cpy_output);
 }

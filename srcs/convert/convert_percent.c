@@ -6,22 +6,22 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:38 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:01:38 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 12:08:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool  convert_percent(t_pattern *l_pattern)
+t_bool  convert_percent(t_input *l_input)
 {
-	if (!(l_pattern->result = malloc(sizeof(char) * 2)))
+	if (!(l_input->output = malloc(sizeof(char) * 2)))
 		return (false_ret(__func__));
-	l_pattern->result[0] = l_pattern->indicator;
-	l_pattern->result[1] = '\0';
-	if (!(l_pattern->l_flag))
+	l_input->output[0] = l_input->indicator;
+	l_input->output[1] = '\0';
+	if (!(l_input->l_flag))
 		return (True);
-	if (!(apply_percent(l_pattern)))
+	if (!(apply_percent(l_input)))
 		return (false_ret(__func__));
 	return (True);
 }

@@ -13,98 +13,98 @@
 
 #include "../../includes/ft_printf.h"
 
-static char 	*flag_zero_di_case1(t_pattern *l_pattern, int preci, char *cpy_result)
+static char 	*flag_zero_di_case1(t_input *l_input, int preci, char *cpy_output)
 {
 	int len;
 	int i;
 
-	len = ft_strlen(l_pattern->result);
+	len = ft_strlen(l_input->output);
 	len--;
 	i = preci > len ? preci : len;
-	cpy_result[0] = '-';
+	cpy_output[0] = '-';
 	while (len > 0)
 	{
-		cpy_result[i--] = (l_pattern->result)[len--];
+		cpy_output[i--] = (l_input->output)[len--];
 		preci--;
 	}
 	while (preci > 0 )
 	{
-		cpy_result[i--] = '0';
+		cpy_output[i--] = '0';
 		preci--;
 	}
-	return (cpy_result);
+	return (cpy_output);
 }
 
-static char 	*flag_zero_di_case2(t_pattern *l_pattern, int width, char *cpy_result)
+static char 	*flag_zero_di_case2(t_input *l_input, int width, char *cpy_output)
 {
 	int len;
 
-	len = ft_strlen(l_pattern->result);
+	len = ft_strlen(l_input->output);
 	if (width < len)
 		width = len;
 	while (len > 0)
-		cpy_result[width--] = (l_pattern->result)[len--];
-	if (l_pattern->l_flag->type == 'N')
+		cpy_output[width--] = (l_input->output)[len--];
+	if (l_input->l_flag->type == 'N')
 	{
-		cpy_result[width--] = '-';
+		cpy_output[width--] = '-';
 		while (width >= 0)
-			cpy_result[width--] = ' ';
+			cpy_output[width--] = ' ';
 	}
-	else if (l_pattern->l_flag->type == '0')
+	else if (l_input->l_flag->type == '0')
 	{
 		while (width > 0)
-			cpy_result[width--] = '0';
-		cpy_result[width--] = '-';
+			cpy_output[width--] = '0';
+		cpy_output[width--] = '-';
 	}
-	return (cpy_result);
+	return (cpy_output);
 }
 
 
-static char 	*flag_zero_di_case3(t_pattern *l_pattern, int preci, int width, char *cpy_result)
+static char 	*flag_zero_di_case3(t_input *l_input, int preci, int width, char *cpy_output)
 {
 	int len;
 	int i;
 
 	i = 0;
-	len = ft_strlen(l_pattern->result);
+	len = ft_strlen(l_input->output);
 	i = (width > len) ? width : len;
 	while (len > 0)
 	{
-		cpy_result[i--] = (l_pattern->result)[len--];
+		cpy_output[i--] = (l_input->output)[len--];
 		preci--;
 		width--;
 	}
 	while (preci >=0)
 	{
-		cpy_result[i--] = '0';
+		cpy_output[i--] = '0';
 		preci--;
 		width--;
 	}
-	cpy_result[i--] = '-';
+	cpy_output[i--] = '-';
 	width--;
 	while (width >= 0 && i >= 0)
 	{
-		cpy_result[i--] = ' ';
+		cpy_output[i--] = ' ';
 		width--;
 	}
-	return (cpy_result);
+	return (cpy_output);
 }
 
-t_bool apply_diux_zero_neg(t_pattern *l_pattern, char *cpy_result)
+t_bool apply_diux_zero_neg(t_input *l_input, char *cpy_output)
 {
 	int width;
     int preci;
 
-	width = (l_pattern->l_flag->width) ? *(int *)(l_pattern->l_flag->width) : 0;
-	preci = (l_pattern->l_flag->preci) ? *(int *)(l_pattern->l_flag->preci) : 0;
-	preci = (l_pattern->l_flag->arg_neg) ? preci - 1 : preci;
-	if ((l_pattern->l_flag->preci) && preci >= width)
-		cpy_result = flag_zero_di_case1(l_pattern, preci, cpy_result);
-	else if (!(l_pattern->l_flag->preci))
-		cpy_result = flag_zero_di_case2(l_pattern, width, cpy_result);
-	else if ((l_pattern->l_flag->preci) && preci < width)
-		cpy_result = flag_zero_di_case3(l_pattern, preci, width, cpy_result);
-	if (!(l_pattern->result = ft_strdup(cpy_result)))
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
+	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
+	preci = (l_input->l_flag->arg_neg) ? preci - 1 : preci;
+	if ((l_input->l_flag->preci) && preci >= width)
+		cpy_output = flag_zero_di_case1(l_input, preci, cpy_output);
+	else if (!(l_input->l_flag->preci))
+		cpy_output = flag_zero_di_case2(l_input, width, cpy_output);
+	else if ((l_input->l_flag->preci) && preci < width)
+		cpy_output = flag_zero_di_case3(l_input, preci, width, cpy_output);
+	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
 	return (True);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_free.c                                   .::    .:/ .      .::   */
+/*   input_free.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -13,32 +13,32 @@
 
 #include "../../includes/ft_printf.h"
 
-void 	pattern_free_one(t_pattern **l_pattern)
+void 	input_free_one(t_input **l_input)
 {
-	if (!l_pattern)
+	if (!l_input)
 		return ;
-	(*l_pattern)->p_pattern = NULL;
-	ft_memdel((void **)&((*l_pattern)->pattern_cpy));
-	(*l_pattern)->pattern_cpy = NULL;
-	ft_memdel((void **)&((*l_pattern)->result));
-	(*l_pattern)->result = NULL;
-	ft_memdel((void **)&((*l_pattern)->varg));
-	(*l_pattern)->varg = NULL;
-	if ((*l_pattern)->l_flag)
-		flag_free(&(*l_pattern)->l_flag);
-	ft_memdel((void**) l_pattern);
-	l_pattern = NULL;
+	(*l_input)->p_input = NULL;
+	ft_memdel((void **)&((*l_input)->input_cpy));
+	(*l_input)->input_cpy = NULL;
+	ft_memdel((void **)&((*l_input)->output));
+	(*l_input)->output = NULL;
+	ft_memdel((void **)&((*l_input)->varg));
+	(*l_input)->varg = NULL;
+	if ((*l_input)->l_flag)
+		flag_free(&(*l_input)->l_flag);
+	ft_memdel((void**) l_input);
+	l_input = NULL;
 }
 
-void 	pattern_free(t_pattern **l_pattern)
+void 	input_free(t_input **l_input)
 {
-	t_pattern *temp;
+	t_input *temp;
 
-	while (*l_pattern)
+	while (*l_input)
 	{
-		temp = (*l_pattern)->next;
-		pattern_free_one(l_pattern);
-		*l_pattern = temp;
+		temp = (*l_input)->next;
+		input_free_one(l_input);
+		*l_input = temp;
 	}
-	l_pattern = NULL;
+	l_input = NULL;
 }

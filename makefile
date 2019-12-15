@@ -29,16 +29,16 @@ SRCS = ft_printf \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
-	format/format_replace_pattern \
-	patterns/pattern_init \
-	patterns/pattern_free \
-	patterns/pattern_parser \
-	patterns/pattern_cpy \
-	patterns/pattern_errors_1 \
-	patterns/pattern_errors_2 \
-	patterns/pattern_errors_init \
-	patterns/pattern_check \
-	patterns/pattern_convert_init \
+	format/format_replace_input \
+	inputs/input_init \
+	inputs/input_free \
+	inputs/input_parser \
+	inputs/input_cpy \
+	inputs/input_errors_1 \
+	inputs/input_errors_2 \
+	inputs/input_errors_init \
+	inputs/input_check \
+	inputs/input_convert_init \
 	flags/flag_free \
 	flags/flag_init \
 	flags/flag_parser \
