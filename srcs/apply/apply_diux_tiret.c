@@ -3,16 +3,15 @@
 /*                                                              /             */
 /*   apply_diux_tiret.c                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/03 15:55:59 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 11:39:44 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:00:55 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:00:57 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-
 
 static t_bool 	apply_diux_tiret_neg(char *cpy_result, t_pattern *l_pattern)
 {
