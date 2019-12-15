@@ -37,11 +37,13 @@ int main(void)
 {
 	// TEST INT
 
-	ft_printf("[%.*x]\n", 25, 0);
-	printf("[%.*x]", 25, 0);
+	ft_printf("[%25.25s]\n", "qwerty");
+	printf("[%25.25s]", "qwerty");
 
-
-
+		//
+		//
+		// "test_string_17": ["[%25.25s]", "qwerty"],
+		// 	"test_string_25": ["[%*.*s]", 25, -25, "qwerty"],
 //----------------------------------
 
 	// TEST char

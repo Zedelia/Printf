@@ -6,14 +6,14 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:01:03 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 12:27:29 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static char 	*flag_zero_di_case1(t_input *l_input, int preci, char *cpy_output)
+static char 	*f_z_di_case1(t_input *l_input, int preci, char *cpy_output)
 {
 	int len;
 	int i;
@@ -35,7 +35,7 @@ static char 	*flag_zero_di_case1(t_input *l_input, int preci, char *cpy_output)
 	return (cpy_output);
 }
 
-static char 	*flag_zero_di_case2(t_input *l_input, int width, char *cpy_output)
+static char 	*f_z_di_case2(t_input *l_input, int width, char *cpy_output)
 {
 	int len;
 
@@ -60,33 +60,26 @@ static char 	*flag_zero_di_case2(t_input *l_input, int width, char *cpy_output)
 }
 
 
-static char 	*flag_zero_di_case3(t_input *l_input, int preci, int width, char *cpy_output)
+static char 	*f_z_di_case3(t_input *l_input, int preci, int width, char *cpy_output)
 {
 	int len;
 	int i;
 
-	i = 0;
 	len = ft_strlen(l_input->output);
 	i = (width > len) ? width : len;
 	while (len > 0)
 	{
 		cpy_output[i--] = (l_input->output)[len--];
 		preci--;
-		width--;
 	}
 	while (preci >=0)
 	{
 		cpy_output[i--] = '0';
 		preci--;
-		width--;
 	}
 	cpy_output[i--] = '-';
-	width--;
-	while (width >= 0 && i >= 0)
-	{
+	while ( i >= 0)
 		cpy_output[i--] = ' ';
-		width--;
-	}
 	return (cpy_output);
 }
 
@@ -99,11 +92,11 @@ t_bool apply_diux_zero_neg(t_input *l_input, char *cpy_output)
 	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
 	preci = (l_input->l_flag->arg_neg) ? preci - 1 : preci;
 	if ((l_input->l_flag->preci) && preci >= width)
-		cpy_output = flag_zero_di_case1(l_input, preci, cpy_output);
+		cpy_output = f_z_di_case1(l_input, preci, cpy_output);
 	else if (!(l_input->l_flag->preci))
-		cpy_output = flag_zero_di_case2(l_input, width, cpy_output);
+		cpy_output = f_z_di_case2(l_input, width, cpy_output);
 	else if ((l_input->l_flag->preci) && preci < width)
-		cpy_output = flag_zero_di_case3(l_input, preci, width, cpy_output);
+		cpy_output = f_z_di_case3(l_input, preci, width, cpy_output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
 	return (True);
