@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_width_preci.c                                .::    .:/ .      .::   */
+/*   apply_sc_create_str.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:04:13 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 12:55:10 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/16 13:13:30 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/16 13:13:36 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-int 	*get_width_preci(char *width_or_preci)
+char 	*create_output_str_sc(t_input *l_input, char *cpy_output)
 {
-	size_t 	i;
-	char 	*temp;
-	int  	*p_int;
+	int width;
+	int preci;
+	int len;
+	int size ;
 
-	i = 0;
-	while (ft_isdigit(width_or_preci[i]) == True)
-		i++;
-	if (!(temp = ft_strndup((const char*)&width_or_preci[0], i)))
+	len = ft_strlen(l_input->output);
+	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
+	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
+	if (width > len)
+		size = width;
+	else if (width > preci)
+		size = width;
+	else if (preci < len)
+		size = preci;
+	else
+		size = len;
+	if (!(cpy_output = malloc(sizeof(char)*(size + 1))))
 		return (NULL);
-	if (!(p_int = malloc(sizeof(int))))
-			return (NULL);
-	*p_int = ft_atoi(temp);
-	ft_memdel((void**)&temp);
-	return ((void*)(p_int));
+	cpy_output[size] = '\0';
+	return (cpy_output);
 }

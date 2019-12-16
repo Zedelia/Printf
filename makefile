@@ -16,6 +16,7 @@ SRCS = ft_printf \
 	apply/apply_diux_zero_pos \
 	apply/apply_diux_zero_neg \
 	apply/apply_cs \
+	apply/apply_sc_create_str \
 	apply/apply_cs_tiret \
 	apply/apply_cs_none \
 	apply/apply_diux_arg_zero \

@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:29 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 13:27:11 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 13:17:12 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -99,13 +99,16 @@ static char 	*flag_cs_none_case4(t_input *l_input, char *cpy_output)
 }
 
 
-t_bool 		apply_cs_none(t_input *l_input, char *cpy_output)
+t_bool 		apply_cs_none(t_input *l_input)
 {
 	int width;
 	int preci;
+	char *cpy_output;
 	int i;
 
 	i = 0;
+	cpy_output = NULL;
+	cpy_output = create_output_str_sc(l_input, cpy_output);
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
 	if (preci > width)
@@ -118,5 +121,6 @@ t_bool 		apply_cs_none(t_input *l_input, char *cpy_output)
 		cpy_output = flag_cs_none_case4(l_input, cpy_output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
+	ft_memdel((void**)&cpy_output);
 	return (True);
 }

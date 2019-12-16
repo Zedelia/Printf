@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:35 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:00:37 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 13:19:14 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -63,13 +63,18 @@ static char 	*flag_cs_tiret_case2(t_input *l_input, char* cpy_output)
 }
 
 
-t_bool 		apply_cs_tiret(t_input *l_input, char *cpy_output)
+t_bool 		apply_cs_tiret(t_input *l_input)
 {
+	char *cpy_output;
+
+	cpy_output = NULL;
+	cpy_output = create_output_str_sc(l_input, cpy_output);
     if (l_input->l_flag->preci)
 		cpy_output = flag_cs_tiret_case1(l_input, cpy_output);
 	else
 		cpy_output = flag_cs_tiret_case2(l_input, cpy_output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
+	ft_memdel((void**)&cpy_output);
 	return (True);
 }

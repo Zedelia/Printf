@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:34 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:14:36 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 12:59:58 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,7 @@ void 	input_free_one(t_input **l_input)
 {
 	if (!l_input)
 		return ;
+	ft_memdel((void**)&(*l_input)->p_input);
 	(*l_input)->p_input = NULL;
 	ft_memdel((void **)&((*l_input)->input_cpy));
 	(*l_input)->input_cpy = NULL;
