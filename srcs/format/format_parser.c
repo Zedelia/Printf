@@ -6,14 +6,14 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:38 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 16:27:08 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 16:42:51 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static void format_add_input(t_format *s_format, t_input *l_input)
+void format_add_input(t_format *s_format, t_input *l_input)
 {
 	t_input *temp;
 
@@ -54,6 +54,6 @@ t_bool	format_parser(t_format *s_format, char *format, va_list params)
 			return (false_ret(__func__));
 	}
 	//ca ce sont des tests : a supprimer-----
-	show_format(s_format);
+	// show_format(s_format);
 	return (True);
 }
