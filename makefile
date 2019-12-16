@@ -3,40 +3,48 @@ NAME = printf
 INCLUDES = ft_printf
 
 SRCS = ft_printf \
-	utils/utils \
+	utils/utils_1 \
+	utils/utils_2 \
 	utils/convert_bases \
 	utils/get_indicator \
 	utils/get_arg_1 \
 	utils/get_arg_2 \
 	utils/get_arg_init \
 	utils/get_width_preci \
-	apply/apply_flags_di \
-	apply/apply_flags_di_tiret \
-	apply/apply_flags_di_zero_pos \
-	apply/apply_flags_di_zero_neg \
-	apply/apply_flags_cs \
-	apply/apply_flags_cs_tiret \
-	apply/apply_flags_cs_none \
-	apply/apply_di_arg_zero \
+	apply/apply_diux \
+	apply/apply_diux_tiret \
+	apply/apply_diux_zero_pos \
+	apply/apply_diux_zero_neg \
+	apply/apply_cs \
+	apply/apply_sc_create_str \
+	apply/apply_cs_tiret \
+	apply/apply_cs_none \
+	apply/apply_diux_arg_zero \
+	apply/apply_percent \
+	apply/apply_diux_zero \
+	convert/convert_diu \
+	convert/convert_sc \
+	convert/convert_percent \
+	convert/convert_x \
+	convert/convert_p \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
-	format/format_replace_pattern \
-	patterns/pattern_init \
-	patterns/pattern_free \
-	patterns/pattern_parser \
-	patterns/pattern_copy \
-	patterns/pattern_errors_1 \
-	patterns/pattern_errors_2 \
-	patterns/pattern_errors_init \
-	patterns/pattern_check \
-	patterns/pattern_convert_fct \
-	patterns/pattern_convert_init \
+	format/format_replace_input \
+	inputs/input_init \
+	inputs/input_free \
+	inputs/input_parser \
+	inputs/input_cpy \
+	inputs/input_errors_1 \
+	inputs/input_errors_2 \
+	inputs/input_errors_init \
+	inputs/input_check \
+	inputs/input_convert_init \
 	flags/flag_free \
 	flags/flag_init \
 	flags/flag_parser \
 	flags/flag_width \
-	flags/flag_precision \
+	flags/flag_preci \
 	tests/tests_struct \
 	tests/tests_show_vargs \
 	tests/tests_utils
@@ -76,6 +84,9 @@ all : ${OBJ} ${NAME}
 ${NAME}: ${OBJ} ${MAIN} ${LIB}
 		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
+test_p: ${OBJ} ${LIB}
+		 ${COMP} -o test ${OBJ} ${LIB} tests_p.c
+
 cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
@@ -89,6 +100,7 @@ $(LIB):
 
 clean:
 	make clean -C libft
+	rm -f includes/*.gch
 	rm -f ${OBJ}
 
 clean_test:

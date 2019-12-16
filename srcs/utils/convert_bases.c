@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   convert_bases.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/08 19:59:21 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 19:59:28 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:03:55 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:03:56 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,9 +25,9 @@ char	*convert_base_int_to_hex(unsigned int var)
 	return (hex);
 }
 
-size_t		ft_unbrlen(unsigned long long nbr)
+size_t		ft_unbrlen(t_uintmax nbr)
 {
-	unsigned long long	dividor;
+	t_uintmax	dividor;
 	int					len;
 
 	dividor = ULONG_MAX - 8446744073709551615;

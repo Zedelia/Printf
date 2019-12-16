@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   pattern_copy.c                                   .::    .:/ .      .::   */
+/*   apply_cs.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/30 15:49:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 12:16:08 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:00:43 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/16 13:18:45 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool	pattern_copy(t_pattern *l_pattern)
+t_bool 	apply_cs(t_input *l_input)
 {
-	size_t n;
-
-	n = 1;
-	while (is_indicator(l_pattern->p_pattern[n]) == False)
-		n++;
-	if (!(l_pattern->pattern_cpy = ft_strndup(&(l_pattern->p_pattern[1]), n)))
-		return (false_ret(__func__));
-	if (!(pattern_check(l_pattern)))
-		return (false_ret(__func__));
+	if (l_input->l_flag->type == '-')
+	{
+		if (!(apply_cs_tiret(l_input)))
+			return (false_ret(__func__));
+	}
+	else
+	{
+		if (!(apply_cs_none(l_input)))
+			return (false_ret(__func__));
+	}
 	return (True);
 }

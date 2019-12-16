@@ -5,51 +5,52 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/18 18:55:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/08 19:23:08 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:02:38 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/16 13:54:05 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void format_add_pattern(t_format *s_format, t_pattern *l_pattern)
+void format_add_input(t_format *s_format, t_input *l_input)
 {
-	t_pattern *temp;
+	t_input *temp;
 
-	temp = s_format->l_pattern;
+	temp = s_format->l_input;
 	if (temp)
 	{
 		while (temp->next)
 			temp = temp->next;
-		temp->next = l_pattern;
+		temp->next = l_input;
 	}
 	else
-		s_format->l_pattern = l_pattern;
+		s_format->l_input = l_input;
 }
 
 t_bool	format_parser(t_format *s_format, char *format, va_list params)
 {
-	t_pattern  *l_pattern;
+	t_input  *l_input;
 	char 	   *cp_format;
 
 	cp_format = format;
 	if (format[0] == '%')
 	{
-		if (!(pattern_init(&l_pattern, cp_format, params)))
+		if (!(input_init(&l_input, cp_format, params)))
 			return (false_ret(__func__));
-		format_add_pattern(s_format, l_pattern);
+		format_add_input(s_format, l_input);
+		cp_format = cp_format + 2;
 	}
-	while (cp_format && (cp_format = ft_strchr(cp_format + 1, '%')))
+	while (cp_format && (cp_format = ft_strchr(cp_format, '%')))
 	{
-		if (!(pattern_init(&l_pattern, cp_format, params)))
+		if (!(input_init(&l_input, cp_format, params)))
 			return (false_ret(__func__));
-		format_add_pattern(s_format, l_pattern);
+		format_add_input(s_format, l_input);
+		cp_format = cp_format + l_input->len;
 	}
-	if (s_format->l_pattern)
+	if (s_format->l_input)
 	{
-
-		if (!(format_replace_pattern(s_format)))
+		if (!(format_replace_input(s_format)))
 			return (false_ret(__func__));
 	}
 	//ca ce sont des tests : a supprimer-----

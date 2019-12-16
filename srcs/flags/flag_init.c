@@ -5,8 +5,8 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/25 17:36:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 12:29:05 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:01:59 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:02:00 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,8 +18,9 @@ t_bool	flag_init(t_flag **l_flag, char *flags, va_list params)
 
 	if (!(*l_flag = malloc(sizeof(t_flag))))
 		return (false_ret(__func__));
-	(*l_flag)->precision = NULL;
+	(*l_flag)->preci = NULL;
 	(*l_flag)->width = NULL;
+	(*l_flag)->arg_neg = False;
 	if (!(flag_parser(*l_flag, flags, params)))
 		return (false_ret(__func__));
 	return (True);

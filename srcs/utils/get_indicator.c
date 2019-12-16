@@ -5,28 +5,28 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/28 17:17:42 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 16:09:01 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:04:09 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:04:10 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool 	get_indicator(t_pattern *l_pattern)
+t_bool 	get_indicator(t_input *l_input)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	while (l_pattern->pattern_cpy[i])
+	while (l_input->input_cpy[i])
 	{
 		while (INDICATORS[j])
 		{
-			if (l_pattern->pattern_cpy[i] == INDICATORS[j])
+			if (l_input->input_cpy[i] == INDICATORS[j])
 			{
-				l_pattern->indicateur = l_pattern->pattern_cpy[i];
+				l_input->indicator = l_input->input_cpy[i];
 				return (True);
 			}
 			j++;

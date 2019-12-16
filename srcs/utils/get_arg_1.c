@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:06:14 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/15 11:59:48 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,57 +16,54 @@
 void 	*get_di(va_list params)
 {
     int		*p_int;
-	int 	var;
+	int 	value;
 
-	var = va_arg(params, int);
+	value = va_arg(params, int);
     if (!(p_int = malloc(sizeof(int))))
 		return (NULL);
-    *p_int = var;
+    *p_int = value;
 	return ((void *)p_int);
 }
 
-void 	*get_c(va_list params)
+void 	*get_u(va_list params)
 {
-	char		*p_c;
-	char 		var;
+	unsigned int	*p_int;
+	unsigned int 	value;
 
-	var = va_arg(params, int);
-	if (!(p_c = malloc(sizeof(char) * 2)))
+	value = va_arg(params, unsigned int);
+    if (!(p_int = malloc(sizeof(unsigned int))))
 		return (NULL);
-	p_c[0] = var;
-	p_c[1] = '\0';
-	return ((void *)p_c);
-}
-
-void 	*get_s(va_list params)
-{
-	char		*p_s;
-	char 		*var;
-
-	var = va_arg(params, char*);
-	if (!(p_s = ft_strdup(var)))
-		return (NULL);
-	return ((void *)p_s);
+    *p_int = value;
+	return ((void *)p_int);
 }
 
 void 	*get_x(va_list params)
 {
 	char		*p_x;
-	char 		*var;
+	t_uintmax value;
 
-	var = convert_base_int_to_hex(va_arg(params, int));
-	if (!(p_x = ft_strdup(var)))
+	value = va_arg(params, t_uintmax);
+	if(!(p_x = ft_ltoabase(value, "0123456789abcdef")))
 		return (NULL);
 	return ((void *)p_x);
 }
 
-void 	*get_percent(va_list params)
+void 	*get_p(va_list params)
 {
-	char		*p_percent;
-	(void)params;
+	void	*value;
+	char	*p_p;
+	char	*fill_char;
 
-	if (!(p_percent = malloc(sizeof(char))))
+	if (!(value = va_arg(params, void*)))
+	{
+		if(!(p_p = ft_strdup("0x0")))
+			return (NULL);
+		return ((void *)p_p);
+	}
+	if (!(p_p = ft_ltoabase((t_uintmax)value, "0123456789abcdef")))
 		return (NULL);
-	*p_percent = '%';
-	return ((void *)p_percent);
+	fill_char = "0x";
+	if (!(p_p = ft_strjoin(fill_char, p_p)))
+		return (NULL);
+	return ((void *)p_p);
 }

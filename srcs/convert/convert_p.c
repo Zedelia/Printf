@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_arg_init.c                                   .::    .:/ .      .::   */
+/*   convert_p.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:04:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:04:06 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:01:34 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:08:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void 	init_get_fct_tab(void)
+t_bool  convert_p(t_input *l_input)
 {
-	g_get_fct[_c] = get_c;
-	g_get_fct[_s] = get_s;
-	g_get_fct[_p] = get_p;
-	g_get_fct[_d] = get_di;
-	g_get_fct[_i] = get_di;
-	g_get_fct[_u] = get_di;
-	g_get_fct[_x] = get_x;
-	g_get_fct[_big_x] = get_x;
-	g_get_fct[_percent] = get_percent;
-}
+	int cmp;
+	int len;
 
-t_bool 	get_arg(t_input *l_input, va_list params)
-{
-	t_get_fct 	*fonc;
-	size_t 		index;
-
-	index = ft_index(l_input->indicator, INDICATORS);
-	fonc = g_get_fct[index];
-	l_input->varg = fonc(params);
-	if (!(l_input->varg))
+	len = ft_strlen((char *)l_input->varg);
+	cmp = ft_strncmp("0x0", (const char *)l_input->varg, len);
+	if (cmp == 0 && (l_input->l_flag->preci)
+			&& *(int *)(l_input->l_flag->preci) == 0)
+	{
+		if (!(apply_diux_arg_zero(l_input)))
+			return (false_ret(__func__));
+		return (True);
+	}
+	if (!(l_input->output = ft_strdup(((char *)l_input->varg))))
+			return (false_ret(__func__));
+	if (!(l_input->l_flag))
+		return (True);
+	if (!(apply_diux(l_input)))
 		return (false_ret(__func__));
 	return (True);
 }

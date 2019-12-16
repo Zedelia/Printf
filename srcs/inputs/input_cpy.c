@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   flag_precision.c                                 .::    .:/ .      .::   */
+/*   input_cpy.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: melodieb <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/30 20:51:18 by melodieb     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 11:20:45 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:14:12 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:14:13 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool		flag_precision(t_flag *l_flag, char *precision, va_list params)
+t_bool	input_cpy(t_input *l_input)
 {
-	if (precision[0] == '*')
-	{
-		if (!(l_flag->precision = get_di(params)))
-			return (false_ret(__func__));
-		return (True);
-	}
-	if (!is_indicator(precision[0]) && !(l_flag->precision = get_width_preci(precision)))
+	size_t n;
+
+	n = 1;
+	while (is_indicator(l_input->p_input[n]) == False)
+		n++;
+	if (!(l_input->input_cpy = ft_strndup(&(l_input->p_input[1]), n)))
+		return (false_ret(__func__));
+	if (!(input_check(l_input)))
 		return (false_ret(__func__));
 	return (True);
 }

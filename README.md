@@ -12,12 +12,9 @@ Le prototype de ft_printf devra être    int ft_printf(const char *, ...);
 
 To be done :
 
-- p conversions
-- hexa conversions
 - Check printf return values
 - check error return values
 - list errors et test them all
 - check tests list and add some if possible
+- check leaks
 - norminette
-- check files' header
--

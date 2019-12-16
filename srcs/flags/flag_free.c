@@ -17,15 +17,15 @@ void 	flag_free(t_flag **l_flag)
 {
 	if (!l_flag)
 		return ;
-	if ((*l_flag)->precision)
+	if ((*l_flag)->preci)
 	{
-		ft_memdel((void**)&((*l_flag)->precision));
-		(*l_flag)->precision = NULL;
+		ft_memdel((void**)&((*l_flag)->preci));
+		(*l_flag)->preci = NULL;
 	}
 	if ((*l_flag)->width)
 	{
 		ft_memdel((void**)&((*l_flag)->width));
-		(*l_flag)->precision = NULL;
+		(*l_flag)->preci = NULL;
 	}
 	ft_memdel((void**) l_flag);
 	l_flag = NULL;

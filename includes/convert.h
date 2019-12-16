@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_printf.c                                      .::    .:/ .      .::   */
+/*   convert.h                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:04:27 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 13:39:58 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 11:58:09 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/16 15:02:02 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#ifndef CONVERT_H
+# define CONVERT_H
 
-int		ft_printf(const char *s, ...)
-{
-	t_format	*s_format;
-	va_list		params;
-	int i;
+# include "ft_printf.h"
 
-	init_get_fct_tab();
-	va_start(params, s);
-	if (!ft_isincharset('%', s))
-	{
-		write(1, s, ft_strlen(s));
-		return (0);
-	}
-	if (!(format_init(&s_format, s, params)))
-		return (-1);
-	i = write(1, s_format->new_format, ft_strlen(s_format->new_format));
-	format_free(&s_format);
-	va_end(params);
-	return (i);
-}
+void				init_convert_fct_tab(void);
+typedef t_bool		(t_convert_fct)(t_input*);
+t_convert_fct		*g_convert_fct[size];
+
+t_bool	input_convert(t_input *l_input);
+t_bool	convert_di(t_input *l_input);
+t_bool	convert_s(t_input *l_input);
+t_bool	convert_c(t_input *l_input);
+t_bool	convert_p(t_input *l_input);
+t_bool	convert_u(t_input *l_input);
+t_bool	convert_x(t_input *l_input);
+t_bool	convert_percent(t_input *l_input);
+
+#endif

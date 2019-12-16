@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   utils.c                                          .::    .:/ .      .::   */
+/*   utils_2.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/25 11:40:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 09:03:23 by melodiebos  ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:04:21 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:04:23 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,17 +38,7 @@ int		is_flags(char c)
 	return (false_ret(__func__));
 }
 
-size_t	ft_index(char c, const char *charset)
-{
-	size_t	i;
-
-	i = 0;
-	while (c != charset[i])
-		i++;
-	return (i);
-}
-
-int		occurence_before(char c, char *charset, char before)
+int		occur_before(char c, char *charset, char before)
 {
 	int i;
 	int ocur;
@@ -64,7 +54,7 @@ int		occurence_before(char c, char *charset, char before)
 	return (ocur);
 }
 
-int		occurence_after(char c, char *charset, char after)
+int		occur_after(char c, char *charset, char after)
 {
 	int i;
 	int ocur;
@@ -80,12 +70,4 @@ int		occurence_after(char c, char *charset, char after)
 		i++;
 	}
 	return (ocur);
-}
-
-char 	*create_malloc(char *copy_result, int len)
-{
-	if (!(copy_result = malloc(sizeof(char)*(len + 1))))
-		return (NULL);
-	copy_result[len] = '\0';
-	return (copy_result);
 }

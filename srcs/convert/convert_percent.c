@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_arg_init.c                                   .::    .:/ .      .::   */
+/*   convert_percent.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:04:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:04:06 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:01:38 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 12:08:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void 	init_get_fct_tab(void)
+t_bool  convert_percent(t_input *l_input)
 {
-	g_get_fct[_c] = get_c;
-	g_get_fct[_s] = get_s;
-	g_get_fct[_p] = get_p;
-	g_get_fct[_d] = get_di;
-	g_get_fct[_i] = get_di;
-	g_get_fct[_u] = get_di;
-	g_get_fct[_x] = get_x;
-	g_get_fct[_big_x] = get_x;
-	g_get_fct[_percent] = get_percent;
-}
-
-t_bool 	get_arg(t_input *l_input, va_list params)
-{
-	t_get_fct 	*fonc;
-	size_t 		index;
-
-	index = ft_index(l_input->indicator, INDICATORS);
-	fonc = g_get_fct[index];
-	l_input->varg = fonc(params);
-	if (!(l_input->varg))
+	if (!(l_input->output = malloc(sizeof(char) * 2)))
+		return (false_ret(__func__));
+	l_input->output[0] = l_input->indicator;
+	l_input->output[1] = '\0';
+	if (!(l_input->l_flag))
+		return (True);
+	if (!(apply_percent(l_input)))
 		return (false_ret(__func__));
 	return (True);
 }

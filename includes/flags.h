@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_printf.c                                      .::    .:/ .      .::   */
+/*   flags.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:04:27 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 13:39:58 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 11:58:36 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/15 11:58:37 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#ifndef FLAGS_H
+# define FLAGS_H
+# include "ft_printf.h"
+/*
+** Flags functions
+** init, free, use and modify t_flags
+*/
+t_bool	flag_init(t_flag **l_flag, char *flag, va_list params);
+t_bool	flag_parser(t_flag *l_flag, char *flags, va_list params);
+void	flag_free(t_flag **l_flag);
+t_bool	flag_width(t_flag *l_flag, char *flags, va_list params);
+t_bool	flag_preci(t_flag *l_flag, char *preci, va_list params);
 
-int		ft_printf(const char *s, ...)
-{
-	t_format	*s_format;
-	va_list		params;
-	int i;
-
-	init_get_fct_tab();
-	va_start(params, s);
-	if (!ft_isincharset('%', s))
-	{
-		write(1, s, ft_strlen(s));
-		return (0);
-	}
-	if (!(format_init(&s_format, s, params)))
-		return (-1);
-	i = write(1, s_format->new_format, ft_strlen(s_format->new_format));
-	format_free(&s_format);
-	va_end(params);
-	return (i);
-}
+#endif
