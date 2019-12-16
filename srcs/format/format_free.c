@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:30 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:08:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 15:38:48 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,10 +16,7 @@
 void format_free(t_format **s_format)
 {
 	ft_memdel((void **)&(*s_format)->format);
-	(*s_format)->format = NULL;
 	ft_memdel((void **)&(*s_format)->new_format);
-	(*s_format)->new_format = NULL;
 	input_free(&((*s_format)->l_input));
 	ft_memdel((void**) s_format);
-	s_format = NULL;
 }
