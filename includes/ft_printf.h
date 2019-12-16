@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 11:58:47 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 11:58:49 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 14:14:46 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,7 +85,7 @@ struct		s_input
 	char			indicator;
 	int				len;
 	t_flag			*l_flag;
-	t_input		*next;
+	t_input			*next;
 };
 
 struct		s_flag

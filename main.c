@@ -37,8 +37,14 @@ int main(void)
 {
 	// TEST INT
 
-	ft_printf("[%25.25s]\n", "qwerty");
-	printf("[%25.25s]", "qwerty");
+	// ft_printf("%% qwerty [%1.*s], [%87c], [%*.62d], [%% %u],  [%-*x]\n,", 3, "qwerty", 'X', 5, 12, 45678965, -6, 14);
+	// printf("%% qwerty [%1.*s], [%87c], [%*.62d], [%% %u],  [%-*x]", 3, "qwerty", 'X', 5, 12, 45678965, -6, 14);
+
+	ft_printf("[%25.25s]\n", "qweqwertyuiop[asdfghjkl;vbnmrty");
+	printf("[%25.25s]", "qweqwertyuiop[asdfghjkl;vbnmrty");
+
+	// ft_printf("[%-*x]\n", -6, 14);
+	// printf("[%-*x]", -6, 14);
 
 		//
 		//
@@ -57,5 +63,6 @@ int main(void)
 	// printf("\n\nTEMOIN s:\n0.[%s]\n1.[%-10s]\n2.[%10s]\n3.[%-4s]\n4.[%4s]\n5.[%-10.4s]\n6.[%10.4s]\n7.[%-4.10s]\n8.[%4.10s]\n9.[%.4s]\n1.[%1.4s]\n2.[%4.1s]\n",
 	// 		"12345","12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345");
 
+	// while (1);
 	return (0);
 }

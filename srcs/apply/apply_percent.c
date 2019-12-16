@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:22 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:08:54 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 15:36:19 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,6 +78,8 @@ t_bool	apply_percent(t_input *l_input)
 		cpy_output = apply_percent_tiret(l_input, cpy_output);
 	else if (l_input->l_flag->type == '0')
 		cpy_output = apply_percent_zero(l_input, cpy_output);
+	if (l_input->output)
+		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
 	ft_memdel((void**)&cpy_output);

@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:55 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:00:57 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 15:33:44 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,8 @@ static t_bool 	apply_diux_tiret_neg(char *cpy_output, t_input *l_input)
 		cpy_output[i++] = (l_input->output)[j++];
     while (width - i > 0)
         cpy_output[i++] = ' ';
+	if (l_input->output)
+		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
 	return (True);
@@ -60,6 +62,8 @@ static t_bool 	apply_diux_tiret_pos(char *cpy_output, t_input *l_input)
 		cpy_output[i++] = (l_input->output)[j++];
 	while (width - i > 0)
 		cpy_output[i++] = ' ';
+	if (l_input->output)
+		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
 	return (True);

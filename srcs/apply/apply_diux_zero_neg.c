@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:27:29 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 15:33:58 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -97,6 +97,8 @@ t_bool apply_diux_zero_neg(t_input *l_input, char *cpy_output)
 		cpy_output = f_z_di_case2(l_input, width, cpy_output);
 	else if ((l_input->l_flag->preci) && preci < width)
 		cpy_output = f_z_di_case3(l_input, preci, width, cpy_output);
+	if (l_input->output)
+		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
 		return (false_ret(__func__));
 	return (True);

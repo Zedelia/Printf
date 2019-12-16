@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:14:52 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 13:31:22 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,5 +39,6 @@ t_bool	format_replace_input(t_format *s_format)
 	}
 	if (!(s_format->new_format = ft_strdup(format_tmp)))
 		return (false_ret(__func__));
+	ft_memdel((void**)&format_tmp);
 	return (True);
 }
