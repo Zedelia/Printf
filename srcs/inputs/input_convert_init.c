@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 15:02:14 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 18:24:39 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,6 +36,7 @@ t_bool 	input_convert(t_input *l_input)
 	fonc = g_convert_fct[index];
 	if (!(fonc(l_input)))
 		return (false_ret(__func__));
+	// prevoir si le indicator = c et output == 0 => memjoin ici
 	if (!(l_input->p_input = ft_strjoin((const char*)l_input->output,
 			l_input->p_input + l_input->len)))
 		return (false_ret(__func__));

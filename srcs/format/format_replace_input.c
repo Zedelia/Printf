@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 13:31:22 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 18:10:36 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 t_bool	format_replace_input(t_format *s_format)
 {
-	t_input	*temp;
+	t_input		*temp;
 	char		*format_tmp;
 	char		*format_start;
 	int 		i;
@@ -35,6 +35,7 @@ t_bool	format_replace_input(t_format *s_format)
 			return (false_ret(__func__));
 		ft_memdel((void **)&format_start);
 		i = i + ft_strlen(temp->output);
+		s_format->full_len_newformat += ft_strlen(temp->output);
 		temp = temp->next;
 	}
 	if (!(s_format->new_format = ft_strdup(format_tmp)))

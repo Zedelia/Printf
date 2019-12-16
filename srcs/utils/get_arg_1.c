@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 16:43:29 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 17:23:31 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,7 +60,7 @@ void 	*get_p(va_list params)
 			return (NULL);
 		return ((void *)p_p);
 	}
-	if (!(p_p = ft_ltoabase((t_uintmax)value, "0123456789abcdef")))
+	if (!(p_p = ft_ltoabase((unsigned long)value, "0123456789abcdef")))
 		return (NULL);
 	fill_char = "0x";
 	if (!(p_p = ft_strjoin(fill_char, p_p)))

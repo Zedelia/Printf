@@ -54,7 +54,7 @@ SRCS = ft_printf \
 # convert_src = $(strip $(call hidden_format, $(1:%.c=%.o)))
 
 LIB = libft/libft.a
-LIB_PRINTF = lib_printf.a
+LIB_PRINTF = libftprintf.a
 
 INCLUDES := $(patsubst %,includes/%.h,${INCLUDES})
 SRCS := $(patsubst %,srcs/%.c,${SRCS})
@@ -77,7 +77,9 @@ _PURPLE = \x1b[35m
 
 OBJ := ${SRCS:.c=.o}
 
-all : ${OBJ} ${NAME}
+all : $(LIB) ${OBJ} ${NAME}
+		ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
+		ranlib $(LIB_PRINTF)
 		@echo "$(OK_COLOR)\n>> Congrats. Your program $(NAME) has been\
  created successfully.\n $(NO_COLOR)"
 

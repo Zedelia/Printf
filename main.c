@@ -36,12 +36,14 @@ int test_char(int n, ...)
 int main(void)
 {
 	// TEST INT
+	int i;
 
-	ft_printf("%% qwerty [%1.*s], [%8c], [%*.6d],  [%-*x], [%-1.*d],\n", 3, "qwerty", 'X', 5, 12, -6, 14, 3, 45);
-	printf("%% qwerty [%1.*s], [%8c], [%*.6d],  [%-*x], [%-1.*d],\n", 3, "qwerty", 'X', 5, 12, -6, 14, 3, 45);
+	i = ft_printf("%c\n", 0);
+	printf("%d\n", i);
+	printf("%c\n", 0);
 
-	ft_printf("%-*x]\n", -6, 14);
-	printf("%-*x]", -6, 14);
+	// ft_printf("%-*x]\n", -6, 14);
+	// printf("%-*x]", -6, 14);
 
 	// ft_printf("%-*x]\n", -6, 14);
 	// printf("%-*x]", -6, 14);

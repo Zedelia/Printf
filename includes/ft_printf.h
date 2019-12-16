@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 11:58:47 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 14:14:46 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 17:44:12 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -73,7 +73,8 @@ struct		s_format
 {
 	char			*format;
 	char			*new_format;
-	t_input		*l_input;
+	size_t			full_len_newformat;
+	t_input			*l_input;
 };
 
 struct		s_input

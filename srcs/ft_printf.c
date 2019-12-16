@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:27 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 16:55:47 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 18:05:13 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,7 @@ int		ft_printf(const char *s, ...)
 	}
 	if (!(format_init(&s_format, s, params)))
 		return (-1);
+	// i = write(1, s_format->new_format, s_format->full_len_newformat);
 	i = write(1, s_format->new_format, ft_strlen(s_format->new_format));
 	format_free(&s_format);
 	va_end(params);
