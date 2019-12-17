@@ -2,7 +2,8 @@ NAME = printf
 
 INCLUDES = ft_printf
 
-SRCS = ft_printf \
+SRCS = printf/ft_printf \
+	printf/put_output \
 	utils/utils_1 \
 	utils/utils_2 \
 	utils/convert_bases \
@@ -30,7 +31,6 @@ SRCS = ft_printf \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
-	format/format_replace_input \
 	inputs/input_init \
 	inputs/input_free \
 	inputs/input_parser \
@@ -39,7 +39,6 @@ SRCS = ft_printf \
 	inputs/input_errors_2 \
 	inputs/input_errors_init \
 	inputs/input_check \
-	inputs/input_convert_init \
 	inputs/input_convert \
 	flags/flag_free \
 	flags/flag_init \
