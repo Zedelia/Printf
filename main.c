@@ -37,10 +37,17 @@ int main(void)
 {
 	// TEST INT
 	int i;
+	int j;
 
-	i = ft_printf("%6.10s", "Hello");
+	i = ft_printf("1.%01.0x\n", 0);
 	printf("%d\n", i);
-	printf("%6.10s", "Hello");
+	j = printf("1.%01.0x\n", 0);
+	printf("%d", j);
+
+	i = ft_printf("\n\n2.%2.0i\n", 0);
+	printf("%d\n", i);
+	j = printf("2.%2.0i\n", 0);
+	printf("%d", j);
 
 	// ft_printf("%-*x]\n", -6, 14);
 	// printf("%-*x]", -6, 14);

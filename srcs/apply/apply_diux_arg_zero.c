@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 13:53:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 10:50:51 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,8 @@ t_bool	apply_diux_arg_zero(t_input *l_input)
 {
 	int i;
 
-	i = 0;
+	if (*((int *)l_input->varg) == 48)
+		*((int *)l_input->varg) = 0;
 	l_input->output = ft_itoa(*((int *)l_input->varg));
 	if (l_input->l_flag->arg_neg == True)
 		return (True);
@@ -36,6 +37,7 @@ t_bool	apply_diux_arg_zero(t_input *l_input)
 	}
 	else
 	{
+		i = 0;
 		if (!(apply_diux(l_input)))
 			return (false_ret(__func__));
 		while(l_input->output[i])
