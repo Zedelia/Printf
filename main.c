@@ -38,9 +38,9 @@ int main(void)
 	// TEST INT
 	int i;
 
-	i = ft_printf("%c\n", 0);
+	i = ft_printf("%1.2s", "");
 	printf("%d\n", i);
-	printf("%c\n", 0);
+	printf("%1.2s", "");
 
 	// ft_printf("%-*x]\n", -6, 14);
 	// printf("%-*x]", -6, 14);

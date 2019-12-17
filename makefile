@@ -40,6 +40,7 @@ SRCS = ft_printf \
 	inputs/input_errors_init \
 	inputs/input_check \
 	inputs/input_convert_init \
+	inputs/input_convert \
 	flags/flag_free \
 	flags/flag_init \
 	flags/flag_parser \

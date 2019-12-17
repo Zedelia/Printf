@@ -6,17 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:44 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 16:26:52 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 09:34:24 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-
-void 	input_add_flag(t_input *l_input, t_flag *l_flag)
-{
-		l_input->l_flag = l_flag;
-}
 
 t_bool 	input_parser(t_input *l_input, va_list params)
 {
@@ -34,7 +29,7 @@ t_bool 	input_parser(t_input *l_input, va_list params)
 	{
 		if (!(flag_init(&l_flag, l_input->input_cpy, params)))
 			return (false_ret(__func__));
-		input_add_flag(l_input, l_flag);
+		l_input->l_flag = l_flag;
 		if (!(get_arg(l_input, params)))
 			return (false_ret(__func__));
 	}

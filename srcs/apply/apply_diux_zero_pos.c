@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:09 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 15:34:07 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 10:05:44 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@ static char 	*f_zero_di_case1(t_input *l_input, int preci, char *cpy_output)
 	int i;
 
 	len = ft_strlen(l_input->output) - 1;
-	i = len > preci ? len : preci - 1;
+	i = len >= preci ? len : preci - 1;
 	while (len  >= 0)
 	{
 		cpy_output[i] = (l_input->output)[len];
