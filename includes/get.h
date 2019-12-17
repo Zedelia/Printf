@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 11:58:54 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 11:58:56 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 08:50:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,7 @@ void				*get_s(va_list params);
 void				*get_p(va_list params);
 void				*get_di(va_list params);
 void				*get_x(va_list params);
+void				*get_big_x(va_list params);
 void				*get_percent(va_list params);
 
 int					*get_width_preci(char *width_or_preci);

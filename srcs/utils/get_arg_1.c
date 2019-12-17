@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 17:23:31 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 08:49:58 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,6 +45,25 @@ void 	*get_x(va_list params)
 	value = va_arg(params, unsigned int);
 	if(!(p_x = ft_ltoabase(value, "0123456789abcdef")))
 		return (NULL);
+	return ((void *)p_x);
+}
+
+void 	*get_big_x(va_list params)
+{
+	char		*p_x;
+	t_uintmax 	value;
+	int 		i;
+
+	value = va_arg(params, unsigned int);
+	if(!(p_x = ft_ltoabase(value, "0123456789abcdef")))
+		return (NULL);
+	i = 0;
+	while (p_x[i])
+	{
+		if (ft_isalpha(p_x[i]) == 1)
+			p_x[i] -= 32;
+		i++;
+	}
 	return ((void *)p_x);
 }
 
