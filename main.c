@@ -35,19 +35,16 @@ int test_char(int n, ...)
 
 int main(void)
 {
+	// ft_putchar('\0');
 	// TEST INT
 	int i;
 	int j;
 
-	i = ft_printf("1.%01.0x\n", 0);
-	printf("%d\n", i);
-	j = printf("1.%01.0x\n", 0);
-	printf("%d", j);
+	i = ft_printf("%12.*s], [%-4c], [%21.6d], [%0u],  [%-*x], [%-5d],\n", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456);
+	printf("\n>> %d\n", i);
+	j = printf("%12.*s], [%-4c], [%21.6d], [%0u],  [%-*x], [%-5d],\n", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456);
+	printf(">> %d", j);
 
-	i = ft_printf("\n\n2.%2.0i\n", 0);
-	printf("%d\n", i);
-	j = printf("2.%2.0i\n", 0);
-	printf("%d", j);
 
 	// ft_printf("%-*x]\n", -6, 14);
 	// printf("%-*x]", -6, 14);

@@ -6,58 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:27 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 15:36:23 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 16:06:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-
-int 	count_char(char *string)
-{
-	int i;
-
-	i = 0;
-	while (string[i] && string[i] != '%')
-		i++;
-	return (i);
-}
-
-int 	check_char(t_input *temp, int ret)
-{
-	if (temp->output[0] == '\0' && temp->indicator == 'c')
-	{
-		ft_putchar('\0');
-		ret += 1;
-	}
-	return (ret);
-}
-
-int 	put_output(const char *format, t_format *s_format, int ret)
-{
-	int i;
-	t_input *temp;
-	int j;
-
-	j = 0;
-	temp = s_format->l_input;
-	while (format[j])
-	{
-		i = count_char(s_format->format);
-		ret += write(1, s_format->format, i);
-		if (temp)
-		{
-			ret = check_char(temp, ret);
-			if (temp->output)
-				ret += write(1, temp->output, ft_strlen(temp->output));
-			s_format->format = s_format->format + i + temp->len;
-			j += temp->len;
-			temp = temp->next;
-		}
-		j += i;
-	}
-	return (ret);
-}
+#include "../../includes/ft_printf.h"
 
 int		ft_printf(const char *s, ...)
 {

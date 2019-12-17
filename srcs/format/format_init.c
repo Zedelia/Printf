@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:34 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 17:54:49 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 16:02:49 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,9 +20,8 @@ t_bool	format_init(t_format **s_format, const char *format, va_list params)
 	if (!((*s_format)->format = ft_strdup(format)))
 		return (false_ret(__func__));
 	(*s_format)->l_input = NULL;
-	(*s_format)->new_format = NULL;
-	(*s_format)->full_len_newformat = 0;
 	if (!(format_parser(*s_format, (*s_format)->format, params)))
 		return (false_ret(__func__));
+	(*s_format)->pointer_f = (*s_format)->format;
 	return (True);
 }

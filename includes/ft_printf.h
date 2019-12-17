@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 11:58:47 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 17:44:12 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 16:07:30 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,8 +72,7 @@ typedef struct s_flag		t_flag;
 struct		s_format
 {
 	char			*format;
-	char			*new_format;
-	size_t			full_len_newformat;
+	char 			*pointer_f;
 	t_input			*l_input;
 };
 
@@ -109,6 +108,7 @@ struct		s_flag
 /*
 ** Utils functions
 */
+int			put_output(const char *format, t_format *s_format, int ret);
 int			ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 int			is_flags(char c);
 t_bool		is_indicator(char c);

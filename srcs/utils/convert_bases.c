@@ -6,24 +6,12 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:03:55 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:03:56 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 16:08:21 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-
-char	*convert_base_int_to_hex(unsigned int var)
-{
-	unsigned int		tmp;
-	char				*hex;
-
-	hex = "0123456789ABCDEF";
-	if (var > 16)
-		convert_base_int_to_hex(var / 16);
-	tmp = var % 16;
-	return (hex);
-}
 
 size_t		ft_unbrlen(t_uintmax nbr)
 {
