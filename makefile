@@ -35,9 +35,6 @@ SRCS = printf/ft_printf \
 	inputs/input_free \
 	inputs/input_parser \
 	inputs/input_cpy \
-	inputs/input_errors_1 \
-	inputs/input_errors_2 \
-	inputs/input_errors_init \
 	inputs/input_indicator \
 	inputs/input_convert \
 	flags/flag_free \
