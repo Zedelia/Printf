@@ -40,9 +40,9 @@ int main(void)
 	int i;
 	int j;
 
-	i = ft_printf("%12.*s], [%-4c], [%21.6d], [%0u],  [%-*x], [%-5d],\n", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456);
+	i = ft_printf("%4.10s]", "qwerty");
 	printf("\n>> %d\n", i);
-	j = printf("%12.*s], [%-4c], [%21.6d], [%0u],  [%-*x], [%-5d],\n", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456);
+	j = printf("%4.10s]", "qwerty");
 	printf(">> %d", j);
 
 
