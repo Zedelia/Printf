@@ -2,7 +2,8 @@ NAME = printf
 
 INCLUDES = ft_printf
 
-SRCS = ft_printf \
+SRCS = printf/ft_printf \
+	printf/put_output \
 	utils/utils_1 \
 	utils/utils_2 \
 	utils/convert_bases \
@@ -30,7 +31,6 @@ SRCS = ft_printf \
 	format/format_init \
 	format/format_free \
 	format/format_parser \
-	format/format_replace_input \
 	inputs/input_init \
 	inputs/input_free \
 	inputs/input_parser \
@@ -39,7 +39,7 @@ SRCS = ft_printf \
 	inputs/input_errors_2 \
 	inputs/input_errors_init \
 	inputs/input_check \
-	inputs/input_convert_init \
+	inputs/input_convert \
 	flags/flag_free \
 	flags/flag_init \
 	flags/flag_parser \
@@ -54,7 +54,7 @@ SRCS = ft_printf \
 # convert_src = $(strip $(call hidden_format, $(1:%.c=%.o)))
 
 LIB = libft/libft.a
-LIB_PRINTF = lib_printf.a
+LIB_PRINTF = libftprintf.a
 
 INCLUDES := $(patsubst %,includes/%.h,${INCLUDES})
 SRCS := $(patsubst %,srcs/%.c,${SRCS})
@@ -77,7 +77,9 @@ _PURPLE = \x1b[35m
 
 OBJ := ${SRCS:.c=.o}
 
-all : ${OBJ} ${NAME}
+all : $(LIB) ${OBJ} ${NAME}
+		ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
+		ranlib $(LIB_PRINTF)
 		@echo "$(OK_COLOR)\n>> Congrats. Your program $(NAME) has been\
  created successfully.\n $(NO_COLOR)"
 

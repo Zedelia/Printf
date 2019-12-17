@@ -35,21 +35,27 @@ int test_char(int n, ...)
 
 int main(void)
 {
+	// ft_putchar('\0');
 	// TEST INT
+	int i;
+	int j;
 
-	// ft_printf("%% qwerty [%1.*s], [%87c], [%*.62d], [%% %u],  [%-*x]\n,", 3, "qwerty", 'X', 5, 12, 45678965, -6, 14);
-	// printf("%% qwerty [%1.*s], [%87c], [%*.62d], [%% %u],  [%-*x]", 3, "qwerty", 'X', 5, 12, 45678965, -6, 14);
+	i = ft_printf("%12.*s], [%-4c], [%21.6d], [%0u],  [%-*x], [%-5d],\n", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456);
+	printf("\n>> %d\n", i);
+	j = printf("%12.*s], [%-4c], [%21.6d], [%0u],  [%-*x], [%-5d],\n", 3, "qwerty", 'X', 12, 45678965, -6, 14, 456);
+	printf(">> %d", j);
 
-	ft_printf("[%25.25s]\n", "qweqwertyuiop[asdfghjkl;vbnmrty");
-	printf("[%25.25s]", "qweqwertyuiop[asdfghjkl;vbnmrty");
 
-	// ft_printf("[%-*x]\n", -6, 14);
-	// printf("[%-*x]", -6, 14);
+	// ft_printf("%-*x]\n", -6, 14);
+	// printf("%-*x]", -6, 14);
+
+	// ft_printf("%-*x]\n", -6, 14);
+	// printf("%-*x]", -6, 14);
 
 		//
 		//
-		// "test_string_17": ["[%25.25s]", "qwerty"],
-		// 	"test_string_25": ["[%*.*s]", 25, -25, "qwerty"],
+		// "test_string_17": ["%25.25s]", "qwerty"],
+		// 	"test_string_25": ["%*.*s]", 25, -25, "qwerty"],
 //----------------------------------
 
 	// TEST char

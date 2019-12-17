@@ -18,3 +18,9 @@ To be done :
 - check tests list and add some if possible
 - check leaks
 - norminette
+
+Tests to ignore :
+229
+239
+245
+492

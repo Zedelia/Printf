@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_printf.h                                      .::    .:/ .      .::   */
+/*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 11:58:47 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:21:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/15 12:04:27 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/17 16:06:54 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../../includes/ft_printf.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
-# include <ctype.h>
-# include <stdarg.h>
-# include <limits.h>
+int		ft_printf(const char *s, ...)
+{
+	t_format	*s_format;
+	va_list		params;
+	int 		ret;
 
-# include "../libft/includes/libft.h"
-# include "styles.h"
-# include "typedef.h"
-
-# include "inputs.h"
-# include "apply.h"
-# include "convert.h"
-# include "errors.h"
-# include "flags.h"
-# include "format.h"
-# include "get.h"
-# include "tests.h"
-# include "utils.c"
-
-#endif
+	init_get_fct_tab();
+	va_start(params, s);
+	if (!ft_isincharset('%', s))
+	{
+		ret = write(1, s, ft_strlen(s));
+		return (ret);
+	}
+	if (!(format_init(&s_format, s, params)))
+		return (-1);
+	ret = 0;
+	ret = put_output(s, s_format, ret);
+	format_free(&s_format);
+	va_end(params);
+	return (ret);
+}

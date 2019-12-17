@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   inputs.h                                       .::    .:/ .      .::   */
+/*   inputs.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 14:34:38 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 11:59:15 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 09:46:00 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,5 +28,6 @@ void	input_add_flag(t_input *l_input, t_flag *l_flag);
 t_bool	input_cpy(t_input *l_input);
 t_bool	input_check(t_input *l_input);
 t_bool	input_convert(t_input *l_input);
+t_bool 	input_convert_init(t_input *l_input);
 
 #endif

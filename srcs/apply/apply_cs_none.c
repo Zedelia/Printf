@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:29 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 15:30:32 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 10:23:03 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,14 +18,21 @@ static char 	*flag_cs_none_case1(t_input *l_input, char *cpy_output)
 	int width;
 	int preci;
 	int i;
+	int 	j;
 
 	i = 0;
+	j = 0;
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
-	while (preci && l_input->output[i])
+	while (width > 0 && width - strlen(l_input->output) > 0)
 	{
-		cpy_output[i] = l_input->output[i];
+		cpy_output[i] = ' ';
 		i++;
+		width--;
+	}
+	while (preci && l_input->output[j])
+	{
+		cpy_output[i++] = l_input->output[j++];
 		preci--;
 	}
 	return (cpy_output);

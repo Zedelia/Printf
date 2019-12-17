@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:38 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 13:54:05 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 16:05:04 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,7 +39,7 @@ t_bool	format_parser(t_format *s_format, char *format, va_list params)
 		if (!(input_init(&l_input, cp_format, params)))
 			return (false_ret(__func__));
 		format_add_input(s_format, l_input);
-		cp_format = cp_format + 2;
+		cp_format = cp_format + l_input->len;
 	}
 	while (cp_format && (cp_format = ft_strchr(cp_format, '%')))
 	{
@@ -48,12 +48,5 @@ t_bool	format_parser(t_format *s_format, char *format, va_list params)
 		format_add_input(s_format, l_input);
 		cp_format = cp_format + l_input->len;
 	}
-	if (s_format->l_input)
-	{
-		if (!(format_replace_input(s_format)))
-			return (false_ret(__func__));
-	}
-	//ca ce sont des tests : a supprimer-----
-	// show_format(s_format);
 	return (True);
 }

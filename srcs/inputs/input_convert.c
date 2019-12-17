@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   input_convert_init.c                             .::    .:/ .      .::   */
+/*   input_convert.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 15:02:14 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 16:14:40 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,9 +35,6 @@ t_bool 	input_convert(t_input *l_input)
 	index = ft_index(l_input->indicator, INDICATORS);
 	fonc = g_convert_fct[index];
 	if (!(fonc(l_input)))
-		return (false_ret(__func__));
-	if (!(l_input->p_input = ft_strjoin((const char*)l_input->output,
-			l_input->p_input + l_input->len)))
 		return (false_ret(__func__));
 	return (True);
 }
