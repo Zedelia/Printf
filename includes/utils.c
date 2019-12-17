@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   format.h                                         .::    .:/ .      .::   */
+/*   utils.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 11:58:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:16:38 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/17 16:20:11 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/17 16:20:38 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FORMAT_H
-# define FORMAT_H
+#ifndef UTILS_H
+# define UTILS_H
 
 # include "ft_printf.h"
 /*
-** Format functions
-** init, free, use and modify t_format
+** Utils functions
 */
-t_bool	format_init(t_format **s_format, const char *format, va_list params);
-void	format_free(t_format **s_format);
-t_bool	format_parser(t_format *s_format, char *format, va_list params);
-void	format_add_input(t_format *s_format, t_input *l_input);
+int			put_output(const char *format, t_format *s_format, int ret);
+int			ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
+
+size_t		ft_index(char c, const char *charset);
+int			is_flags(char c);
+t_bool		is_indicator(char c);
+int			occur_before(char c, char *charset, char before);
+int			occur_after(char c, char *charset, char after);
+char		*create_malloc(char *cpy_output, int len);
+char		*ft_utoa(unsigned int nbr);
 
 #endif

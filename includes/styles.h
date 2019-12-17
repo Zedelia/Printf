@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   format.h                                         .::    .:/ .      .::   */
+/*   styles.h                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 11:58:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:16:38 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/17 16:16:59 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/17 16:17:32 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FORMAT_H
-# define FORMAT_H
+#ifndef STYLES_H
+# define STYLES_H
 
 # include "ft_printf.h"
-/*
-** Format functions
-** init, free, use and modify t_format
-*/
-t_bool	format_init(t_format **s_format, const char *format, va_list params);
-void	format_free(t_format **s_format);
-t_bool	format_parser(t_format *s_format, char *format, va_list params);
-void	format_add_input(t_format *s_format, t_input *l_input);
 
-#endif
+# define RED     "\x1b[31m"
+# define GREEN   "\x1b[32m"
+# define YELLOW  "\x1b[33m"
+# define BLUE    "\x1b[34m"
+# define MAGENTA "\x1b[35m"
+# define CYAN	"\x1b[36m"
+# define RESET	"\033[0;37m"
+
+#endinf
