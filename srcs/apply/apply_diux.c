@@ -3,22 +3,22 @@
 /*                                                              /             */
 /*   apply_diux.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:19 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 14:12:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:19:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static char  *create_output_str_diux(t_input *l_input)
+static char		*create_output_str_diux(t_input *l_input)
 {
-	int  	width;
-	int 	preci;
-	char 	*cpy_output;
-	int len;
+	int		width;
+	int		preci;
+	char	*cpy_output;
+	int		len;
 
 	cpy_output = NULL;
 	len = ft_strlen(l_input->output);
@@ -26,7 +26,8 @@ static char  *create_output_str_diux(t_input *l_input)
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	if (preci > width && preci > len)
 	{
-		preci = (ft_atoi(l_input->output) < 0 && l_input->indicator != 'u') ? preci + 1 : preci;
+		if (ft_atoi(l_input->output) < 0 && l_input->indicator != 'u')
+			preci += 1;
 		cpy_output = create_malloc(cpy_output, preci);
 	}
 	else if (width == 0 && preci == 0)
@@ -38,7 +39,7 @@ static char  *create_output_str_diux(t_input *l_input)
 	return (cpy_output);
 }
 
-t_bool 	apply_diux(t_input *l_input)
+t_bool			apply_diux(t_input *l_input)
 {
 	char *cpy_output;
 

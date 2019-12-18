@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   apply_diux_zero_pos.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:09 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 11:52:01 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:15:16 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,7 +56,7 @@ static char		*f_zero_di_case2(t_input *l_input, int width, char *cpy_output)
 	return (cpy_output);
 }
 
-static char		*f_zero_di_case3(t_input *l_input, int preci, int width, char *cpy_output)
+static char		*fzdi3(t_input *l_input, int preci, int width, char *cpy_output)
 {
 	int len;
 	int i;
@@ -94,7 +94,7 @@ t_bool			apply_diux_zero_pos(t_input *l_input, char *cpy_output)
 	else if (!(l_input->l_flag->preci))
 		cpy_output = f_zero_di_case2(l_input, width, cpy_output);
 	else if (preci <= width)
-		cpy_output = f_zero_di_case3(l_input, preci, width, cpy_output);
+		cpy_output = fzdi3(l_input, preci, width, cpy_output);
 	if (l_input->output)
 		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))

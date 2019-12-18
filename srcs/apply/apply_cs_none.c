@@ -3,22 +3,22 @@
 /*                                                              /             */
 /*   apply_cs_none.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:29 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 11:27:12 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:05:08 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static char 	*flag_cs_none_case1(t_input *l_input, char *cpy_output)
+static char		*flag_cs_none_case1(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int preci;
 	int i;
-	int 	j;
+	int j;
 
 	i = 0;
 	j = 0;
@@ -38,14 +38,13 @@ static char 	*flag_cs_none_case1(t_input *l_input, char *cpy_output)
 	return (cpy_output);
 }
 
-
-static char 	*flag_cs_none_case2(t_input *l_input, char *cpy_output)
+static char		*flag_cs_none_case2(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int preci;
 	int i;
 	int j;
-	int len ;
+	int len;
 
 	i = 0;
 	j = 0;
@@ -81,7 +80,7 @@ static char		*flag_cs_none_case3(t_input *l_input, char *cpy_output)
 	return (cpy_output);
 }
 
-static char 	*flag_cs_none_case4(t_input *l_input, char *cpy_output)
+static char		*flag_cs_none_case4(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int i;
@@ -105,13 +104,12 @@ static char 	*flag_cs_none_case4(t_input *l_input, char *cpy_output)
 	return (cpy_output);
 }
 
-
-t_bool 		apply_cs_none(t_input *l_input)
+t_bool			apply_cs_none(t_input *l_input)
 {
-	int width;
-	int preci;
-	char *cpy_output;
-	int i;
+	int		width;
+	int		preci;
+	char	*cpy_output;
+	int		i;
 
 	i = 0;
 	cpy_output = NULL;

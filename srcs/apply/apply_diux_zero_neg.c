@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   apply_diux_zero_neg.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 11:55:24 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:22:24 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,7 +59,6 @@ static char		*f_z_di_case2(t_input *l_input, int width, char *cpy_output)
 	return (cpy_output);
 }
 
-
 static char		*f_z_di_case3(
 	t_input *l_input,
 	int preci,
@@ -87,7 +86,7 @@ static char		*f_z_di_case3(
 	return (cpy_output);
 }
 
-t_bool		apply_diux_zero_neg(t_input *l_input, char *cpy_output)
+t_bool			apply_diux_zero_neg(t_input *l_input, char *cpy_output)
 {
 	int width;
 	int preci;

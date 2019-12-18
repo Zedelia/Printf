@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   apply_cs.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:43 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 13:18:45 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:07:06 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool 	apply_cs(t_input *l_input)
+t_bool	apply_cs(t_input *l_input)
 {
 	if (l_input->l_flag->type == '-')
 	{

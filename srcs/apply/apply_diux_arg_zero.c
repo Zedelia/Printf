@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   apply_diux_arg_zero.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 10:50:51 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:07:42 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static t_bool 	convert_zero(t_input *l_input)
+static t_bool	convert_zero(t_input *l_input)
 {
 	if (!(l_input->output = malloc(sizeof(char))))
 		return (false_ret(__func__));
@@ -21,7 +21,7 @@ static t_bool 	convert_zero(t_input *l_input)
 	return (True);
 }
 
-t_bool	apply_diux_arg_zero(t_input *l_input)
+t_bool			apply_diux_arg_zero(t_input *l_input)
 {
 	int i;
 
@@ -40,7 +40,7 @@ t_bool	apply_diux_arg_zero(t_input *l_input)
 		i = 0;
 		if (!(apply_diux(l_input)))
 			return (false_ret(__func__));
-		while(l_input->output[i])
+		while (l_input->output[i])
 			l_input->output[i++] = ' ';
 	}
 	return (True);
