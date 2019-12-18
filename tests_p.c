@@ -1,70 +1,69 @@
 #include "includes/ft_printf.h"
 
 
+// ------------------ tests va_arg --------------------------
+int test_int(int n, ...)
+{
+	int i = 0;
+	va_list parameters;
+	va_start(parameters, n);
+
+	while (i < n)
+	{
+		int c = va_arg(parameters, int);
+		printf(">> %d\n----------\n", c);
+		i++;
+	}
+	return (0);
+}
+int test_char(int n, ...)
+{
+	int i = 0;
+	va_list parameters;
+	va_start(parameters, n);
+
+	while (i < n)
+	{
+		char c = va_arg(parameters, int);
+		printf(">> %c\n----------\n", c);
+		i++;
+	}
+	return (0);
+}
+
+
 
 int main(void)
 {
-	// TEST INT
-	char *test = NULL;
 
-	printf("\n[%4p]\n", "lol");
-	ft_printf("%4p]\n", "lol");
+	char *p = NULL;
 
-	printf("\n--------------\n");
+	ft_printf("1. %.p\n", p);
+	printf("1. %.p\n", p);
 
-	printf("\n[%p]\n", "lol");
-	ft_printf("%p]\n", "lol");
+	// ft_printf("%0-*x]\n", -6, 14);
+	// printf("%0-*x]", -6, 14);
 
-	printf("\n--------------\n");
+	// ft_printf("%-*x]\n", -6, 14);
+	// printf("%-*x]", -6, 14);
 
-	printf("\n[%-20p]\n", "lol");
-	ft_printf("%-20p]\n", "lol");
+		//
+		//
+		// "test_string_17": ["%25.25s]", "qwerty"],
+		// 	"test_string_25": ["%*.*s]", 25, -25, "qwerty"],
+//----------------------------------
 
-	printf("\n--------------\n");
+	// TEST char
+	// ft_printf("Int :\n[%c]\n[%-10c]\n[%10c]\n",
+	// 		'c', 'c', 'c');
+	// printf("TEMOIN :\n[%c]\n[%-10c]\n[%10c]\n",
+	// 		'c', 'c','c' );
+	// ft_printf("char s:\n0.[%s]\n1.[%-10s]\n2.[%10s]\n3.[%-4s]\n4.[%4s]\n5.[%-10.4s]\n6.[%10.4s]\n7.[%-4.10s]\n8.[%4.10s]\n9.[%.4s]\n1.[%1.4s]\n2.[%4.1s]\n",
+	// 				"12345","12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345");
+	//
+	// printf("\n\nTEMOIN s:\n0.[%s]\n1.[%-10s]\n2.[%10s]\n3.[%-4s]\n4.[%4s]\n5.[%-10.4s]\n6.[%10.4s]\n7.[%-4.10s]\n8.[%4.10s]\n9.[%.4s]\n1.[%1.4s]\n2.[%4.1s]\n",
+	// 		"12345","12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345");
 
-	printf("\n[%-1p]\n", "lol");
-	ft_printf("%-1p]\n", "lol");
-
-	printf("\n--------------\n");
-
-	printf("\n[%20p]\n", "lol");
-	ft_printf("%20p]\n", "lol");
-
-	printf("\n--------------\n");
-
-	printf("\n[%1p]\n", "lol");
-	ft_printf("%1p]\n", "lol");
-
-	printf("\n--------------\n");
-
-	printf("\n[%*p]\n", 40, test);
-	ft_printf("%*p]\n", 40, test);
-
-	printf("\n--------------\n");
-
-	printf("\n[%*p]\n", -40, test);
-	ft_printf("%*p]\n", -40, test);
-
-	printf("\n--------------\n");
-
-	printf("\n[%*s]\n", -40, test);
-	ft_printf("%*s]\n", -40, test);
-
-	printf("\n--------------\n");
-
-	printf("\n[%*.2s]\n", -40, test);
-	ft_printf("%*.2s]\n", -40, test);
-
-	printf("\n--------------\n");
-
-	printf("\n[%*s]\n", 40, test);
-	ft_printf("%*s]\n", 40, test);
-
-	printf("\n--------------\n");
-
-	printf("\n[%*.2s]\n", 40, test);
-	ft_printf("%*.2s]\n", 40, test);
-		// "test_string_16": ["%s]", NULL],
-
+	// while (1);
 	return (0);
 }
