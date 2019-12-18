@@ -40,10 +40,10 @@ int main(void)
 	int i;
 	int j;
 
-	i = ft_printf("%4.10s]", "qwerty");
+	i = ft_printf("%6.10s", "Hello");
 	printf("\n>> %d\n", i);
-	j = printf("%4.10s]", "qwerty");
-	printf(">> %d", j);
+	j = printf("%6.10s", "Hello");
+	printf("\n>> %d", j);
 
 
 	// ft_printf("%-*x]\n", -6, 14);
