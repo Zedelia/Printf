@@ -62,8 +62,8 @@ MAIN = main.c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
-DFLAGS =
-COMP =${CC} -g -fsanitize=address -I ${INCLUDES}
+DFLAGS = -g -fsanitize=address
+COMP =${CC} ${CFLAGS} -I ${INCLUDES}
 COMPf := ${CC} ${CFLAGS} -I ${INCLUDES}
 
 NO_COLOR = \x1b[0m
