@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:22:24 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 18:41:16 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -93,7 +93,7 @@ t_bool			apply_diux_zero_neg(t_input *l_input, char *cpy_output)
 
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
-	preci = (l_input->l_flag->arg_neg) ? preci - 1 : preci;
+	preci = (l_input->l_flag->arg_weird) ? preci - 1 : preci;
 	if ((l_input->l_flag->preci) && preci >= width)
 		cpy_output = f_z_di_case1(l_input, preci, cpy_output);
 	else if (!(l_input->l_flag->preci))

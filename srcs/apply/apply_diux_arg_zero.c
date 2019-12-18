@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:07:42 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 18:41:16 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ t_bool			apply_diux_arg_zero(t_input *l_input)
 	if (*((int *)l_input->varg) == 48)
 		*((int *)l_input->varg) = 0;
 	l_input->output = ft_itoa(*((int *)l_input->varg));
-	if (l_input->l_flag->arg_neg == True)
+	if (l_input->l_flag->arg_weird == True)
 		return (True);
 	if ((!(l_input->l_flag->width) || *(int *)(l_input->l_flag->width) == 0))
 	{
