@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 11:58:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:16:38 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 11:43:47 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,7 @@
 # define FORMAT_H
 
 # include "ft_printf.h"
+
 /*
 ** Format functions
 ** init, free, use and modify t_format

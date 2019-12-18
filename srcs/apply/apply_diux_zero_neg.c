@@ -6,14 +6,14 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:01 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 15:33:58 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 11:55:24 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static char 	*f_z_di_case1(t_input *l_input, int preci, char *cpy_output)
+static char		*f_z_di_case1(t_input *l_input, int preci, char *cpy_output)
 {
 	int len;
 	int i;
@@ -27,7 +27,7 @@ static char 	*f_z_di_case1(t_input *l_input, int preci, char *cpy_output)
 		cpy_output[i--] = (l_input->output)[len--];
 		preci--;
 	}
-	while (preci > 0 )
+	while (preci > 0)
 	{
 		cpy_output[i--] = '0';
 		preci--;
@@ -35,7 +35,7 @@ static char 	*f_z_di_case1(t_input *l_input, int preci, char *cpy_output)
 	return (cpy_output);
 }
 
-static char 	*f_z_di_case2(t_input *l_input, int width, char *cpy_output)
+static char		*f_z_di_case2(t_input *l_input, int width, char *cpy_output)
 {
 	int len;
 
@@ -60,7 +60,11 @@ static char 	*f_z_di_case2(t_input *l_input, int width, char *cpy_output)
 }
 
 
-static char 	*f_z_di_case3(t_input *l_input, int preci, int width, char *cpy_output)
+static char		*f_z_di_case3(
+	t_input *l_input,
+	int preci,
+	int width,
+	char *cpy_output)
 {
 	int len;
 	int i;
@@ -72,21 +76,21 @@ static char 	*f_z_di_case3(t_input *l_input, int preci, int width, char *cpy_out
 		cpy_output[i--] = (l_input->output)[len--];
 		preci--;
 	}
-	while (preci >=0)
+	while (preci >= 0)
 	{
 		cpy_output[i--] = '0';
 		preci--;
 	}
 	cpy_output[i--] = '-';
-	while ( i >= 0)
+	while (i >= 0)
 		cpy_output[i--] = ' ';
 	return (cpy_output);
 }
 
-t_bool apply_diux_zero_neg(t_input *l_input, char *cpy_output)
+t_bool		apply_diux_zero_neg(t_input *l_input, char *cpy_output)
 {
 	int width;
-    int preci;
+	int preci;
 
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;

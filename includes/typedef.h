@@ -6,7 +6,7 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/17 16:18:19 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:19:59 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 11:40:45 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,7 +55,7 @@ typedef struct s_flag		t_flag;
 struct		s_format
 {
 	char			*format;
-	char 			*pointer_f;
+	char			*pointer_f;
 	t_input			*l_input;
 };
 

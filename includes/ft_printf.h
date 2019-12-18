@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.h                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 11:58:47 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:21:17 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/18 11:44:49 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/18 14:22:05 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,11 +30,10 @@
 # include "inputs.h"
 # include "apply.h"
 # include "convert.h"
-# include "errors.h"
 # include "flags.h"
 # include "format.h"
 # include "get.h"
 # include "tests.h"
-# include "utils.c"
+# include "utils.h"
 
 #endif
