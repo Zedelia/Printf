@@ -3,20 +3,20 @@
 /*                                                              /             */
 /*   get_arg_2.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:02 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:04:03 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:49:31 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void 	*get_c(va_list params)
+void	*get_c(va_list params)
 {
-	char		*p_c;
-	char 		var;
+	char	*p_c;
+	char	var;
 
 	var = va_arg(params, int);
 	if (!(p_c = malloc(sizeof(char) * 2)))
@@ -26,10 +26,10 @@ void 	*get_c(va_list params)
 	return ((void *)p_c);
 }
 
-void 	*get_s(va_list params)
+void	*get_s(va_list params)
 {
-	char		*p_s;
-	char 		*var;
+	char	*p_s;
+	char	*var;
 
 	var = va_arg(params, char*);
 	if (!(var))
@@ -43,13 +43,13 @@ void 	*get_s(va_list params)
 	return ((void *)p_s);
 }
 
-void 	*get_percent(va_list params)
+void	*get_percent(va_list params)
 {
-	char		*p_percent;
-	(void)params;
+	char	*p_percent;
 
 	if (!(p_percent = malloc(sizeof(char))))
 		return (NULL);
+	(void)params;
 	*p_percent = '%';
 	return ((void *)p_percent);
 }

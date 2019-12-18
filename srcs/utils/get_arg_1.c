@@ -3,59 +3,59 @@
 /*                                                              /             */
 /*   get_arg_1.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 09:23:49 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:47:13 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void 	*get_di(va_list params)
+void		*get_di(va_list params)
 {
-    int		*p_int;
-	int 	value;
+	int	*p_int;
+	int	value;
 
 	value = va_arg(params, int);
-    if (!(p_int = malloc(sizeof(int))))
+	if (!(p_int = malloc(sizeof(int))))
 		return (NULL);
-    *p_int = value;
+	*p_int = value;
 	return ((void *)p_int);
 }
 
-void 	*get_u(va_list params)
+void		*get_u(va_list params)
 {
 	unsigned int	*p_int;
-	unsigned int 	value;
+	unsigned int	value;
 
 	value = va_arg(params, unsigned int);
-    if (!(p_int = malloc(sizeof(unsigned int))))
+	if (!(p_int = malloc(sizeof(unsigned int))))
 		return (NULL);
-    *p_int = value;
+	*p_int = value;
 	return ((void *)p_int);
 }
 
-void 	*get_x(va_list params)
+void		*get_x(va_list params)
 {
 	char		*p_x;
-	t_uintmax value;
+	t_uintmax	value;
 
 	value = va_arg(params, unsigned int);
-	if(!(p_x = ft_ltoabase(value, "0123456789abcdef")))
+	if (!(p_x = ft_ltoabase(value, "0123456789abcdef")))
 		return (NULL);
 	return ((void *)p_x);
 }
 
-void 	*get_big_x(va_list params)
+void		*get_big_x(va_list params)
 {
-	char		*p_x;
-	t_uintmax 	value;
-	int 		i;
+	char			*p_x;
+	t_uintmax		value;
+	int				i;
 
 	value = va_arg(params, unsigned int);
-	if(!(p_x = ft_ltoabase(value, "0123456789abcdef")))
+	if (!(p_x = ft_ltoabase(value, "0123456789abcdef")))
 		return (NULL);
 	i = 0;
 	while (p_x[i])
@@ -67,7 +67,7 @@ void 	*get_big_x(va_list params)
 	return ((void *)p_x);
 }
 
-void 	*get_p(va_list params)
+void		*get_p(va_list params)
 {
 	void	*value;
 	char	*p_p;
@@ -75,7 +75,7 @@ void 	*get_p(va_list params)
 
 	if (!(value = va_arg(params, void*)))
 	{
-		if(!(p_p = ft_strdup("0x0")))
+		if (!(p_p = ft_strdup("0x0")))
 			return (NULL);
 		return ((void *)p_p);
 	}
