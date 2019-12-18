@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 11:44:49 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 14:22:05 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 17:13:49 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,5 +35,9 @@
 # include "get.h"
 # include "tests.h"
 # include "utils.h"
+
+int				put_output(const char *format, t_format *s_format, int ret);
+int				ft_printf(const char *str,
+		...) __attribute__((format(printf,1,2)));
 
 #endif

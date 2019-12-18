@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   utils.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/17 16:20:11 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 11:40:03 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 17:13:03 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,9 +19,6 @@
 /*
 ** Utils functions
 */
-int			put_output(const char *format, t_format *s_format, int ret);
-int			ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
-
 size_t		ft_index(char c, const char *charset);
 int			is_flags(char c);
 t_bool		is_indicator(char c);
