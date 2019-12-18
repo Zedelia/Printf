@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   convert_bases.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:03:55 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:08:21 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:52:49 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,8 @@
 
 size_t		ft_unbrlen(t_uintmax nbr)
 {
-	t_uintmax	dividor;
-	int					len;
+	t_uintmax		dividor;
+	int				len;
 
 	dividor = ULONG_MAX - 8446744073709551615;
 	if (nbr / dividor)
@@ -33,7 +33,7 @@ size_t		ft_unbrlen(t_uintmax nbr)
 	return (len);
 }
 
-char	*ft_utoa(unsigned int nbr)
+char		*ft_utoa(unsigned int nbr)
 {
 	char	*return_str;
 	int		len;

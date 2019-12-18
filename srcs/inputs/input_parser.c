@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   input_parser.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:44 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 09:34:24 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:38:41 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool 	input_parser(t_input *l_input, va_list params)
+t_bool		input_parser(t_input *l_input, va_list params)
 {
 	t_flag *l_flag;
 
@@ -33,5 +33,5 @@ t_bool 	input_parser(t_input *l_input, va_list params)
 		if (!(get_arg(l_input, params)))
 			return (false_ret(__func__));
 	}
-	return(True);
+	return (True);
 }

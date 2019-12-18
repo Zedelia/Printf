@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   put_output.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/17 16:06:43 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:07:06 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:41:31 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static int 	count_char(char *string)
+static int		count_char(char *string)
 {
 	int i;
 
@@ -23,7 +23,7 @@ static int 	count_char(char *string)
 	return (i);
 }
 
-static int 	check_char(t_input *temp, int ret)
+static int		check_char(t_input *temp, int ret)
 {
 	if (temp->output[0] == '\0' && temp->indicator == 'c')
 	{
@@ -33,11 +33,11 @@ static int 	check_char(t_input *temp, int ret)
 	return (ret);
 }
 
-int 	put_output(const char *format, t_format *s_format, int ret)
+int				put_output(const char *format, t_format *s_format, int ret)
 {
-	int 		i;
-	t_input *temp;
-	int 		j;
+	int			i;
+	t_input		*temp;
+	int			j;
 
 	j = 0;
 	temp = s_format->l_input;

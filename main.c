@@ -37,13 +37,18 @@ int main(void)
 {
 	// ft_putchar('\0');
 	// TEST INT
-	int i;
-	int j;
+	// int i;
+	// int j;
 
-	i = ft_printf("%6.10s", "Hello");
-	printf("\n>> %d\n", i);
-	j = printf("%6.10s", "Hello");
-	printf("\n>> %d", j);
+	// i = ft_printf("[%1.3s], [%1.6s],\n", "qwerty",  "coucou");
+	// printf("\n>> %d\n", i);
+	// j = printf("[%1.3s], [%1.6s],\n", "qwerty", "coucou");
+	// printf("\n>> %d\n\n", j);
+
+	ft_printf("[%1.2s], [%6.10s],\n", "qwerty",  "hello");
+	// printf("\n>> %d\n", i);
+	printf("[%1.2s], [%6.10s],\n", "qwerty", "hello");
+	// printf("\n>> %d", j);
 
 
 	// ft_printf("%-*x]\n", -6, 14);

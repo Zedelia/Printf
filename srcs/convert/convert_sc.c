@@ -3,21 +3,20 @@
 /*                                                              /             */
 /*   convert_sc.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:41 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 09:47:43 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:28:30 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool  convert_c(t_input *l_input)
+t_bool	convert_c(t_input *l_input)
 {
-	// si c == 0 , len_output = 1 et mettre memdup au lieu de strdup ici.
 	if (!(l_input->output = ft_strdup(((char *)l_input->varg))))
-			return (false_ret(__func__));
+		return (false_ret(__func__));
 	if (!(l_input->l_flag))
 		return (True);
 	if (!(apply_cs(l_input)))
@@ -25,10 +24,10 @@ t_bool  convert_c(t_input *l_input)
 	return (True);
 }
 
-t_bool  convert_s(t_input *l_input)
+t_bool	convert_s(t_input *l_input)
 {
 	if (!(l_input->output = ft_strdup(((char *)l_input->varg))))
-			return (false_ret(__func__));
+		return (false_ret(__func__));
 	if (!(l_input->l_flag))
 		return (True);
 	if (!(apply_cs(l_input)))

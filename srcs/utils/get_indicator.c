@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   get_indicator.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:09 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:04:10 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:51:00 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool 	get_indicator(t_input *l_input)
+t_bool	get_indicator(t_input *l_input)
 {
 	int i;
 	int j;
