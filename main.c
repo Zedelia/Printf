@@ -45,9 +45,9 @@ int main(void)
 	// j = printf("[%1.3s], [%1.6s],\n", "qwerty", "coucou");
 	// printf("\n>> %d\n\n", j);
 
-	ft_printf("[%1.2s], [%6.10s],\n", "qwerty",  "hello");
+	ft_printf("%% qwerty [%1.*s], [%8c], [%*.6d], [%% %u],  [%-*x], [%-8.*d],", 3, "qwerty", 'X', 5, 12, 45678965, -6, 14, 456, 45);
 	// printf("\n>> %d\n", i);
-	printf("[%1.2s], [%6.10s],\n", "qwerty", "hello");
+
 	// printf("\n>> %d", j);
 
 
