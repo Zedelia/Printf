@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   input_init.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:39 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 09:41:05 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:39:57 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@
 
 t_bool	input_init(t_input **l_input, char *format, va_list params)
 {
-
 	if (!(*l_input = malloc(sizeof(t_input))))
 		return (false_ret(__func__));
 	(*l_input)->next = NULL;

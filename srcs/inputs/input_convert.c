@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   input_convert.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:14:40 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:39:50 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void 	init_convert_fct_tab(void)
+void	init_convert_fct_tab(void)
 {
 	g_convert_fct[_c] = convert_c;
 	g_convert_fct[_s] = convert_s;
@@ -26,10 +26,10 @@ void 	init_convert_fct_tab(void)
 	g_convert_fct[_percent] = convert_percent;
 }
 
-t_bool 	input_convert(t_input *l_input)
+t_bool	input_convert(t_input *l_input)
 {
-	t_convert_fct 	*fonc;
-	size_t 			index;
+	t_convert_fct	*fonc;
+	size_t			index;
 
 	init_convert_fct_tab();
 	index = ft_index(l_input->indicator, INDICATORS);
