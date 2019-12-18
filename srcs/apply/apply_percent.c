@@ -6,17 +6,17 @@
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:22 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 15:36:19 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 11:49:32 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-static char  *create_output_str_percent(t_input *l_input)
+static char	*create_output_str_percent(t_input *l_input)
 {
-	int  	width;
-	char 	*cpy_output;
+	int		width;
+	char	*cpy_output;
 
 	cpy_output = NULL;
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
@@ -29,8 +29,8 @@ static char  *create_output_str_percent(t_input *l_input)
 
 static char	*apply_percent_none(t_input *l_input, char *cpy_output)
 {
-	int width;
-	int i;
+	int		width;
+	int		i;
 
 	i = 0;
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
@@ -42,8 +42,8 @@ static char	*apply_percent_none(t_input *l_input, char *cpy_output)
 
 static char	*apply_percent_tiret(t_input *l_input, char *cpy_output)
 {
-	int width;
-	int i ;
+	int		width;
+	int		i;
 
 	i = 1;
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
@@ -55,8 +55,8 @@ static char	*apply_percent_tiret(t_input *l_input, char *cpy_output)
 
 static char	*apply_percent_zero(t_input *l_input, char *cpy_output)
 {
-	int width;
-	int i;
+	int		width;
+	int		i;
 
 	i = 0;
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
@@ -66,9 +66,9 @@ static char	*apply_percent_zero(t_input *l_input, char *cpy_output)
 	return (cpy_output);
 }
 
-t_bool	apply_percent(t_input *l_input)
+t_bool		apply_percent(t_input *l_input)
 {
-	char *cpy_output;
+	char	*cpy_output;
 
 	if (!(cpy_output = create_output_str_percent(l_input)))
 		return (false_ret(__func__));

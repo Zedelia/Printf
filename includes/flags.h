@@ -5,15 +5,17 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 11:58:36 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 11:58:37 by mbos        ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/18 11:44:55 by mbos         #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/18 11:44:57 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef FLAGS_H
 # define FLAGS_H
+
 # include "ft_printf.h"
+
 /*
 ** Flags functions
 ** init, free, use and modify t_flags
