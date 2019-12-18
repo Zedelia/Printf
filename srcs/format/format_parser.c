@@ -6,14 +6,14 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:38 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:37:31 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 18:50:22 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-void	format_add_input(t_format *s_format, t_input *l_input)
+void		format_add_input(t_format *s_format, t_input *l_input)
 {
 	t_input *temp;
 
@@ -28,7 +28,7 @@ void	format_add_input(t_format *s_format, t_input *l_input)
 		s_format->l_input = l_input;
 }
 
-t_bool	format_parser(t_format *s_format, char *format, va_list params)
+t_bool		format_parser(t_format *s_format, char *format, va_list params)
 {
 	t_input		*l_input;
 	char		*cp_format;

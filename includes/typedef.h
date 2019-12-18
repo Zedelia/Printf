@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   typedef.h                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/17 16:18:19 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 11:40:45 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 18:41:41 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,7 @@ typedef enum
 */
 typedef struct s_input	t_input;
 typedef struct s_format	t_format;
-typedef struct s_flag		t_flag;
+typedef struct s_flag	t_flag;
 
 struct		s_format
 {
@@ -76,7 +76,7 @@ struct		s_flag
 	char	type;
 	void	*preci;
 	void	*width;
-	t_bool	arg_neg;
+	t_bool	arg_weird;
 };
 
 #endif

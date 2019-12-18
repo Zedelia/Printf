@@ -1,79 +1,117 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   main.c                                           .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/12/11 12:36:04 by lolopez      #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/18 17:37:38 by mbos        ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "includes/ft_printf.h"
 
+#include <stdio.h>
+#include <limits.h>
+#include <stdint.h>
 
-// ------------------ tests va_arg --------------------------
-int test_int(int n, ...)
+int		main()
 {
-	int i = 0;
-	va_list parameters;
-	va_start(parameters, n);
-
-	while (i < n)
-	{
-		int c = va_arg(parameters, int);
-		printf(">> %d\n----------\n", c);
-		i++;
-	}
-	return (0);
-}
-int test_char(int n, ...)
-{
-	int i = 0;
-	va_list parameters;
-	va_start(parameters, n);
-
-	while (i < n)
-	{
-		char c = va_arg(parameters, int);
-		printf(">> %c\n----------\n", c);
-		i++;
-	}
-	return (0);
-}
+	int a;
+	int b;
+	int c = 0;
 
 
+	a = printf("%s\n%c\n%d\n%i\n%x\n%X\n%p\n%u\n%%\n", "jean-pierre", c, c, c, 123456, 123456, &c, 123456);
+	b = ft_printf("%s\n%c\n%d\n%i\n%x\n%X\n%p\n%u\n%%\n", "jean-pierre", c, c, c, 123456, 123456, &c, 123456);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+	printf("printf = %d, moi = %d\n\n", a, b);
+	c = INT_MIN;
+	a = printf("%s\n%d\n%i\n%x\n%X\n%p\n%u\n%%\n", "jean-pierre",  c, c, 123456, 123456, (void *)INT_MIN, 123456);
+	b = ft_printf("%s\n%d\n%i\n%x\n%X\n%p\n%u\n%%\n", "jean-pierre", c, c, 123456, 123456, (void *)INT_MIN, 123456);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+	printf("printf = %d, moi = %d\n\n", a, b);
 
-int main(void)
-{
-	// ft_putchar('\0');
-	// TEST INT
-	// int i;
-	// int j;
+printf("test 01.10x|\n");
+	a = printf("|%01.10x|\n", -1);
+	b = ft_printf("|%01.10x|\n", -1);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+	printf("printf = %d, moi = %d\n\n", a, b);
+printf("test 0*.*i\n");
+	a = printf("|%0*.*i|\n", -5, 0, 0);
+	b = ft_printf("|%0*.*i|\n", -5, 0, 0);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+	printf("printf = %d, moi = %d\n\n", a, b);
 
-	// i = ft_printf("[%1.3s], [%1.6s],\n", "qwerty",  "coucou");
-	// printf("\n>> %d\n", i);
-	// j = printf("[%1.3s], [%1.6s],\n", "qwerty", "coucou");
-	// printf("\n>> %d\n\n", j);
+printf("test 0-*pc\n");
+	a = printf("|%0-*%|\n", -5);
+	b = ft_printf("|%0-*%|\n", -5);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+	printf("printf = %d, moi = %d\n\n", a, b);
 
-	ft_printf("%% qwerty [%1.*s], [%8c], [%*.6d], [%% %u],  [%-*x], [%-8.*d],", 3, "qwerty", 'X', 5, 12, 45678965, -6, 14, 456, 45);
-	// printf("\n>> %d\n", i);
+printf("test -0*pc\n");
+	a = printf("|%-0*%|\n", 5);
+	b = ft_printf("|%-0*%|\n", 5);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+	printf("printf = %d, moi = %d\n\n", a, b);
 
-	// printf("\n>> %d", j);
+	printf("test -*.*s\n");
+	a = printf("|%-*.*s|\n", 5 ,2 ,NULL);
+	b = ft_printf("|%-*.*s|\n", 5, 2, NULL);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+	printf("printf = %d, moi = %d\n\n", a, b);
 
+printf("test .p\n");
+	a = printf("|%.p|\n", NULL);
+	b = ft_printf("|%.p|\n", NULL);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+		
+	printf("printf = %d, moi = %d\n\n", a, b);
 
-	// ft_printf("%-*x]\n", -6, 14);
-	// printf("%-*x]", -6, 14);
+printf("test .p\n");
+	a = printf("|%.p|\n", NULL);
+	b = ft_printf("|%.p|\n", NULL);
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+		
+	printf("printf = %d, moi = %d\n\n", a, b);
 
-	// ft_printf("%-*x]\n", -6, 14);
-	// printf("%-*x]", -6, 14);
+printf("test .c\n");
+	a = printf("|%.c|\n", '\0');
+	b = ft_printf("|%.c|\n", '\0');
+	if ((a) == (b))
+		puts("OK\n");
+	else
+		puts("FAUX\n");
+		
+	printf("printf = %d, moi = %d\n\n", a, b);
 
-		//
-		//
-		// "test_string_17": ["%25.25s]", "qwerty"],
-		// 	"test_string_25": ["%*.*s]", 25, -25, "qwerty"],
-//----------------------------------
-
-	// TEST char
-	// ft_printf("Int :\n[%c]\n[%-10c]\n[%10c]\n",
-	// 		'c', 'c', 'c');
-	// printf("TEMOIN :\n[%c]\n[%-10c]\n[%10c]\n",
-	// 		'c', 'c','c' );
-	// ft_printf("char s:\n0.[%s]\n1.[%-10s]\n2.[%10s]\n3.[%-4s]\n4.[%4s]\n5.[%-10.4s]\n6.[%10.4s]\n7.[%-4.10s]\n8.[%4.10s]\n9.[%.4s]\n1.[%1.4s]\n2.[%4.1s]\n",
-	// 				"12345","12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345");
-	//
-	// printf("\n\nTEMOIN s:\n0.[%s]\n1.[%-10s]\n2.[%10s]\n3.[%-4s]\n4.[%4s]\n5.[%-10.4s]\n6.[%10.4s]\n7.[%-4.10s]\n8.[%4.10s]\n9.[%.4s]\n1.[%1.4s]\n2.[%4.1s]\n",
-	// 		"12345","12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345", "12345");
-
-	// while (1);
-	return (0);
 }
