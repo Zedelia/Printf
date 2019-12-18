@@ -45,11 +45,11 @@ int main(void)
 	// j = printf("[%1.3s], [%1.6s],\n", "qwerty", "coucou");
 	// printf("\n>> %d\n\n", j);
 
-	ft_printf("%% qwerty [%1.*s], [%8c], [%*.6d], [%% %u],  [%-*x], [%-8.*d],", 3, "qwerty", 'X', 5, 12, 45678965, -6, 14, 456, 45);
-	// printf("\n>> %d\n", i);
+	// ft_printf("1. %0-*%\n", -5);
+	// printf("1. %0-*%\n", -5);
 
-	// printf("\n>> %d", j);
-
+	ft_printf("\n2. %-05%\n");
+	printf("2. %-05%" );
 
 	// ft_printf("%-*x]\n", -6, 14);
 	// printf("%-*x]", -6, 14);
