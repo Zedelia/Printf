@@ -3,24 +3,24 @@
 /*                                                              /             */
 /*   convert_diu.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:29 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 09:54:19 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:29:32 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 
-t_bool  convert_di(t_input *l_input)
+t_bool	convert_di(t_input *l_input)
 {
 	if ((l_input->l_flag) && *((int *)l_input->varg) == 0
 		&& (l_input->l_flag->preci)
 			&& *(int *)(l_input->l_flag->preci) == 0)
 	{
-			if (!(apply_diux_arg_zero(l_input)))
-				return (false_ret(__func__));
+		if (!(apply_diux_arg_zero(l_input)))
+			return (false_ret(__func__));
 		return (True);
 	}
 	l_input->output = ft_itoa(*((int *)l_input->varg));
@@ -31,7 +31,7 @@ t_bool  convert_di(t_input *l_input)
 	return (True);
 }
 
-t_bool  convert_u(t_input *l_input)
+t_bool	convert_u(t_input *l_input)
 {
 	int temp;
 
