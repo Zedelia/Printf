@@ -57,3 +57,7 @@ Icon
 
 # Tests
 srcs/tests/*
+solotest.c
+test1.c
+tests.c
+tests2.c
