@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/16 13:13:30 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 20:18:36 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 20:22:13 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,8 +29,8 @@ char	*create_output_str_sc(t_input *l_input, char *cpy_output)
 		size = len;
 	else if (preci >= 0 && width > preci)
 		size = width;
-	else if (preci < 0 && width == 0)
-		size = len;
+	else if (preci < 0)
+		size = width > len ? width : len;
 	else if (preci >= 0 && preci < len)
 		size = preci;
 	else
