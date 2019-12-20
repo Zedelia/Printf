@@ -93,7 +93,7 @@ test: ${OBJ_TEST} ${MAIN_TEST} ${LIB}
 		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} ${MAIN_TEST}
 
 test2: ${OBJ_TEST} ${MAIN_TEST} ${LIB}
-		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} tests0.c
+		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} tests2.c
 
 cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
