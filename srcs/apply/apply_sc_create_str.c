@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   apply_sc_create_str.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/16 13:13:30 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 11:49:01 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 18:13:48 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,16 +23,17 @@ char	*create_output_str_sc(t_input *l_input, char *cpy_output)
 	len = ft_strlen(l_input->output);
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
-	if (width > len)
+	if (preci > 0 && width > len)
 		size = width;
-	else if (width > preci)
+	else if (!(l_input->l_flag->preci) && width < len)
+		size = len;
+	else if (preci >= 0  && width > preci)
 		size = width;
-	else if (preci < len)
+	else if (preci >= 0 && preci < len)
 		size = preci;
 	else
 		size = len;
-	if (!(cpy_output = malloc(sizeof(char) * (size + 1))))
+	if (!(cpy_output = ft_calloc((size + 1), sizeof(char))))
 		return (NULL);
-	cpy_output[size] = '\0';
 	return (cpy_output);
 }

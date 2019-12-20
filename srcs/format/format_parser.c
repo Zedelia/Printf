@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:38 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 15:29:31 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 17:40:09 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,6 +48,5 @@ t_bool		format_parser(t_format *s_format, char *format, va_list params)
 		format_add_input(s_format, l_input);
 		cp_format = cp_format + l_input->len;
 	}
-	// show_format(s_format);
 	return (True);
 }

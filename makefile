@@ -1,5 +1,7 @@
 NAME = printf
 
+NAME_TEST = tests
+
 INCLUDES = ft_printf
 
 SRCS = printf/ft_printf \
@@ -56,10 +58,12 @@ LIB_PRINTF = libftprintf.a
 
 INCLUDES := $(patsubst %,includes/%.h,${INCLUDES})
 SRCS := $(patsubst %,srcs/%.c,${SRCS})
+TESTS := $(patsubst %,srcs/%.c,${TESTS})
 
 # OBJ := $(foreach file, $(SRCS:%.c=%.o), $(call hidden_format, $(file)))
 
 MAIN = main.c
+MAIN_TEST = tests.c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
@@ -74,7 +78,7 @@ WARN_COLOR = \x1b[33;01m
 _PURPLE = \x1b[35m
 
 OBJ := ${SRCS:.c=.o}
-OBJ_TEST := ${SRCS:.c=.o} ${TEST:.c=.o}
+OBJ_TEST := ${SRCS:.c=.o} ${TESTS:.c=.o}
 
 all : $(LIB) ${OBJ}
 		ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
@@ -85,8 +89,11 @@ all : $(LIB) ${OBJ}
 ${NAME}: ${OBJ} ${MAIN} ${LIB}
 		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
-test: ${OBJ_TEST} ${LIB}
-		 ${COMP} -o test ${OBJ} ${LIB} tests.c
+test: ${OBJ_TEST} ${MAIN_TEST} ${LIB}
+		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} ${MAIN_TEST}
+
+test2: ${OBJ_TEST} ${MAIN_TEST} ${LIB}
+		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} tests0.c
 
 cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
@@ -97,7 +104,6 @@ lib : ${OBJ}
 
 $(LIB):
 	make bonus -C libft
-
 
 clean:
 	make clean -C libft
@@ -123,4 +129,4 @@ norm:
 re: fclean all
 
 
-.PHONY: norm all re fclean clean progs bonus
+.PHONY: norm all re fclean clean progs bonus test

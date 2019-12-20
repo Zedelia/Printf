@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:35 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:06:52 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 17:59:22 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,12 +22,15 @@ static char		*flag_cs_tiret_case1(t_input *l_input, char *cpy_output)
 	i = 0;
 	width = (l_input->l_flag->width) ? *(int *)(l_input->l_flag->width) : 0;
 	preci = (l_input->l_flag->preci) ? *(int *)(l_input->l_flag->preci) : 0;
-	while (preci && l_input->output[i])
+	if (preci > 0)
 	{
-		cpy_output[i] = l_input->output[i];
-		i++;
-		width--;
-		preci--;
+		while (preci && l_input->output[i])
+		{
+			cpy_output[i] = l_input->output[i];
+			i++;
+			width--;
+			preci--;
+		}
 	}
 	while (width > 0)
 	{
