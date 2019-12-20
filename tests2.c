@@ -7,9 +7,8 @@ int main(void)
 	// TEST INT
 	char *test = NULL;
 
-	printf("\n%*.*s]\n", 25, -25, "lol");
-	ft_printf("%*.*s]\n", 25, - 25, "lol");
-
+	printf("\n%--45d]\n", 100);
+	ft_printf("\n%--45d]\n", 100);
 
 		// "test_string_16": ["%s]", NULL],
 

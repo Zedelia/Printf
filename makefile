@@ -111,8 +111,8 @@ clean:
 	rm -f ${OBJ}
 
 clean_test:
-	rm -R *.dSYM
-	rm -f test_* one two
+	# rm -R *.dSYM
+	rm -f test_*
 
 run: ./${NAME}
 	./${NAME} ${ARGS}

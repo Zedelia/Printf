@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:35 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 17:59:22 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 20:42:36 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -71,7 +71,7 @@ t_bool			apply_cs_tiret(t_input *l_input)
 
 	cpy_output = NULL;
 	cpy_output = create_output_str_sc(l_input, cpy_output);
-	if (l_input->l_flag->preci)
+	if (l_input->l_flag->preci && *(int *)(l_input->l_flag->preci) >= 0)
 		cpy_output = flag_cs_tiret_case1(l_input, cpy_output);
 	else
 		cpy_output = flag_cs_tiret_case2(l_input, cpy_output);
