@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 19:57:15 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 21:03:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,7 @@ static t_bool	convert_zero(t_input *l_input)
 	return (True);
 }
 
-static t_bool 	check_zero_x(t_input *l_input)
+static t_bool	check_zero_x(t_input *l_input)
 {
 	int len;
 
@@ -51,7 +51,7 @@ static t_bool 	check_zero_x(t_input *l_input)
 }
 
 t_bool			apply_diux_arg_zero(t_input *l_input)
-{	
+{
 	char *itoa;
 
 	if (!(check_zero_x(l_input)))

@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 19:43:48 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 21:05:35 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,8 +41,8 @@ void		*get_x(va_list params)
 {
 	char		*p_x;
 	t_uintmax	value;
-	char 		*temp;
-	
+	char		*temp;
+
 	value = va_arg(params, unsigned int);
 	if (!(temp = ft_ltoabase(value, "0123456789abcdef")))
 		return (NULL);
@@ -53,7 +53,7 @@ void		*get_x(va_list params)
 		ft_memdel((void **)&temp);
 	}
 	else
-		return (NULL); 
+		return (NULL);
 	return ((void *)p_x);
 }
 

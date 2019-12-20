@@ -12,15 +12,7 @@ Le prototype de ft_printf devra être    int ft_printf(const char *, ...);
 
 To be done :
 
-- Check printf return values
-- check error return values
-- list errors et test them all
-- check tests list and add some if possible
-- check leaks
-- norminette
-
-Tests to ignore :
-229
-239
-245
-492
+- Tests Astrid
+- nettoyer les branches
+- faire un git pour l'ecole
+- supprimer tests srcs/tests etc.

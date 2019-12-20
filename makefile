@@ -111,7 +111,7 @@ clean:
 	rm -f ${OBJ}
 
 clean_test:
-	# rm -R *.dSYM
+	rm -R -f *.dSYM
 	rm -f test_*
 
 run: ./${NAME}
@@ -119,7 +119,7 @@ run: ./${NAME}
 
 fclean: clean
 	make fclean -C libft
-	rm $(LIB_PRINTF)
+	rm -f $(LIB_PRINTF)
 	rm -f ${NAME} gnl.a Icon srcs/Icon srcs/get_next_line.h.gch
 	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)"
 
