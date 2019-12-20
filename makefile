@@ -42,7 +42,8 @@ SRCS = printf/ft_printf \
 	flags/flag_parser \
 	flags/flag_width \
 	flags/flag_preci \
-	tests/tests_struct \
+
+TESTS =	tests/tests_struct \
 	tests/tests_show_vargs \
 	tests/tests_utils
 
@@ -73,18 +74,19 @@ WARN_COLOR = \x1b[33;01m
 _PURPLE = \x1b[35m
 
 OBJ := ${SRCS:.c=.o}
+OBJ_TEST := ${SRCS:.c=.o} ${TEST:.c=.o}
 
-all : $(LIB) ${OBJ} ${NAME}
+all : $(LIB) ${OBJ}
 		ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
 		ranlib $(LIB_PRINTF)
-		@echo "$(OK_COLOR)\n>> Congrats. Your program $(NAME) has been\
+		@echo "$(OK_COLOR)\n>> Congrats. Your $(LIB_PRINTF) has been\
  created successfully.\n $(NO_COLOR)"
 
 ${NAME}: ${OBJ} ${MAIN} ${LIB}
 		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
-test_p: ${OBJ} ${LIB}
-		 ${COMP} -o test ${OBJ} ${LIB} tests_p.c
+test: ${OBJ_TEST} ${LIB}
+		 ${COMP} -o test ${OBJ} ${LIB} tests.c
 
 cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
@@ -111,6 +113,7 @@ run: ./${NAME}
 
 fclean: clean
 	make fclean -C libft
+	rm $(LIB_PRINTF)
 	rm -f ${NAME} gnl.a Icon srcs/Icon srcs/get_next_line.h.gch
 	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)"
 
