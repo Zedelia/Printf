@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:50 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 19:47:10 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 19:57:15 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -61,7 +61,8 @@ t_bool			apply_diux_arg_zero(t_input *l_input)
 	itoa = ft_itoa(*((int *)l_input->varg));
 	if (!(l_input->output = ft_strdup(itoa)))
 		return (false_ret(__func__));
-	ft_memdel((void **)&itoa);
+	if (itoa)
+		ft_memdel((void **)&itoa);
 	if (l_input->l_flag->arg_weird == True)
 		return (True);
 	if (!(convert_zero(l_input)))
