@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 15:58:26 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:47:13 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 19:43:48 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,10 +41,19 @@ void		*get_x(va_list params)
 {
 	char		*p_x;
 	t_uintmax	value;
-
+	char 		*temp;
+	
 	value = va_arg(params, unsigned int);
-	if (!(p_x = ft_ltoabase(value, "0123456789abcdef")))
+	if (!(temp = ft_ltoabase(value, "0123456789abcdef")))
 		return (NULL);
+	if (temp)
+	{
+		if (!(p_x = ft_strdup(temp)))
+			return (NULL);
+		ft_memdel((void **)&temp);
+	}
+	else
+		return (NULL); 
 	return ((void *)p_x);
 }
 
@@ -72,6 +81,7 @@ void		*get_p(va_list params)
 	void	*value;
 	char	*p_p;
 	char	*fill_char;
+	char	*ltoa;
 
 	if (!(value = va_arg(params, void*)))
 	{
@@ -79,10 +89,10 @@ void		*get_p(va_list params)
 			return (NULL);
 		return ((void *)p_p);
 	}
-	if (!(p_p = ft_ltoabase((unsigned long)value, "0123456789abcdef")))
-		return (NULL);
+	ltoa = ft_ltoabase((unsigned long)value, "0123456789abcdef");
 	fill_char = "0x";
-	if (!(p_p = ft_strjoin(fill_char, p_p)))
+	if (!(p_p = ft_strjoin(fill_char, ltoa)))
 		return (NULL);
+	ft_memdel((void **)&ltoa);
 	return ((void *)p_p);
 }

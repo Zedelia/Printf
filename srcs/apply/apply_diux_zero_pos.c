@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:09 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:15:16 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 19:33:32 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ static char		*f_zero_di_case1(t_input *l_input, int preci, char *cpy_output)
 		len--;
 		i--;
 	}
-	while (preci >= 0)
+	while (preci >= 0 && i > -1)
 	{
 		cpy_output[i--] = '0';
 		preci--;
