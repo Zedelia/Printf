@@ -86,8 +86,8 @@ all : $(LIB) ${OBJ}
 		@echo "$(OK_COLOR)\n>> Congrats. Your $(LIB_PRINTF) has been\
  created successfully.\n $(NO_COLOR)"
 
-${NAME}: ${OBJ_TEST} ${MAIN} ${LIB}
-		 ${COMP} -o ${NAME} ${OBJ_TEST} ${LIB} ${MAIN}
+${NAME}: ${OBJ} ${MAIN} ${LIB}
+		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
 test: ${OBJ_TEST} ${MAIN_TEST} ${LIB}
 		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} ${MAIN_TEST}
