@@ -89,8 +89,8 @@ all : $(LIB) ${OBJ}
 ${NAME}: ${OBJ} ${MAIN} ${LIB}
 		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
-test: ${OBJ_TEST} ${MAIN_TEST} ${LIB}
-		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} ${MAIN_TEST}
+test: ${OBJ} ${MAIN_TEST} ${LIB}
+		  gcc -g -o ${NAME_TEST} ${OBJ} ${LIB} ${MAIN_TEST}
 
 test2: ${OBJ_TEST} ${MAIN_TEST} ${LIB}
 		  gcc -g -o ${NAME_TEST} ${OBJ_TEST} ${LIB} tests2.c
