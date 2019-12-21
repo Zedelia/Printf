@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   utils_2.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <marvin@le-101.fr>                    +:+   +:    +:    +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:21 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/15 12:04:23 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,7 @@ int		is_flags(char c)
 	while (*flags)
 		if (c == *flags++)
 			return (True);
-	return (false_ret(__func__));
+	return (False);
 }
 
 int		occur_before(char c, char *charset, char before)

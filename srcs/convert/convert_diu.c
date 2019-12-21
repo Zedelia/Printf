@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:29 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:29:32 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,14 +20,14 @@ t_bool	convert_di(t_input *l_input)
 			&& *(int *)(l_input->l_flag->preci) == 0)
 	{
 		if (!(apply_diux_arg_zero(l_input)))
-			return (false_ret(__func__));
+			return (False);
 		return (True);
 	}
 	l_input->output = ft_itoa(*((int *)l_input->varg));
 	if (!(l_input->l_flag))
 		return (True);
 	if (!(apply_diux(l_input)))
-		return (false_ret(__func__));
+		return (False);
 	return (True);
 }
 
@@ -40,7 +40,7 @@ t_bool	convert_u(t_input *l_input)
 			&& *(int *)(l_input->l_flag->preci) == 0)
 	{
 		if (!(apply_diux_arg_zero(l_input)))
-			return (false_ret(__func__));
+			return (False);
 		return (True);
 	}
 	temp = *((unsigned int *)l_input->varg);
@@ -48,6 +48,6 @@ t_bool	convert_u(t_input *l_input)
 	if (!(l_input->l_flag))
 		return (True);
 	if (!(apply_diux(l_input)))
-		return (false_ret(__func__));
+		return (False);
 	return (True);
 }

@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:14:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:39:50 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,6 @@ t_bool	input_convert(t_input *l_input)
 	index = ft_index(l_input->indicator, INDICATORS);
 	fonc = g_convert_fct[index];
 	if (!(fonc(l_input)))
-		return (false_ret(__func__));
+		return (False);
 	return (True);
 }

@@ -80,8 +80,8 @@ _PURPLE = \x1b[35m
 OBJ := ${SRCS:.c=.o}
 OBJ_TEST := ${SRCS:.c=.o} ${TESTS:.c=.o}
 
-all : $(LIB) ${OBJ_TEST}
-		ar rc $(LIB_PRINTF) ${OBJ_TEST} libft/srcs/*.o
+all : $(LIB) ${OBJ}
+		ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
 		ranlib $(LIB_PRINTF)
 		@echo "$(OK_COLOR)\n>> Congrats. Your $(LIB_PRINTF) has been\
  created successfully.\n $(NO_COLOR)"
