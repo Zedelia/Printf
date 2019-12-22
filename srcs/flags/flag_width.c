@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:25 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 13:37:26 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 14:11:22 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,7 +37,7 @@ t_bool		flag_width(t_flag *l_flag, char *width, va_list params)
 	int i;
 
 	i = 0;
-	while (width[i] == '-' || width [i] == '0')
+	while (width[i] == '-' || width[i] == '0')
 		i++;
 	if (width[i] == '*')
 	{
