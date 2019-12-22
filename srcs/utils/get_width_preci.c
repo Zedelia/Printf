@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:13 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 20:52:36 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 12:59:33 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,14 +18,15 @@ int		*get_width_preci(char *width_or_preci)
 	size_t		i;
 	char		*temp;
 	int			*p_int;
-	t_bool		neg;
+	int			start;
 
-	i = 0;
-	neg = (width_or_preci[0] == '-') ? True : False;
-	i = (neg == True) ? i + 1 : i;
+	start = 0;
+	while (width_or_preci[start] == '-')
+		start++;
+	i = start;
 	while (ft_isdigit(width_or_preci[i]) == True)
 		i++;
-	if (!(temp = ft_strndup((const char*)&width_or_preci[0], i)))
+	if (!(temp = ft_strndup((const char*)&width_or_preci[start], i - start)))
 		return (NULL);
 	if (!(p_int = malloc(sizeof(int))))
 		return (NULL);

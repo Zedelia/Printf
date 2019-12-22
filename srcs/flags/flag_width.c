@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:02:25 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 12:49:20 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 13:37:26 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,12 @@ t_bool		case_percent(t_flag *l_flag, char *width, va_list params)
 
 t_bool		flag_width(t_flag *l_flag, char *width, va_list params)
 {
-	if (width[0] == '*')
+	int i;
+
+	i = 0;
+	while (width[i] == '-' || width [i] == '0')
+		i++;
+	if (width[i] == '*')
 	{
 		if (!(l_flag->width = get_di(params)))
 			return (false_ret(__func__));
