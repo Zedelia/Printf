@@ -4,13 +4,10 @@
 
 int main(void)
 {
-	// TEST INT
 	char *test = NULL;
 
-	printf("\n%--45c]\n", 100);
-	ft_printf("\n%--45c]\n", 100);
-
-		// "test_string_16": ["%s]", NULL],
+	ft_printf("\n%-----45c]\n", 100);
+	printf("\n%-----45c]\n", 100);
 
 	return (0);
 }
