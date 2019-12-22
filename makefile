@@ -44,10 +44,10 @@ SRCS = printf/ft_printf \
 	flags/flag_parser \
 	flags/flag_width \
 	flags/flag_preci \
+	utils/tests_utils
 
 TESTS =	tests/tests_struct \
 	tests/tests_show_vargs \
-	tests/tests_utils
 
 # get_hidden_obj = $(addprefix ., $(notdir $(1)))
 # hidden_format = $(addprefix $(dir $(1)), $(call get_hidden_obj, $(1)))
