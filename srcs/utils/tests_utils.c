@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/30 12:36:10 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:42:36 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 13:08:40 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,6 @@
 
 t_bool	false_ret(const char *namefunc)
 {
-	printf(RED"%s"RESET"\n", namefunc);
+	ft_printf(RED"%s"RESET"\n", namefunc);
 	return (False);
 }
