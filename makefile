@@ -71,20 +71,24 @@ DFLAGS = -g -fsanitize=address
 COMP =${CC} ${CFLAGS} -I ${INCLUDES}
 COMPf := ${CC} ${CFLAGS} -I ${INCLUDES}
 
-NO_COLOR = \x1b[0m
-OK_COLOR = \x1b[32;01m
-ERROR_COLOR = \x1b[31;01m
-WARN_COLOR = \x1b[33;01m
-_PURPLE = \x1b[35m
+GREY = \x1b[30m
+RED = \x1b[31m
+GREEN = \x1b[32m
+YELLOW = \x1b[33m
+BLUE = \x1b[34m
+PURPLE = \x1b[35m
+CYAN = \x1b[36m
+WHITE = \x1b[37m
+END = \x1b[0m
+ERASE = \033[2K\r
 
 OBJ := ${SRCS:.c=.o}
 OBJ_TEST := ${SRCS:.c=.o} ${TESTS:.c=.o}
 
 all : $(LIB) ${OBJ}
-		ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
-		ranlib $(LIB_PRINTF)
-		@echo "$(OK_COLOR)\n>> Congrats. Your $(LIB_PRINTF) has been\
- created successfully.\n $(NO_COLOR)"
+		@ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
+		@ranlib $(LIB_PRINTF)
+		@echo "$(ERASE)$(GREEN)[SUCCESS] $(LIB_PRINTF)$(END)"
 
 ${NAME}: ${OBJ} ${MAIN} ${LIB}
 		 ${COMP} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
@@ -103,12 +107,17 @@ lib : ${OBJ}
 	ranlib $(LIB_PRINTF)
 
 $(LIB):
-	make bonus -C libft
+	@make bonus -C libft
+
+%.o : %.c $(INCLUDES)
+	@$(CC) $(CFLAGS) -I $(INCLUDES)  -c  -o $@ $<
+	@printf "$(ERASE)$(BLUE)> Compilation :$(END) $<"
 
 clean:
-	make clean -C libft
-	rm -f includes/*.gch
-	rm -f ${OBJ}
+	@make clean -C libft
+	@rm -f includes/*.gch
+	@rm -f ${OBJ}
+#	@printf "$(BLUE)> Deleted : $(RED)printf .obj$(END)\n"
 
 clean_test:
 	rm -R -f *.dSYM
@@ -118,10 +127,10 @@ run: ./${NAME}
 	./${NAME} ${ARGS}
 
 fclean: clean
-	make fclean -C libft
-	rm -f $(LIB_PRINTF)
-	rm -f ${NAME} gnl.a Icon srcs/Icon srcs/get_next_line.h.gch
-	@echo "$(_PURPLE)\n>> Folders cleaned.\n $(NO_COLOR)"
+	@make fclean -C libft
+	@rm -f $(LIB_PRINTF)
+	@rm -f ${NAME} gnl.a Icon srcs/Icon
+	@printf "$(BLUE)> Deleted : $(RED)libftprintf.a $(END)\n"
 
 norm:
 	norminette ${SRCS} ${INCLUDES}
