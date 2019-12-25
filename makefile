@@ -117,7 +117,7 @@ clean:
 	@make clean -C libft
 	@rm -f includes/*.gch
 	@rm -f ${OBJ}
-#	@printf "$(BLUE)> Deleted : $(RED)printf .obj$(END)\n"
+	@printf "$(BLUE)> Deleted : $(RED)printf .obj$(END)\n"
 
 clean_test:
 	rm -R -f *.dSYM
