@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:19 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,16 +44,16 @@ t_bool			apply_diux(t_input *l_input)
 	char *cpy_output;
 
 	if (!(cpy_output = create_output_str_diux(l_input)))
-		return (False);
+		return (false_ret(__func__));;
 	if (l_input->l_flag->type == '0' || l_input->l_flag->type == 'N')
 	{
 		if (!(apply_diux_zero(l_input, cpy_output)))
-			return (False);
+			return (false_ret(__func__));;
 	}
 	else if (l_input->l_flag->type == '-')
 	{
 		if (!(apply_diux_tiret(cpy_output, l_input)))
-			return (False);
+			return (false_ret(__func__));;
 	}
 	ft_memdel((void**)&cpy_output);
 	return (True);
