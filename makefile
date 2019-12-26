@@ -86,7 +86,7 @@ OBJ := ${SRCS:.c=.o}
 OBJ_TEST := ${SRCS:.c=.o} ${TESTS:.c=.o}
 
 all : $(LIB) ${OBJ}
-		@ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
+		@ar rc $(LIB_PRINTF) ${OBJ} $(LIB)
 		@ranlib $(LIB_PRINTF)
 		@echo "$(ERASE)$(GREEN)[SUCCESS] $(LIB_PRINTF)$(END)"
 
