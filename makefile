@@ -85,8 +85,9 @@ ERASE = \033[2K\r
 OBJ := ${SRCS:.c=.o}
 OBJ_TEST := ${SRCS:.c=.o} ${TESTS:.c=.o}
 
-all : $(LIB) ${OBJ}
-		@ar rc $(LIB_PRINTF) ${OBJ} libft/libft.a
+
+all : ${OBJ} $(LIB)
+		@ar rc $(LIB_PRINTF) ${OBJ}
 		@ranlib $(LIB_PRINTF)
 		@echo "$(ERASE)$(GREEN)[SUCCESS] $(LIB_PRINTF)$(END)"
 
@@ -103,7 +104,7 @@ cf : ${OBJ} ${MAIN} ${LIB}
 	 ${COMPf} -o ${NAME} ${OBJ} ${LIB} ${MAIN}
 
 lib : ${OBJ}
-	ar rc $(LIB_PRINTF) ${OBJ} libft/srcs/*.o
+	ar rcs $(LIB_PRINTF) ${LIB} ${OBJ}
 	ranlib $(LIB_PRINTF)
 
 $(LIB):

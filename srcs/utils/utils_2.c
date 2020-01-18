@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:21 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ t_bool	is_indicator(char c)
 			return (True);
 		i++;
 	}
-	return (False);
+	return (false_ret(__func__));;
 }
 
 int		is_flags(char c)
@@ -35,7 +35,7 @@ int		is_flags(char c)
 	while (*flags)
 		if (c == *flags++)
 			return (True);
-	return (False);
+	return (false_ret(__func__));;
 }
 
 int		occur_before(char c, char *charset, char before)
