@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:01:22 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -71,7 +71,7 @@ t_bool		apply_percent(t_input *l_input)
 	char	*cpy_output;
 
 	if (!(cpy_output = create_output_str_percent(l_input)))
-		return (False);
+		return (false_ret(__func__));;
 	if (l_input->l_flag->type == 'N')
 		cpy_output = apply_percent_none(l_input, cpy_output);
 	else if (l_input->l_flag->type == '-')
@@ -81,7 +81,7 @@ t_bool		apply_percent(t_input *l_input)
 	if (l_input->output)
 		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
-		return (False);
+		return (false_ret(__func__));;
 	ft_memdel((void**)&cpy_output);
 	return (True);
 }

@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:43 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,12 +18,12 @@ t_bool	apply_cs(t_input *l_input)
 	if (l_input->l_flag->type == '-')
 	{
 		if (!(apply_cs_tiret(l_input)))
-			return (False);
+			return (false_ret(__func__));;
 	}
 	else
 	{
 		if (!(apply_cs_none(l_input)))
-			return (False);
+			return (false_ret(__func__));;
 	}
 	return (True);
 }

@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:18 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:43:53 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 16:52:09 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@ size_t		ft_index(char c, const char *charset)
 	size_t	i;
 
 	i = 0;
-	while (c != charset[i])
+	while (charset[i] && c != charset[i])
 		i++;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:04:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +35,6 @@ t_bool	get_arg(t_input *l_input, va_list params)
 	fonc = g_get_fct[index];
 	l_input->varg = fonc(params);
 	if (!(l_input->varg))
-		return (False);
+		return (false_ret(__func__));;
 	return (True);
 }

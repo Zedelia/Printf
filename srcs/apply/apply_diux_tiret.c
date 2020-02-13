@@ -6,7 +6,7 @@
 /*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/15 12:00:55 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 12:17:25 by mbos        ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,7 +38,7 @@ static t_bool	apply_diux_tiret_neg(char *cpy_output, t_input *l_input)
 	if (l_input->output)
 		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
-		return (False);
+		return (false_ret(__func__));;
 	return (True);
 }
 
@@ -64,7 +64,7 @@ static t_bool	apply_diux_tiret_pos(char *cpy_output, t_input *l_input)
 	if (l_input->output)
 		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
-		return (False);
+		return (false_ret(__func__));;
 	return (True);
 }
 
@@ -73,12 +73,12 @@ t_bool			apply_diux_tiret(char *cpy_output, t_input *l_input)
 	if (ft_atoi(l_input->output) < 0 && l_input->indicator != 'u')
 	{
 		if (!(apply_diux_tiret_neg(cpy_output, l_input)))
-			return (False);
+			return (false_ret(__func__));;
 	}
 	else
 	{
 		if (!(apply_diux_tiret_pos(cpy_output, l_input)))
-			return (False);
+			return (false_ret(__func__));;
 	}
 	return (True);
 }
