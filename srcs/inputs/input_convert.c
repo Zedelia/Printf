@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   input_convert.c                                  .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:14:06 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_convert.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/17 13:27:20 by mbos              #+#    #+#             */
+/*   Updated: 2020/02/17 13:40:00 by mbos             ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
@@ -35,6 +34,6 @@ t_bool	input_convert(t_input *l_input)
 	index = ft_index(l_input->indicator, INDICATORS);
 	fonc = g_convert_fct[index];
 	if (!(fonc(l_input)))
-		return (false_ret(__func__));;
+		return (false_ret(__func__));
 	return (True);
 }
