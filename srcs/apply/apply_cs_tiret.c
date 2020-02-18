@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   apply_cs_tiret.c                                 .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:00:35 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   apply_cs_tiret.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/17 13:25:01 by mbos              #+#    #+#             */
+/*   Updated: 2020/02/17 13:40:00 by mbos             ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
@@ -78,7 +77,7 @@ t_bool			apply_cs_tiret(t_input *l_input)
 	if (l_input->output)
 		ft_memdel((void**)&l_input->output);
 	if (!(l_input->output = ft_strdup(cpy_output)))
-		return (false_ret(__func__));;
+		return (false_ret(__func__));
 	ft_memdel((void**)&cpy_output);
 	return (True);
 }

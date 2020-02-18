@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   format_parser.c                                  .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:02:38 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   format_parser.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/17 13:27:13 by mbos              #+#    #+#             */
+/*   Updated: 2020/02/17 13:40:00 by mbos             ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
@@ -37,14 +36,14 @@ t_bool		format_parser(t_format *s_format, char *format, va_list params)
 	if (format[0] == '%')
 	{
 		if (!(input_init(&l_input, cp_format, params)))
-			return (false_ret(__func__));;
+			return (false_ret(__func__));
 		format_add_input(s_format, l_input);
 		cp_format = cp_format + l_input->len;
 	}
 	while (cp_format && (cp_format = ft_strchr(cp_format, '%')))
 	{
 		if (!(input_init(&l_input, cp_format, params)))
-			return (false_ret(__func__));;
+			return (false_ret(__func__));
 		format_add_input(s_format, l_input);
 		cp_format = cp_format + l_input->len;
 	}

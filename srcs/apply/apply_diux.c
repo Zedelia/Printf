@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   apply_diux.c                                     .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mbos <mbos@student.le-101.fr>              +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/15 12:01:19 by mbos         #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/26 16:43:08 by mbos        ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   apply_diux.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbos <mbos@student.le-101.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/17 13:25:42 by mbos              #+#    #+#             */
+/*   Updated: 2020/02/17 13:40:00 by mbos             ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
@@ -44,16 +43,16 @@ t_bool			apply_diux(t_input *l_input)
 	char *cpy_output;
 
 	if (!(cpy_output = create_output_str_diux(l_input)))
-		return (false_ret(__func__));;
+		return (false_ret(__func__));
 	if (l_input->l_flag->type == '0' || l_input->l_flag->type == 'N')
 	{
 		if (!(apply_diux_zero(l_input, cpy_output)))
-			return (false_ret(__func__));;
+			return (false_ret(__func__));
 	}
 	else if (l_input->l_flag->type == '-')
 	{
 		if (!(apply_diux_tiret(cpy_output, l_input)))
-			return (false_ret(__func__));;
+			return (false_ret(__func__));
 	}
 	ft_memdel((void**)&cpy_output);
 	return (True);
